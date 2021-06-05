@@ -8,7 +8,8 @@ class PagesController < ApplicationController
     @industry_to = params[:query_to]
     @industry_from = params[:query_from]
     
-    @search_filter_to = User.where("future_role ~* ?", @industry_to)
+    @results = User.where.not(id:current_user.id)
+    @search_filter_to = @results.where("future_role ~* ?", @industry_to)
     @users = @search_filter_to.where("current_industry ~* ?", @industry_from)
   end
 end

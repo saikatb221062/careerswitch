@@ -4,10 +4,20 @@
 
 <% if @users.empty? %>
   <% if @search_filter_to.empty? %>
-  <p>We could not find an exact search</p>
+    <p>We could not find an exact search</p>
+    <% else %>
+      <p>Below are other similar search</p>
+      <% @search_filter_to.each do |user| %>
+        <%= user.first_name %>
+        <%= user.last_name %>
+        <%= user.current_role %>
+        <%= user.current_industry %>
+        <%= user.future_role %>
+        <%= user.future_industry %>
+      <% end %>
+    <% end %>
   <% else %>
-    <p>Below are other similar search</p>
-    <% @search_filter_to.each do |user| %>
+    <% @users.each do |user| %>
       <%= user.first_name %>
       <%= user.last_name %>
       <%= user.current_role %>
@@ -15,14 +25,4 @@
       <%= user.future_role %>
       <%= user.future_industry %>
     <% end %>
-  <% end %>
-<% else %>
-  <% @users.each do |user| %>
-    <%= user.first_name %>
-    <%= user.last_name %>
-    <%= user.current_role %>
-    <%= user.current_industry %>
-    <%= user.future_role %>
-    <%= user.future_industry %>
-  <% end %>
 <% end %>
