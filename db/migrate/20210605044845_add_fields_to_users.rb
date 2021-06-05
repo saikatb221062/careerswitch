@@ -12,4 +12,3 @@ class AddFieldsToUsers < ActiveRecord::Migration[6.0]
       add_column :users, :status, :string
     end
   end
-  
