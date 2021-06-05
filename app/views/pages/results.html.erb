@@ -4,8 +4,10 @@
 
 <% if @users.empty? %>
   <% if @search_filter_to.empty? %>
-  <p>Below are other similar search</p>
-    <% @users.each do |user| %>
+  <p>We could not find an exact search</p>
+  <% else %>
+    <p>Below are other similar search</p>
+    <% @search_filter_to.each do |user| %>
       <%= user.first_name %>
       <%= user.last_name %>
       <%= user.current_role %>
@@ -13,8 +15,6 @@
       <%= user.future_role %>
       <%= user.future_industry %>
     <% end %>
-  <% else %>
-    <p>We could not find an exact search</p>
   <% end %>
 <% else %>
   <% @users.each do |user| %>
