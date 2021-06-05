@@ -1,0 +1,28 @@
+<h1> Results Page </h1>
+
+<p> Industry from <strong><%= @industry_from %></strong> to <strong><%= @industry_to %></strong> </p>
+
+<% if @users.empty? %>
+  <% if @search_filter_to.empty? %>
+  <p>Below are other similar search</p>
+    <% @users.each do |user| %>
+      <%= user.first_name %>
+      <%= user.last_name %>
+      <%= user.current_role %>
+      <%= user.current_industry %>
+      <%= user.future_role %>
+      <%= user.future_industry %>
+    <% end %>
+  <% else %>
+    <p>We could not find an exact search</p>
+  <% end %>
+<% else %>
+  <% @users.each do |user| %>
+    <%= user.first_name %>
+    <%= user.last_name %>
+    <%= user.current_role %>
+    <%= user.current_industry %>
+    <%= user.future_role %>
+    <%= user.future_industry %>
+  <% end %>
+<% end %>
