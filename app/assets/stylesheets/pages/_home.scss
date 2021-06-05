@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.container {
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 400px;
+  height: 350px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid;
+  box-shadow: 0 0 5px;
+  margin-right: 100px;
+}

@@ -64,4 +64,3 @@ User.create!(
     future_industry: "Software Engineering",
     available_hrs_per_week: [12, 24, 36, 40, 60].sample,
     status: '');
-
