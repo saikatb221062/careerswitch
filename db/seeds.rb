@@ -9,28 +9,25 @@ require 'faker'
 
 User.destroy_all
 
-male_images = [ 
-  "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/2087748/pexels-photo-2087748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/4194390/pexels-photo-4194390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/884600/pexels-photo-884600.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
-]
-
-female_images = [ 
-  "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/2087748/pexels-photo-2087748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/4194390/pexels-photo-4194390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/884600/pexels-photo-884600.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
-  "https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
-]
-
-
-
+# male_images = [ 
+#   "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/2087748/pexels-photo-2087748.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/4194390/pexels-photo-4194390.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/884600/pexels-photo-884600.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260" 
+# ]
+# 
+# female_images = [ 
+#   "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/2087748/pexels-photo-2087748.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/4194390/pexels-photo-4194390.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/884600/pexels-photo-884600.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260", 
+#   "https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&# cs=tinysrgb&dpr=2&h=750&w=1260" 
+# ]
 
 current_role = ['Supervisor', 'Admin Manager', 'Contractor', 'Consultant', 'Advisor', 'Salesperson'] 
 current_ind =  ['Accounting', 'Finance', 'Health Care', 'Banking', 'Education']
