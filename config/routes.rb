@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :connections, only: [:create, :update]
   get '/connections/requests', to: 'connections#requests', as: :requests_connections
   get '/dashboard', to: 'pages#dashboard', as: :dashboard_page
-  get '/updateprofile', to:'users#updateprofile', as: :update_profile
+  get '/editprofile', to: 'users#editprofile', as: :edit_profile
+  patch '/dashboard', to:'users#updateprofile', as: :update_profile
   resources :roadmaps, only: [:create, :show] do 
     resources :comments, only: [:create]
   end

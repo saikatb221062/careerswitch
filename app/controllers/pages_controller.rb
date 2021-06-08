@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home results]
-
   def home
+  end
+
+  def dashboard
   end
 
   def results

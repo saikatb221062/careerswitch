@@ -1,0 +1,124 @@
+<div class="dashboard">
+  <div class="row">
+    <div class="col-12">
+      <div class="dashboard-card">
+        <div class="container-card-body">
+          <div class="container-card-title mb-4">
+            <div class="d-flex justify-content-start">
+              <div class="image-container">
+                <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                <div class="middle">
+                  <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
+                  <input type="file" style="display: none;" id="profilePicture" name="file" />
+                </div>
+              </div>
+              <div class="userData ml-3 mt-4">
+                <h2 class="d-block ml-4" style="font-size: 1.5rem; font-weight: bold">Hello! User Name</a></h2>
+                <%= link_to dashboard_page_path, class: 'btn btn-dark mr-4 mt-3' do %>
+                  Back to My Dashboard
+                <% end %>
+              </div>
+              <div class="ml-auto">
+                <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
+              </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="basicInfo-tab" >My Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">My Network</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">My Roadmap</a>
+                  </li>
+                </ul>
+                  <%= form_for(user, url: update_profile_path, method: :patch) do |f| %>
+                  <div class="tab-content ml-1" id="myTabContent">
+                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                          <label style="font-weight:bold;">First Name</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :first_name, class: 'form-control' %>
+                        </div>
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Last Name</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :last_name, class: 'form-control' %>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Current role</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :future_role, class: 'form-control' %>
+                        </div>
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Current industry</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :current_industry, class: 'form-control' %>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Future role</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :future_role, class: 'form-control' %>
+                        </div>
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Future industry</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :future_role, class: 'form-control' %>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Budget</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :budget, class: 'form-control' %>
+                        </div>
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Timeframe</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :timeframe, class: 'form-control' %>     
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Available hours</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :available_hrs_per_week, class: 'form-control' %>
+                        </div>
+                      </div>
+                      <hr />
+                      <%= f.submit "Save" %>
+                      <% end %>     
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
