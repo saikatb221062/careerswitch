@@ -1,66 +1,81 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
 User.destroy_all
 
-User.create!(
-  email: "user1@xyz.com",
-  password: "secret",
-    first_name: Faker::Name.female_first_name,
-    last_name: Faker::Name.last_name,
-    budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
-    timeframe: [6, 12, 18, 24].sample,
-    current_role: "Health-care Worker",
-    current_industry: "Health Care",
-    future_role: "Product Manager",
-    future_industry: "Software Engineering",
-    available_hrs_per_week: [12, 24, 36, 40, 60].sample,
-    status: '');
+current_role = [
+  'Supervisor', 
+  'Admin Manager', 
+  'Contractor', 
+  'Consultant', 
+  'Advisor', 
+  'Salesperson'] 
 
-User.create!(
-  email: "user2@xyz.com",
-  password: "secret",
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
-    timeframe: [6, 12, 18, 24].sample,
-    current_role: "Wealth Planner",
-    current_industry: "Banking",
-    future_role: "Web Developer",
-    future_industry: "Software Engineering",
-    available_hrs_per_week: [12, 24, 36, 40, 60].sample,
-    status: '');
+current_ind =  [
+    'Accounting', 
+    'Finance', 
+    'Health Care', 
+    'Banking', 
+    'Education']
 
-User.create!(
-  email: "user3@xyz.com",
-  password: "secret",
-    first_name: Faker::Name.female_first_name,
+future_ind = [
+  'Fullstack Engineering', 
+  'Frontend Developer', 
+  'Backend Developer', 
+  'Data Analyst']
+
+@satisfaction = [ 
+  "Great", 
+  "Fabulous", 
+  "Super", 
+  "Could be better", 
+  "Nice !"]
+
+@src1 = 'https://images.pexels.com/photos/'
+@src2 = ''
+@src3 = '/pexels-photo-'
+@src5 = '.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=750&h=1260'
+
+men_faces = [ 749091, 977374, 1267335, 1546912, 2269872, 2341350, 2531553, 3211476, 3370021, 3406022, 3754833, 4052800, 4061512, 6102841, 7431273 ]
+
+women_faces = [ 1520760, 1644924, 1691294, 1845993, 3021554, 3021563, 3394658, 3936894, 4258184, 5025111, 5649997, 6682475, 7073078, 7717254, 8219320 ]
+
+i = 1
+j = 0
+k = 0
+
+30.times do
+  if i.odd?
+    @name1 = Faker::Name.female_first_name
+    @img_url = "#{@src1}#{women_faces[k]}#{@src3}#{women_faces[k]}#{@src5}"
+    k += 1
+  else
+    @name1 = Faker::Name.male_first_name
+    @img_url = "#{@src1}#{men_faces[j]}#{@src3}#{men_faces[j]}#{@src5}"
+    j += 1
+  end
+
+  @future_ind = future_ind.sample
+  
+  User.create!(
+    first_name: @name1,
+    email: "#{@name1}@#{Faker::Internet.domain_name}",
+    password: "secret",
     last_name: Faker::Name.last_name,
     budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
     timeframe: [6, 12, 18, 24].sample,
-    current_role: "Insurance Agent",
-    current_industry: "Insurance",
-    future_role: "Web Developer",
-    future_industry: "Software Engineering",
+    current_role: current_role.sample,
+    current_industry: current_ind.sample,
+    future_industry: @future_ind,
+    future_role: @future_ind,
     available_hrs_per_week: [12, 24, 36, 40, 60].sample,
-    status: '');
-    
-User.create!(
-  email: "user4@xyz.com",
-  password: "secret",
-    first_name: Faker::Name.male_first_name,
-    last_name: Faker::Name.last_name,
-    budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
-    timeframe: [6, 12, 18, 24].sample,
-    current_role: "Stock Broker",
-    current_industry: "Equity",
-    future_role: "Web Developer",
-    future_industry: "Software Engineering",
-    available_hrs_per_week: [12, 24, 36, 40, 60].sample,
-    status: '');
+    status: '',
+    img_url: @img_url,
+    advice: Faker::Quote.yoda,
+    location: Faker::Address.city,
+    motivation: Faker::Quote.matz,
+    journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental: false),
+    satisfaction: @satisfaction.sample
+    )
+   
+  i += 1
+end
