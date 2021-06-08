@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: :dashboard_page
   get '/editprofile', to: 'users#editprofile', as: :edit_profile
   patch '/dashboard', to:'users#updateprofile', as: :update_profile
+  get '/dashboard/networks', to: 'pages#networks', as: :networks_page
   resources :roadmaps, only: [:create, :show] do 
     resources :comments, only: [:create]
   end
