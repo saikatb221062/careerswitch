@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   end
 
   def updateprofile
-    @user = User.find params[:id]
+    @user = current_user
     @user.update(user_params)
-    redirect_to dashboard_page_path(user)
+    redirect_to dashboard_page_path
   end
 
   private
