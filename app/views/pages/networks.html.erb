@@ -1,0 +1,29 @@
+<h2>My Network</h2>
+<div class="sidenav">
+  <div class="sidenav-text">
+    <%= link_to dashboard_page_path do %>
+    My Dashboard
+    <% end %>
+    <%= link_to networks_page_path do %>
+    My Networks
+    <% end %>
+    <%= link_to suggested_roadmap_path do %>
+    Create Roadmap
+    <% end %>
+  </div>
+</div>
+
+<section class="connections-container">
+  <div class="container">
+    <div class="row mt-5">
+      <% @connections.each do |cnctn| %>
+        <% cnctn_usr_fst_nm = User.find(cnctn.connected_id).first_name %>
+        <% cnctn_usr_lst_nm = User.find(cnctn.connected_id).last_name %>
+        <% @cnctn_usr_name = "#{cnctn_usr_fst_nm} #{cnctn_usr_lst_nm}" %>
+        <% @cnctn_usr_loc = User.find(cnctn.connected_id).location %>
+        <% @cnctn_usr_img = User.find(cnctn.connected_id).img_url %>
+        <%= render 'connection_each_card', cnctn: cnctn %>
+      <% end %>
+    </div>
+  </div>
+</section>
