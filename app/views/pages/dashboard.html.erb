@@ -46,13 +46,13 @@
                           <label style="font-weight:bold;">Location</label>
                         </div>
                         <div class="col-md-3 col-6">
-                          
+                          <%= @user.location %>
                         </div>
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Status</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.status %>
                         </div>
                       </div>
                       <hr />
@@ -62,13 +62,13 @@
                           <label style="font-weight:bold;">First Name</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.first_name %>
                         </div>
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Last Name</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.last_name %>
                         </div>
                       </div>
                       <hr />
@@ -78,13 +78,13 @@
                             <label style="font-weight:bold;">Current role</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.current_role %>
                         </div>
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Current industry</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.current_role %>
                         </div>
                       </div>
                       <hr />
@@ -94,13 +94,13 @@
                             <label style="font-weight:bold;">Future role</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.future_role %>
                         </div>
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Future industry</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.future_industry %>
                         </div>
                       </div>
                       <hr />
@@ -110,13 +110,13 @@
                             <label style="font-weight:bold;">Budget</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.budget %>
                         </div>
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Timeframe</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.timeframe %>
                         </div>
                       </div>
                       <hr />
@@ -126,23 +126,43 @@
                             <label style="font-weight:bold;">Available hours per week</label>
                         </div>
                         <div class="col-md-2 col-6">
-
+                          <%= @user.available_hrs_per_week %>
                         </div>
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Satisfaction</label>
                         </div>
                         <div class="col-md-3 col-6">
-
+                          <%= @user.satisfaction %>
                         </div>
                       </div>
                       <hr />
 
                       <div class="row">
                         <div class="col-sm-4 col-md-3 col-5">
-                            <label style="font-weight:bold;">Motivation</label>
+                            <label style="font-weight:bold;">What was your motivation to switch to tech?</label>
                         </div>
                         <div class="col-md-2 col-6">
+                          <%= @user.motivation %>
+                        </div>
+                      </div>
+                      <hr />
 
+                      <div class="row">
+                        <div class="col-sm-4 col-md-3 col-5">
+                            <label style="font-weight:bold;">How would you describe your journey in 3 sentences?</label>
+                        </div>
+                        <div class="col-md-2 col-6">
+                          <%= @user.journey_experience %>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-4 col-md-3 col-5">
+                            <label style="font-weight:bold;">Do you have any advice to other people?</label>
+                        </div>
+                        <div class="col-md-2 col-6">
+                          <%= @user.advice %>
                         </div>
                       </div>
                       <hr />

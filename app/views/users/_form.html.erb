@@ -42,7 +42,23 @@
                     <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
                       <div class="row">
                         <div class="col-sm-3 col-md-2 col-5">
-                          <label style="font-weight:bold;">First Name</label>
+                          <label style="font-weight:bold;">Location</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :location, class: 'form-control' %>
+                        </div>
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Status</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :status, class: 'form-control' %>
+                        </div>
+                      </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">First Name </label>
                         </div>
                         <div class="col-md-3 col-6">
                           <%= f.text_field :first_name, class: 'form-control' %>
@@ -61,7 +77,7 @@
                             <label style="font-weight:bold;">Current role</label>
                         </div>
                         <div class="col-md-3 col-6">
-                          <%= f.text_field :future_role, class: 'form-control' %>
+                          <%= f.text_field :current_role, class: 'form-control' %>
                         </div>
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Current industry</label>
@@ -83,7 +99,7 @@
                             <label style="font-weight:bold;">Future industry</label>
                         </div>
                         <div class="col-md-3 col-6">
-                          <%= f.text_field :future_role, class: 'form-control' %>
+                          <%= f.text_field :future_industry, class: 'form-control' %>     
                         </div>
                       </div>
                       <hr />
@@ -106,12 +122,45 @@
 
                       <div class="row">
                         <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Available hours</label>
+                            <label style="font-weight:bold;">Available hours per week</label>
                         </div>
                         <div class="col-md-3 col-6">
                           <%= f.text_field :available_hrs_per_week, class: 'form-control' %>
                         </div>
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Satisfaction</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :satisfaction, class: 'form-control' %>     
+                        </div>
                       </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">What was your motivation to switch to tech?</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :motivation, class: 'form-control' %>
+                        </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">How would you describe your journey in 3 sentences?</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :journey_experience, class: 'form-control' %>
+                        </div>
+                      <hr />
+
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Do you have any advice to other people?</label>
+                        </div>
+                        <div class="col-md-3 col-6">
+                          <%= f.text_field :advice, class: 'form-control' %>
+                        </div>
                       <hr />
                       <%= f.submit "Save" %>
                       <% end %>     
