@@ -1,0 +1,2 @@
+class CourseRoadmap < ApplicationRecord
+end
