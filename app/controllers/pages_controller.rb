@@ -9,6 +9,11 @@ class PagesController < ApplicationController
   end
 
   def networks
+    if current_user.nil?
+      @connections = Connection.none
+    else
+      @connections = Connection.where(connecting_id: current_user.id)
+    end
   end
 
   def results
