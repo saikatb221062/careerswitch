@@ -5,4 +5,7 @@ class User < ApplicationRecord
   has_one :roadmap, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :connections, dependent: :destroy
+  has_many :messages, dependent: :destroy
 end
