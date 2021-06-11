@@ -7,6 +7,167 @@ def printStats
   puts "Users       : #{User.all.count}"
   puts "Connections : #{Connection.all.count}"
   puts "Messages    : #{Message.all.count}"
+  puts "Topics      : #{Topic.all.count}"
+  puts "Courses     : #{Course.all.count}"
+  puts "Roadmaps    : #{Roadmap.all.count}"
+  puts "Courses-Roadmaps Join Table : #{CourseRoadmap.all.count}"
+end
+
+def seedTopics
+  print `clear`
+  puts "Proceeding to seed 7 Topics ...."
+
+  idx = 0
+  topics_list = [ 'Master Plan', 'Bootcamps', 'HTML', 'JavaScript', 'CSS', 'Git/Github', 'Databases' ]
+
+  Topic.destroy_all
+  
+  7.times do
+    puts "Creating Topic #{idx} - #{topics_list[idx]}"
+    Topic.create!(name: topics_list[idx])
+    idx += 1
+  end  
+end
+
+def seedCourses
+  print `clear`
+  puts "Proceeding to seed 24 Courses ...."
+
+  providers = [ 'Brent Global', 'Vdemy', 'Fulltack Academy', 'SpillsFuture', 'JellyFish', 'JollyRoger', 'QueSeraSera', 'Jack Sparrow School' ]
+
+  titles = [
+    'Web Development Flexible Part Time', 
+    'Web Development Immersive Full Time', 
+    'Software Development BootCamp', 
+    'Full Stack Web Dev Bootcamp 2021', 
+    'Live Online Coding Bootcamp', 
+    'HTML & CSS Online Course', 
+    'Create / Design Website In One Day', 
+    'HTML & CSS', 
+    'HTML & CSS Basics', 
+    'Javascript Online', 
+    'Javascript Basics', 
+    'Javascript Fundamentals', 
+    'Master Javascript in 7 Weeks', 
+    'HTML & CSS Online!', 
+    'Create / Design Website In One Day',
+    'HTML & CSS - Kaboom!', 
+    'HTML & CSS Fundamentals', 
+    'Git/Github Basics', 
+    'Git/Github Fundamentals', 
+    'Git/Github in a Week', 
+    'Git/Github Immersive',
+    'SQLite3', 
+    'PostgreSQL',
+    'MongoDB Atlas', 'mySQL with innoDB and NDB'
+  ]
+
+  course_fees = [ 300, 1500, 1750, 2000, 2500, 5000 ]
+  durations = [ 2, 4, 6, 18, 36, 48, 52 ]
+  hours_per_week_values = [ 10, 15, 20, 25, 40 ]
+  topics_in_table = Topic.all
+
+  topic_row = [ 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6 ]
+
+  idx = 0
+  Course.destroy_all
+
+  24.times do
+    if idx == 0
+      provider = "Le Wagon SEA"
+      title = "Web Development Flexible Part Time"
+      course_url = "https://www.lewagon.com/singapore"
+      course_fee = 10000
+      course_duration = 26
+      hours_per_week = 12
+    elsif idx == 1
+      provider = "Le Wagon SEA"
+      title = "Web Development Immersive Full Time"
+      course_url = "https://www.lewagon.com/singapore"
+      course_fee = 10000
+      course_duration = 9
+      hours_per_week = 40
+    else
+      provider = providers.sample
+      title = titles[idx]
+      course_fee = course_fees.sample
+      course_duration = durations.sample
+      hours_per_week = hours_per_week_values.sample
+      course_url = Faker::Internet.url
+    end
+   
+    topic_id_to_get = topic_row[idx]
+    topic_id = topics_in_table[topic_id_to_get].id
+
+    Course.create!(
+      provider: provider,
+      title: title,
+      cost: course_fee,
+      duration: course_duration,
+      provider_url: course_url,
+      hourse_per_week: hours_per_week,
+      topic_id: topic_id
+    )
+    idx += 1
+  end
+end 
+
+def seedRoadmaps
+  print `clear`
+  puts "Proceeding to seed 8 Roadmaps...."
+
+  Roadmap.destroy_all
+
+  start_dates = [ '15-Feb-19', '11-Mar-20', '5-Apr-20', '21-May-20', '1-Jun-20', '31-Jul-20', '14-Aug-20', '9-Sep-20' ]
+  end_dates = [ '16-May-19', '19-Jun-20', '4-Jul-20', '17-Nov-20', '27-May-21', '29-Oct-20', '10-Feb-21', '4-Sep-21' ]
+
+  idx = 0
+
+  users = User.all
+
+  8.times do
+    d1 = Date.parse start_dates[idx]
+    d2 = Date.parse end_dates[idx]
+    Roadmap.create!(
+      privacy_option: false,
+      start_date: d1,
+      end_date: d2,
+      user_id: users[idx].id
+    )
+    idx += 1
+  end
+end
+
+def seedCoursesRoadmapsJoinTable
+  print `clear`
+  puts "Proceeding to seed 16 combinations of Roadmaps and Courses ..."
+
+  CourseRoadmap.destroy_all
+
+  which_roadmap = [ 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3 ]
+  which_course = [ 1, 6, 10, 13, 18, 22, 23, 2, 7, 12, 13, 18, 3, 19, 20, 23 ]
+  
+  statuses = [ "Completed", "In progress", "Yet to Start" ]
+
+  courses = Course.all
+  roadmaps = Roadmap.all
+
+  idx = 0
+
+  16.times do
+    r_id = which_roadmap[idx]
+    roadmap_id = roadmaps[r_id].id
+    
+    c_id = which_course[idx]
+    course_id = courses[c_id].id
+    
+    CourseRoadmap.create!(
+      status: statuses.sample,
+      course_id: course_id,
+      roadmap_id: roadmap_id
+    )
+    idx += 1
+  end
 end
 
 def seedUsers
@@ -178,12 +339,13 @@ puts '*********************************'
 puts '  Welcome to ConnectDots Seeding '
 puts '*********************************'
 puts ''
-puts ''
-puts '1 - Seed Users'
-puts ''
-puts '2 - Seed Connections'
-puts ''
-puts '3 - Seed Messages'
+puts '1 - Users'
+puts '2 - Connections'
+puts '3 - Messages'
+puts '4 - Topics'
+puts '5 - Courses'
+puts '6 - Roadmaps'
+puts '7 - Courses-Roadmaps Join Table'
 puts ''
 puts '9 - Seed All tables'
 puts ''
@@ -204,10 +366,22 @@ elsif input == 2
   seedConnections
 elsif input == 3
   seedMessages
+elsif input == 4
+  seedTopics
+elsif input == 5
+  seedCourses
+elsif input == 6
+  seedRoadmaps
+elsif input == 7
+  seedCoursesRoadmapsJoinTable
 elsif input == 9
   seedUsers
   seedConnections
   seedMessages
+  seedTopics
+  seedCourses
+  seedRoadmaps
+  seedCoursesRoadmapsJoinTable
 else
   puts "Nothing to do? GoodBye !"
 end

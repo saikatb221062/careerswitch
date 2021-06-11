@@ -1,0 +1,23 @@
+<h2>Suggested Roadmaps</h2>
+<br>
+<div class="roadmaponegrid">
+  <% @roadmaps.each do |roadmap| %>
+  <div class="roadmaponecard">
+    <img src="<%= roadmap.user.img_url %>" alt="" class="avatar-roadmapone">
+    <br>
+    <br>
+    <h4 class="roadmapone-h4"><%= roadmap.user.first_name %> <%= roadmap.user. last_name %></h4>
+    <p class="roadmapone-p"><span class="text-muted"><%= roadmap.user.future_role %></span></p>
+    <p class="roadmapone-p">Career Change Journey</p>
+    <h6>from <%= roadmap.start_date.strftime("%d %b, %Y") %> to <%= roadmap.end_date.  strftime("%d %b, %Y") %></h6>
+    <ul class="list-group list-group-flush">Courses
+      <% roadmap.courses.each do |course| %>
+      <li class="roadmapone-li list-group-item">
+        <div><span class="roadmapone-li1"><%= course.topic.name %></span> <span class="roadmapone-li2"><%= course.title %></span></div>
+        <div class="roadmapone-li3"><%= course.provider%></div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+</div>

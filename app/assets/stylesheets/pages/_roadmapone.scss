@@ -1,0 +1,58 @@
+.roadmaponegrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 4px;
+  flex-grow: 1;
+}
+
+.roadmaponecard {
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  align-items: center;
+  justify-content: space-around;
+  font-weight: bolder;
+  padding: 8px;
+}
+
+.avatar-roadmapone {
+  width: 64px;
+  border-radius: 50%;
+}
+
+.roadmapone-p {
+  font-size: small;
+  font-weight: lighter;
+}
+
+.roadmapone-li {
+  text-align: left;
+  font-weight: lighter;
+}
+
+.roadmapone-li1 {
+  text-align: left;
+  font-size: 12px;
+  font-weight: light;
+  color: rgb(145, 145, 145);
+}
+
+.roadmapone-li2 {
+  text-align: left;
+  font-size: 14px;
+  font-weight: light;
+  color: orangered;
+}
+
+.roadmapone-li3 {
+  text-align: left;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: light;
+  color: rgb(0, 98, 255);
+}
+.roadmapone-h4 {
+  font-size: 24px;
+  font-weight: bold;
+  color: green;
+}
