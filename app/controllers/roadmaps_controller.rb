@@ -15,4 +15,7 @@ class RoadmapsController < ApplicationController
 
     @roadmaps = Roadmap.find_by_sql(sql_query)
   end
+
+  def builder
+  end
 end

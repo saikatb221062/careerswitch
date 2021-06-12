@@ -1,4 +1,4 @@
-.roadmaponegrid {
+.rd1-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
@@ -6,52 +6,59 @@
   flex-grow: 1;
 }
 
-.roadmaponecard {
+.rd1-card {
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   align-items: center;
   justify-content: space-around;
   font-weight: bolder;
-  padding: 8px;
+  padding: 16px 8px;
 }
 
-.avatar-roadmapone {
+.rd1-avatar {
   width: 64px;
   border-radius: 50%;
 }
 
-.roadmapone-p {
+.rd1-p {
   font-size: small;
   font-weight: lighter;
 }
 
-.roadmapone-li {
+.rd1-ul {
+  color: rgb(125, 125, 125);
+  margin-bottom: 8px;
+  font-weight: lighter;
+}
+
+.rd1-li {
   text-align: left;
   font-weight: lighter;
 }
 
-.roadmapone-li1 {
+.rd1-li1 {
   text-align: left;
   font-size: 12px;
-  font-weight: light;
+  font-weight: lighter;
   color: rgb(145, 145, 145);
 }
 
-.roadmapone-li2 {
+.rd1-li2 {
   text-align: left;
   font-size: 14px;
-  font-weight: light;
+  font-weight: lighter;
   color: orangered;
 }
 
-.roadmapone-li3 {
+.rd1-li3 {
   text-align: left;
   font-style: italic;
   font-size: 12px;
   font-weight: light;
-  color: rgb(0, 98, 255);
+  color: rgb(85, 138, 224);
+  line-height: 80%;
 }
-.roadmapone-h4 {
+.rd1-h4 {
   font-size: 24px;
   font-weight: bold;
   color: green;
