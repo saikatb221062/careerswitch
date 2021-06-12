@@ -1,5 +1,7 @@
 class CreateCourseRoadmaps < ActiveRecord::Migration[6.0]
   def change
+    drop_table :course_roadmaps
+    
     create_table :course_roadmaps do |t|
       t.string :status
       t.references :course, null: false, foreign_key: true
