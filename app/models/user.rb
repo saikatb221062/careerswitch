@@ -7,4 +7,6 @@ class User < ApplicationRecord
   
   has_many :connections, dependent: :destroy
   has_many :messages, dependent: :destroy
+
+  has_many :conversations, foreign_key: :sender_id
 end

@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
   get '/roadmaps/suggested', to: 'roadmaps#suggested', as: :suggested_roadmap
   get '/roadmaps/builder', to: 'roadmaps#builder', as: :builder_roadmap
+  get '/chat/:id', to: 'chats#chat', as: :chat
 
 end
