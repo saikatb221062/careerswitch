@@ -24,16 +24,19 @@ class PagesController < ApplicationController
     if current_user.nil?
       @results = User.all
     else
-      @results = User.where.not(id: current_user.id)
+      @results = User.all.where.not(id: current_user.id)
     end
 
     @search_filter_to = @results.where("future_role ~* ?", @industry_to)
     @search_filter_from = @search_filter_to.where("current_industry ~* ?", @industry_from)
     @search_filter_role = @search_filter_from.where(current_role: @role_from)
-
-    if @results.empty?
+    
+    if @industry_to.nil? && @industry_from.nil? && @role_from.nil?
       @shortlisted_profiles = @results
-      @shortlist_msg = 'We could not find any matches!'
+      @shortlist_msg = 'Please do not leave the search empty!'
+    elsif @industry_to.nil? || @industry_from.nil? || @role_from.nil?
+      @shortlisted_profiles = @results
+      @shortlist_msg = 'For better search result, please do not leave any field empty!'
     elsif @search_filter_role.empty?
       @shortlisted_profiles = @search_filter_to + @search_filter_from
       @shortlisted_profiles = @shortlisted_profiles.uniq
