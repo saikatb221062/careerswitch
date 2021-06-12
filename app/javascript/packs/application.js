@@ -18,6 +18,7 @@ import { profileModal } from '../components/profile_modal';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
