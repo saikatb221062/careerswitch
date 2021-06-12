@@ -1,14 +1,23 @@
 <h1>Chat</h1>
+
 <p> <b><%= @user.first_name %></b> and <b><%= @friend.first_name %></b> </p>
-<div class="chat">
-  <div class="messages">
-    <div class="message">
-      <span class="user">User:</span> Let's chat!
+
+<div class="d-flex p-2 justify-content-center">
+  <div class="text-left" style="width:400px; height:400px; overflow:auto">
+    <div class="message_body">
+    <% if @chat_messages.empty? %>
+      <p> There is currently no messages </p>
+    <% else %>
+      <% @chat_messages.each do |message| %>
+        <p> <%= message.user.first_name %>: <%= message.content %> </p>
+      <% end %>
+    <% end %>
+
+      <%= form_tag(chat_path(@connection.id), method: "post") do %>
+        <label for="message">Message:</label>
+        <%= text_field_tag :messages, nil , autofocus: true %>
+        <%= button_tag "Send" %>
+      <% end %>
     </div>
   </div>
-  <form>
-    <label for="message">Message:</label>
-    <input type="text" id="message" placeholder="Enter your message..." />
-    <button type="submit">Send</button>
-  </form>
 </div>
