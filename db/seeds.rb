@@ -1,16 +1,326 @@
 require 'faker'
 
 def printStats
-  print `clear`
+  puts ''
   puts "End of Seed Run - count of table rows:"
   puts ''
   puts "Users       : #{User.all.count}"
   puts "Connections : #{Connection.all.count}"
   puts "Messages    : #{Message.all.count}"
+  puts "Topics      : #{Topic.all.count}"
+  puts "Courses     : #{Course.all.count}"
+  puts "Roadmaps    : #{Roadmap.all.count}"
+  puts "Courses-Roadmaps Join Table : #{CourseRoadmap.all.count}"
+end
+
+def seedTopics
+  puts "Proceeding to seed 7 Topics ...."
+
+  idx = 0
+  topics_list = [ 'Master Plan', 'Bootcamp', 'HTML', 'JavaScript', 'CSS', 'Git/Github', 'Databases' ]
+
+  Topic.destroy_all
+  
+  7.times do
+    puts "Creating Topic #{idx + 1} - #{topics_list[idx]}"
+    Topic.create!(name: topics_list[idx])
+    idx += 1
+  end  
+end
+
+def seedCourses
+  puts "Proceeding to seed 30 Courses ...."
+
+  providers = [ 
+  'Le Wagon',
+  'Le Wagon',
+  'Brent Global College',
+  'Vdemy',
+  'Fulltack Academy',
+  'Vdemy',
+  'SpillsFuture',
+  'SmellyFish',
+  'JollyRoger',
+  'Bursera',
+  'SmellyFish',
+  'JollyRoger',
+  'Vdemy',
+  'QueSeraSera',
+  'Bursera',
+  'Jack Sparrow School',
+  'Vdemy',
+  'SpillsFuture',
+  'JollyRoger',
+  'Bursera',
+  'Vdemy',
+  'SpillsFuture',
+  'SmellyFish',
+  'JollyRoger',
+  'Bursera',
+  'Jack Sparrow School',
+  'Jack Sparrow School',
+  'JollyRoger',
+  'JollyRoger',
+  'Bursera'
+  ]
+
+  titles = [
+    'Web Development Part Time',
+    'Web Development Full Time',
+    'Software Development BootCamp',
+    'Full Stack Web Dev Bootcamp',
+    'Live Online Coding Bootcamp',
+    'HTML & CSS Online Course',
+    'Website Design In One Day',
+    'HTML & CSS',
+    'HTML & CSS Basics',
+    'HTML & CSS Fundamentals',
+    'Javascript Online',
+    'Javascript Basics',
+    'Javascript Fundamentals',
+    'Master Javascript in 7 Weeks',
+    'Rectangular JS',
+    'HTML & CSS Online!',
+    'Create / Design Website In One Day',
+    'HTML & CSS Basics',
+    'HTML & CSS Fundamentals',
+    'HTML & CSS Basics',
+    'Git/Github Basics',
+    'Git/Github Fundamentals',
+    'Git/Github in a Week',
+    'Git/Github Immersive',
+    'Git Set Go !',
+    'SQLite3',
+    'PostgreSQL',
+    'MongoDB Atlas',
+    'mySQL with innoDB and NDB',
+    'DB DB Dub Dub …'
+  ]
+
+  course_fees = [ 10000, 10000, 15000, 150, 500, 250, 250, 300, 500, 0, 1000, 750, 250, 0, 0, 1000, 0, 200, 300, 0, 150, 250, 350, 550, 0, 250, 1000, 2600, 2900, 0 ]
+
+  durations = [ 2, 4, 6, 18, 36, 48, 52 ]
+  hours_per_week_values = [ 10, 15, 20, 25, 40 ]
+  
+  topics_in_table = Topic.all
+
+  idx = 0
+  
+  Course.destroy_all
+
+  30.times do
+    if idx == 0
+      course_url = "https://www.lewagon.com/singapore"
+      course_duration = 26
+      hours_per_week = 12
+    elsif idx == 1
+      course_url = "https://www.lewagon.com/singapore"
+      course_duration = 9
+      hours_per_week = 40
+    else
+      course_url = Faker::Internet.url
+      course_duration = durations.sample
+      hours_per_week = hours_per_week_values.sample
+    end
+
+    provider = providers[idx]
+    title = titles[idx]
+    course_fee = course_fees[idx]
+    
+    if idx < 5
+      course_topic_id = topics_in_table[1].id
+    elsif idx < 10
+      course_topic_id = topics_in_table[2].id
+    elsif idx < 15
+      course_topic_id = topics_in_table[3].id
+    elsif idx < 20
+      course_topic_id = topics_in_table[4].id
+    elsif idx < 25
+      course_topic_id = topics_in_table[5].id
+    else
+      course_topic_id = topics_in_table[6].id
+    end
+
+    puts "Creating Course #{idx + 1} - #{title} - #{provider}"
+
+    Course.create!(
+      provider: provider,
+      title: title,
+      cost: course_fee,
+      duration: course_duration,
+      provider_url: course_url,
+      hourse_per_week: hours_per_week,
+      topic_id: course_topic_id
+    )
+    idx += 1
+  end
+end 
+
+def seedRoadmaps
+  puts "Proceeding to seed 30 Roadmaps for 30 Users ...."
+
+  Roadmap.destroy_all
+
+  start_dates = [
+    '15-Feb-19', 
+    '11-Mar-21', 
+    '5-Apr-21', 
+    '21-May-20', 
+    '1-Jun-20', 
+    '31-Jul-20', 
+    '14-Aug-20', 
+    '19-Feb-19', 
+    '15-Mar-21', 
+    '9-Apr-21', 
+    '25-May-20', 
+    '5-Jun-20', 
+    '4-Aug-20', 
+    '18-Aug-20', 
+    '23-Feb-19', 
+    '19-Jan-21', 
+    '13-Apr-21', 
+    '29-May-20', 
+    '9-Jun-20', 
+    '8-Aug-20', 
+    '22-Aug-20', 
+    '27-Feb-19', 
+    '23-Jan-21', 
+    '17-Apr-21', 
+    '2-Jun-20', 
+    '13-Jun-20', 
+    '12-Aug-20', 
+    '26-Aug-20', 
+    '3-Mar-19', 
+    '27-Jan-21', 
+  ]
+
+  end_dates = [
+    '16-May-19', 
+    '19-Jun-21',
+    '4-Jul-21',
+    '17-Nov-20',
+    '27-May-21',
+    '29-Oct-20',
+    '10-Feb-21',
+    '14-Feb-20',
+    '10-Mar-22',
+    '4-Apr-22',
+    '20-May-21',
+    '31-May-21',
+    '30-Jul-21',
+    '13-Aug-21',
+    '18-Feb-20',
+    '14-Jan-22',
+    '8-Apr-22',
+    '24-May-21',
+    '4-Jun-21',
+    '3-Aug-21',
+    '17-Aug-21',
+    '22-Feb-20',
+    '18-Jan-22',
+    '12-Apr-22',
+    '28-May-21',
+    '8-Jun-21',
+    '7-Aug-21',
+    '21-Aug-21',
+    '26-Feb-20',
+    '22-Jan-22' 
+   ]
+
+  idx = 0
+  users = User.all
+
+  30.times do
+    puts "Creating Roadmap #{idx + 1} - for user id #{users[idx].id}"
+    d1 = Date.parse start_dates[idx]
+    d2 = Date.parse end_dates[idx]
+    Roadmap.create!(
+      privacy_option: false,
+      start_date: d1,
+      end_date: d2,
+      user_id: users[idx].id
+    )
+    idx += 1
+  end
+end
+
+def seedCoursesRoadmapsJoinTable
+  puts "Proceeding to seed combinations of Roadmaps and Courses ..."
+
+  CourseRoadmap.destroy_all
+
+  two_d_array = [
+    [ 1, 4, 0, 6, 7, 0, 12, 11, 13, 18, 20, 0, 21, 22, 0, 28, 29, 0 ], 
+    [ 2, 5, 0, 9, 8, 7, 11, 12, 13, 16, 0, 0, 22, 23, 0, 30, 0, 0 ], 
+    [ 1, 0, 0, 9, 8, 10, 13, 14, 11, 18, 20, 0, 25, 0, 0, 29, 30, 0 ], 
+    [ 1, 2, 0, 8, 10, 6, 11, 14, 15, 19, 16, 0, 23, 24, 0, 29, 30, 0 ], 
+    [ 1, 3, 0, 9, 0, 0, 12, 14, 0, 19, 18, 0, 23, 24, 0, 26, 27, 28 ], 
+    [ 1, 2, 0, 10, 8, 7, 12, 13, 0, 19, 16, 0, 22, 23, 0, 27, 28, 29 ], 
+    [ 2, 0, 0, 8, 9, 0, 14, 0, 0, 16, 19, 0, 25, 0, 0, 29, 30, 0 ], 
+    [ 4, 0, 0, 10, 9, 0, 13, 11, 0, 20, 16, 0, 23, 24, 0, 30, 0, 0 ], 
+    [ 3, 1, 0, 6, 8, 0, 14, 15, 0, 16, 0, 0, 23, 24, 0, 30, 0, 0 ], 
+    [ 1, 5, 0, 8, 0, 0, 15, 0, 0, 17, 0, 0, 24, 25, 0, 28, 29, 0 ], 
+    [ 1, 0, 0, 6, 0, 0, 13, 15, 0, 16, 18, 0, 24, 25, 0, 30, 0, 0 ], 
+    [ 1, 5, 0, 6, 7, 0, 14, 11, 0, 19, 18, 0, 23, 24, 0, 29, 30, 0 ], 
+    [ 5, 0, 0, 8, 6, 10, 11, 14, 13, 18, 0, 0, 22, 23, 0, 30, 0, 0 ], 
+    [ 4, 0, 0, 8, 10, 7, 13, 0, 0, 20, 0, 0, 24, 25, 0, 29, 30, 0 ], 
+    [ 1, 0, 0, 8, 9, 0, 14, 0, 0, 16, 20, 0, 22, 23, 0, 26, 27, 29 ], 
+    [ 2, 0, 0, 9, 0, 0, 13, 11, 12, 19, 16, 0, 21, 22, 0, 30, 0, 0 ], 
+    [ 1, 4, 0, 6, 7, 0, 12, 11, 13, 18, 20, 0, 21, 22, 0, 28, 29, 0 ], 
+    [ 2, 5, 0, 9, 8, 7, 11, 12, 13, 16, 0, 0, 22, 23, 0, 30, 0, 0 ], 
+    [ 1, 0, 0, 9, 8, 10, 13, 14, 11, 18, 20, 0, 25, 0, 0, 29, 30, 0 ], 
+    [ 1, 2, 0, 8, 10, 6, 11, 14, 15, 19, 16, 0, 23, 24, 0, 29, 30, 0 ], 
+    [ 1, 3, 0, 9, 0, 0, 12, 14, 0, 19, 18, 0, 23, 24, 0, 26, 27, 28 ], 
+    [ 1, 2, 0, 10, 8, 7, 12, 13, 0, 19, 16, 0, 22, 23, 0, 27, 28, 29 ], 
+    [ 2, 0, 0, 8, 9, 0, 14, 0, 0, 16, 19, 0, 25, 0, 0, 29, 30, 0 ], 
+    [ 4, 0, 0, 10, 9, 0, 13, 11, 0, 20, 16, 0, 23, 24, 0, 30, 0, 0 ], 
+    [ 3, 1, 0, 6, 8, 0, 14, 15, 0, 16, 0, 0, 23, 24, 0, 30, 0, 0 ], 
+    [ 1, 5, 0, 8, 0, 0, 15, 0, 0, 17, 0, 0, 24, 25, 0, 28, 29, 0 ], 
+    [ 1, 0, 0, 6, 0, 0, 13, 15, 0, 16, 18, 0, 24, 25, 0, 30, 0, 0 ], 
+    [ 1, 5, 0, 6, 7, 0, 14, 11, 0, 19, 18, 0, 23, 24, 0, 29, 30, 0 ], 
+    [ 5, 0, 0, 8, 6, 10, 11, 14, 13, 18, 0, 0, 22, 23, 0, 30, 0, 0 ], 
+    [ 4, 0, 0, 8, 10, 7, 13, 0, 0, 20, 0, 0, 24, 25, 0, 29, 30, 0 ]
+  ]
+  
+  statuses = [ "Completed", "In progress", "Yet to Start" ]
+
+  courses = Course.all
+  roadmaps = Roadmap.all
+
+  idx = 0
+  total_combos = 0
+
+  30.times do
+    roadmap_id = roadmaps[idx].id
+    courses_array = two_d_array[idx]
+
+    # puts "Courses Array for idx #{idx} Roadmap ID #{roadmap_id}"
+    # p courses_array
+    c_idx = 0
+    18.times do
+      course_to_get = courses_array[c_idx]
+
+      # puts "Roadmap ID: #{roadmap_id} Course to Get: #{course_to_get}"
+
+      if course_to_get > 0
+        total_combos += 1
+        course = courses[course_to_get - 1]
+
+      puts "Creating Combo #{total_combos} for Roadmap #{roadmap_id} and course #{course.title}"
+      CourseRoadmap.create!(
+        status: statuses.sample,
+        course_id: course.id,
+        roadmap_id: roadmap_id
+      )
+      end
+      c_idx += 1
+    end
+    idx += 1
+  end
+  # puts "Total Combos: #{total_combos}"
 end
 
 def seedUsers
-  print `clear`
   puts "Proceeding to seed 30 users ...."
 
   Message.destroy_all
@@ -59,7 +369,7 @@ def seedUsers
   k = 0
 
   30.times do
-    puts "Creating User #{i} of 30"
+    
     if i.odd?
       @name1 = Faker::Name.female_first_name
       @img_url = "#{@src1}#{women_faces[k]}#{@src3}#{women_faces[k]}#{@src5}"
@@ -71,10 +381,13 @@ def seedUsers
     end
 
     @future_ind = future_ind.sample
+    user_email = "#{@name1}@#{Faker::Internet.domain_name}"
+
+    puts "Creating User #{i} of 30 - #{user_email}"
 
     User.create!(
       first_name: @name1,
-      email: "#{@name1}@#{Faker::Internet.domain_name}",
+      email: user_email,
       password: "secret",
       last_name: Faker::Name.last_name,
       budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
@@ -98,7 +411,6 @@ def seedUsers
 end
 
 def seedConnections
-  print `clear`
   puts "Proceeding to seed 100 connections ...."
 
   Message.destroy_all
@@ -130,7 +442,6 @@ def seedConnections
 end
 
 def seedMessages
-  print `clear`
   puts "Proceeding to seed 100 messages ...."
   Message.destroy_all
   i = 1
@@ -146,17 +457,17 @@ def seedMessages
     end
 
     rand = [0..6].sample
-    if rand = 0
+    if rand == 0
       @content = Faker::Quote.yoda
-    elsif rand = 1
+    elsif rand == 1
       @content = Faker::Quote.famous_last_words
-    elsif rand = 2
+    elsif rand == 2
       @content = Faker::Quote.jack_handey
-    elsif rand = 3
+    elsif rand == 3
       @content = Faker::Quote.matz
-    elsif rand = 4
+    elsif rand == 4
       @content = Faker::Quote.most_interesting_man_in_the_world
-    elsif rand = 5
+    elsif rand == 5
       @content = Faker::Quotes::Shakespeare.romeo_and_juliet_quote
     else
       @content = Faker::Quotes::Shakespeare.as_you_like_it_quote
@@ -178,12 +489,13 @@ puts '*********************************'
 puts '  Welcome to ConnectDots Seeding '
 puts '*********************************'
 puts ''
-puts ''
-puts '1 - Seed Users'
-puts ''
-puts '2 - Seed Connections'
-puts ''
-puts '3 - Seed Messages'
+puts '1 - Users'
+puts '2 - Connections'
+puts '3 - Messages'
+puts '4 - Topics'
+puts '5 - Courses'
+puts '6 - Roadmaps'
+puts '7 - Courses-Roadmaps Join Table'
 puts ''
 puts '9 - Seed All tables'
 puts ''
@@ -204,10 +516,22 @@ elsif input == 2
   seedConnections
 elsif input == 3
   seedMessages
+elsif input == 4
+  seedTopics
+elsif input == 5
+  seedCourses
+elsif input == 6
+  seedRoadmaps
+elsif input == 7
+  seedCoursesRoadmapsJoinTable
 elsif input == 9
   seedUsers
   seedConnections
   seedMessages
+  seedTopics
+  seedCourses
+  seedRoadmaps
+  seedCoursesRoadmapsJoinTable
 else
   puts "Nothing to do? GoodBye !"
 end

@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   get '/editprofile', to: 'users#editprofile', as: :edit_profile
   patch '/dashboard', to:'users#updateprofile', as: :update_profile
   get '/dashboard/networks', to: 'pages#networks', as: :networks_page
+  get '/roadmaps/suggested', to: 'roadmaps#suggested', as: :suggested_roadmap
+  get '/roadmaps/builder', to: 'roadmaps#builder', as: :builder_roadmap
+  
   resources :roadmaps, only: [:create, :show] do 
     resources :comments, only: [:create]
   end
-  get '/roadmaps/suggested', to: 'roadmaps#suggested', as: :suggested_roadmap
-  get '/roadmaps/builder', to: 'roadmaps#builder', as: :builder_roadmap
   get '/chat/:id', to: 'chats#chat', as: :chat
-
 end
