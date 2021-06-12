@@ -3,7 +3,7 @@
 <%= form_tag show_pages_path, method: :get do %>
   <form class="simple-form">
     <div class="form-group">
-      <label for="exampleFormControlSelect1">I am from: </label>
+      <label for="exampleFormControlSelect1">Industry I am from: </label>
       <select class="form-control" <%= search_field_tag :query_from, params[:query_from] %> id="industry_from">
         <option value="" disabled selected>Select your current industry</option>
         <option>Accounting</option>
@@ -15,6 +15,22 @@
         <option>Construction</option>
         <option>Manufacturing</option>
         <option>Business Services</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">I am working as: </label>
+      <select class="form-control" <%= search_field_tag :query_role, params[:query_role] %> id="industry_role">
+        <option value="" disabled selected>Select your current role</option>
+        <option>Supervisor</option>
+        <option>Admin Manager</option>
+        <option>Contractor</option>
+        <option>Consultant</option>
+        <option>Advisor</option>
+        <option>Salesperson</option>
+        <option>Intern</option>
+        <option>Assistant</option>
+        <option>Chairman</option>
       </select>
     </div>
 
