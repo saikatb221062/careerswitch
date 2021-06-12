@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :roadmaps, only: [:create, :show] do 
     resources :comments, only: [:create]
   end
+  get '/chat/:id', to: 'chats#chat', as: :chat
 end

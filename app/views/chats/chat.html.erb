@@ -1,0 +1,14 @@
+<h1>Chat</h1>
+<p> <b><%= @user.first_name %></b> and <b><%= @friend.first_name %></b> </p>
+<div class="chat">
+  <div class="messages">
+    <div class="message">
+      <span class="user">User:</span> Let's chat!
+    </div>
+  </div>
+  <form>
+    <label for="message">Message:</label>
+    <input type="text" id="message" placeholder="Enter your message..." />
+    <button type="submit">Send</button>
+  </form>
+</div>

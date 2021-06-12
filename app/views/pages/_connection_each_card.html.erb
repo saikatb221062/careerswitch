@@ -7,7 +7,7 @@
       <h3 class="font-weight-bold text-success"><%= @cnctn_usr_name %></h3>
       <p class="text-secondary mb-2"><%= @cnctn_usr_loc %></p>
       <div class="py-2">
-        <%= link_to 'Chat', root_path, class: 'btn btn-sm rounded-pill btn-secondary px-4' %>
+        <%= link_to 'Chat', chat_path(cnctn.id), class: 'btn btn-sm rounded-pill btn-secondary px-4' %>
       </div>
     </div>
   </div>
