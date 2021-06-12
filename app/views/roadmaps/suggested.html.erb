@@ -1,0 +1,25 @@
+<h2>Suggested Roadmaps</h2>
+<br>
+<div class="rd1-grid">
+  <% @roadmaps.each do |roadmap| %>
+  <div class="rd1-card">
+    <img src="<%= roadmap.user.img_url %>" alt="" class="rd1-avatar">
+    <br>
+    <br>
+    <h4 class="rd1-h4"><%= roadmap.user.first_name %> <%= roadmap.user.last_name %></h4>
+    <p class="rd1-p"><span class="text-muted"><%= roadmap.user.future_role %></span></p>
+    <p class="rd1-p">Career Change Journey</p>
+    <h6 style="line-height: 40%;"><%= roadmap.start_date.strftime("%b %Y") %> to <%= roadmap.end_date.strftime("%b %Y") %></h6>
+    <br>
+    <p class="rd1-p">Courses</p>
+    <ul class="list-group list-group-flush rd1-ul">
+      <% roadmap.courses.each do |course| %>
+      <li class="rd1-li list-group-item">
+        <div><span class="rd1-li1"><%= course.topic.name %></span> <span class="rd1-li2"><%= course.title %></span></div>
+        <div class="rd1-li3"><%= course.provider%></div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+</div>

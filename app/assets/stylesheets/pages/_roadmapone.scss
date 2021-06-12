@@ -1,0 +1,71 @@
+.rd1-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 4px;
+  flex-grow: 1;
+}
+
+.rd1-card {
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  align-items: center;
+  justify-content: space-around;
+  font-weight: bolder;
+  padding: 16px 8px;
+}
+
+.rd1-avatar {
+  width: 64px;
+  border-radius: 50%;
+}
+
+.rd1-p {
+  font-size: small;
+  font-weight: lighter;
+}
+
+.rd1-ul {
+  color: rgb(125, 125, 125);
+  margin-bottom: 8px;
+  font-weight: lighter;
+}
+
+.rd1-li {
+  text-align: left;
+  font-weight: lighter;
+}
+
+.rd1-li1 {
+  text-align: left;
+  font-size: 12px;
+  font-weight: lighter;
+  color: rgb(145, 145, 145);
+}
+
+.rd1-li2 {
+  text-align: left;
+  font-size: 14px;
+  font-weight: lighter;
+  color: orangered;
+}
+
+.rd1-li3 {
+  text-align: left;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: light;
+  color: rgb(85, 138, 224);
+  line-height: 80%;
+}
+.rd1-h4 {
+  font-size: 24px;
+  font-weight: bold;
+  color: green;
+}
+
+.rd1-h3 {
+  font-size: 32px;
+  font-weight: bold;
+  color: green;
+}

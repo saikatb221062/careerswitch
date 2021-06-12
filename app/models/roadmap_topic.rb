@@ -1,0 +1,2 @@
+class RoadmapTopic < ApplicationRecord
+end
