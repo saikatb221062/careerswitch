@@ -19,7 +19,7 @@
     <p class="text-muted">to</p>
     <p class="future-ind font-weight-bold"><%= matched_user.future_industry %></p>
 
-    <button class="myBtn btn btn-success" type="button" data-target="modalOne" data-matched-first-nm="<%= matched_user.first_name %>" data-matched-user-id="<%= matched_user.id %>" data-matched-first-nm="<%= matched_user.first_name %>" data-matched-last-nm="<%= matched_user.last_name %>" data-matched-current-role="<%= matched_user.current_role %>" data-matched-current-ind="<%= matched_user.current_industry %>" data-matched-fut-ind="<%= matched_user.future_industry %>" data-matched-img="<%= matched_user.img_url %>" data-matched-location="<%= matched_user.location %>" data-matched-motivation="<%= matched_user.motivation %>" data-matched-satisfaction="<%= matched_user.satisfaction %>" data-matched-experience="<%= matched_user.journey_experience %>" data-matched-advice="<%= matched_user.advice %>" data-matched-budget="<%= matched_user.budget %>" data-matched-timeframe="<%= matched_user.timeframe %>" data-matched-hrs="<%= matched_user.available_hrs_per_week %>">More!</button>
+    <button class="myBtn btn btn-success" type="button" data-target="modalOne" data-matched-first-nm="<%= matched_user.first_name %>" data-matched-user-id="<%= matched_user.id %>" data-matched-first-nm="<%= matched_user.first_name %>" data-matched-last-nm="<%= matched_user.last_name %>" data-matched-current-role="<%= matched_user.current_role %>" data-matched-current-ind="<%= matched_user.current_industry %>" data-matched-fut-ind="<%= matched_user.future_industry %>" data-matched-img="<%= matched_user.img_url %>" data-matched-location="<%= matched_user.location %>" data-matched-motivation="<%= matched_user.motivation %>" data-matched-satisfaction="<%= matched_user.satisfaction %>" data-matched-experience="<%= matched_user.journey_experience %>" data-matched-advice="<%= matched_user.advice %>" data-matched-budget="<%= matched_user.budget %>" data-matched-timeframe="<%= matched_user.timeframe %>" data-matched-hrs="<%= matched_user.available_hrs_per_week %>" data-matched-roadmap="<%= matched_user.roadmap.id %>">More!</button>
   </div>
   <% end %>
 </div>
@@ -71,7 +71,9 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-dark rounded-pill px-2 px-md-4" data-dismiss="modal">Close</button>
         <%= link_to 'Connect with me', requests_connections_path, class: 'btn btn-primary mr-2 mr-md-3 rounded-pill px-2 px-md-4' %>
-        <%= link_to 'See Roadmap', roadmap_path(:id), class: 'btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4' %>
+        <div id="mb2-15">
+          <a href="#" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
+        </div>
       </div>
     </div>
   </div>
