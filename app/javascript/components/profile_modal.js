@@ -26,6 +26,7 @@ const profileModal = () => {
       var matchedMotivation = event.target.dataset.matchedMotivation
       var matchedSatisfaction = event.target.dataset.matchedSatisfaction
       var matchedTimeframe = event.target.dataset.matchedTimeframe
+      var matchedRoadmap = event.target.dataset.matchedRoadmap
       // var matchedUserId = event.target.dataset.matchedUserId
       
       if (currentUser) {
@@ -43,6 +44,7 @@ const profileModal = () => {
         const mb2_12 = document.getElementById('mb2-12')
         const mb2_13 = document.getElementById('mb2-13')
         const mb2_14 = document.querySelector('.mb2-14')
+        const mb2_15 = document.getElementById('mb2-15')
 
         mb2_1.innerText = matchedFirstNm
         mb2_2.innerText = matchedLastNm
@@ -62,6 +64,11 @@ const profileModal = () => {
         const img_3 = '" alt="">'
 
         mb2_14.innerHTML = `${img_1}${matchedImgURL}${img_3}`
+
+        const mb2_15_1 = '<a href="/roadmaps/'
+        const mb2_15_3 = '" id="mb2-15" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>'
+
+        mb2_15.innerHTML = `${mb2_15_1}${matchedRoadmap}${mb2_15_3}`
 
         $("#modalTwo").modal("show");   
       }
