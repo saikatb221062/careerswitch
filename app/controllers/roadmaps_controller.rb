@@ -18,5 +18,9 @@ class RoadmapsController < ApplicationController
   end
 
   def builder
+    @users = User.all
+    @topics = Topic.all
+    @courses = Course.all
+    @roadmaps = Roadmap.all
   end
 end

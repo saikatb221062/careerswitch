@@ -232,7 +232,7 @@ def seedRoadmaps
 
   30.times do
     puts "Creating Roadmap #{idx + 1} - for user id #{users[idx].id}"
-    d1 = Date.parse start_dates[idx]
+    d1 = Date.parse f_dates[idx]
     d2 = Date.parse end_dates[idx]
     Roadmap.create!(
       privacy_option: false,
