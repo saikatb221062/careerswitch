@@ -26,6 +26,7 @@ const profileModal = () => {
       var matchedMotivation = event.target.dataset.matchedMotivation
       var matchedSatisfaction = event.target.dataset.matchedSatisfaction
       var matchedTimeframe = event.target.dataset.matchedTimeframe
+      var matchedRoadmap = event.target.dataset.matchedRoadmap
       // var matchedUserId = event.target.dataset.matchedUserId
       
       if (currentUser) {
@@ -43,7 +44,9 @@ const profileModal = () => {
         const mb2_12 = document.getElementById('mb2-12')
         const mb2_13 = document.getElementById('mb2-13')
         const mb2_14 = document.querySelector('.mb2-14')
-
+        const mb2_15 = document.getElementById('mb2-15')
+        const industryFrom = document.getElementById('industry-from').innerText
+        
         mb2_1.innerText = matchedFirstNm
         mb2_2.innerText = matchedLastNm
         mb2_3.innerText = matchedLocation
@@ -57,11 +60,17 @@ const profileModal = () => {
         mb2_11.innerText = matchedSatisfaction
         mb2_12.innerText = matchedAdvice
         mb2_13.innerText = matchedMotivation
-        
+              
         const img_1 = '<img class="img-fluid" style="vertical-align:middle; width:80px; height: 80px; border-radius: 50%;" src="'
         const img_3 = '" alt="">'
 
         mb2_14.innerHTML = `${img_1}${matchedImgURL}${img_3}`
+
+        const mb2_15_1 = '<a href="/roadmaps/'
+        const mb2_15_2 = `?${industryFrom}|${mb2_6.innerText}`
+        const mb2_15_3 = '" id="mb2-15" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>'
+
+        mb2_15.innerHTML = `${mb2_15_1}${matchedRoadmap}${mb2_15_2}${mb2_15_3}`
 
         $("#modalTwo").modal("show");   
       }

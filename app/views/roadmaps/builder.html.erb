@@ -1,2 +1,54 @@
-<h2>Welcome to the Roadmap Builder Page !</h2>
-<p>You are using roadmaps#builder</p>
+<p style="margin-left: 320px; font-size: 18px;">You have selected a template from <%= @roadmaps[0].user.first_name %>'s roadmap</p>
+<h2 style="margin-left: 320px"><strong>Here's where you can start!</strong></h2>
+<br>
+
+  
+<div class="builder-sidenav">
+  <p class="text-center" style="font-weight: bolder;">Add a course to your roadmap</p>
+  <ul class="list-group list-group-flush" onclick="addCourse()" id="add">
+    <% @courses.each do |course| %>
+    <li class="list-group-item text-primary">
+      <i class="fas fa-plus-circle grab" style="float: right;"></i>
+      <div class="dish-list-line-div">
+        <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.topic.name %>:</div>
+        <div draggable="true" class="d-inline dish-item" id="course-selected"><%= course.provider %><br><%= course.title %><br>Cost: SGD<%= course.cost %> | <%= course.duration %> weeks</div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="bd-container">
+  <div class="bd-row">
+    <div id="timetable-topic" class="float-left" style="width: 15%;">
+      <div class="timetable_content">
+        <ul class="topic-header">
+          <% @topics.each do |topic| %>
+          <li style="margin-bottom: 25px;">
+            <span class="timeslot"><%= topic.name %><hr /></span>
+          </li>
+          <% end %>
+        </ul>
+        <ul class="timeslots example-dropzone">
+        </ul>
+      </div>
+    </div>
+    <div id="timetable" class="float-right" style="width: 80%;">
+      <div class="timetable_content">
+        <ul class="months clearfix">
+          <% @roadmaps[0..15].each do |roadmap| %>
+          <li data-month="08"><%= roadmap.start_date.strftime("%b") %></li>
+          <% end %>
+        </ul>
+        <ul class="timeslots" id="trades">
+          <% @courses[0..6].each do |course| %>
+          <li>
+            <span class="timeslot" ondragstart="onDragStart(event);" data-month-start="2015-05-10"><%= course.provider %><br><%= course.title%></span>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
