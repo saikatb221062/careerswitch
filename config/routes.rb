@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
   get '/chat/:id', to: 'chats#chat', as: :chat
+  post 'chat/:id', to: 'chats#sending'
 end
