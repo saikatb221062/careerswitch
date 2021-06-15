@@ -299,7 +299,6 @@ def seedCoursesRoadmapsJoinTable
     c_idx = 0
     18.times do
       course_to_get = courses_array[c_idx]
-
       # puts "Roadmap ID: #{roadmap_id} Course to Get: #{course_to_get}"
 
       if course_to_get > 0
@@ -310,7 +309,8 @@ def seedCoursesRoadmapsJoinTable
       CourseRoadmap.create!(
         status: statuses.sample,
         course_id: course.id,
-        roadmap_id: roadmap_id
+        roadmap_id: roadmap_id,
+        order: c_idx + 1
       )
       end
       c_idx += 1
