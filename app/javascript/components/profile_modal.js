@@ -66,11 +66,25 @@ const profileModal = () => {
 
         mb2_14.innerHTML = `${img_1}${matchedImgURL}${img_3}`
 
+        // store the current URL in sessionStorage
+        // When this modal gets redirected to "See Roadmap",
+        // the link-back button on that page will
+        // need to reconstruct the My Results URL on the way back, so it 
+        // will use the URL saved in sessionStorage
+
+        const currentURL = window.location.href;
+        console.log(currentURL);
+
+        sessionStorage.removeItem('currentURL');
+        sessionStorage.setItem('currentURL', currentURL);
+        console.log(sessionStorage.getItem('currentURL'));
+                
         const mb2_15_1 = '<a href="/roadmaps/'
-        const mb2_15_2 = `?${industryFrom}|${mb2_6.innerText}`
         const mb2_15_3 = '" id="mb2-15" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>'
 
-        mb2_15.innerHTML = `${mb2_15_1}${matchedRoadmap}${mb2_15_2}${mb2_15_3}`
+        mb2_15.innerHTML = `${mb2_15_1}${matchedRoadmap}${mb2_15_3}`
+
+        console.log(mb2_15.innerHTML)
 
         $("#modalTwo").modal("show");   
       }
