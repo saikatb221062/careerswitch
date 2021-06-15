@@ -19,24 +19,30 @@ class PagesController < ApplicationController
   def results
     @industry_to = params[:query_to]
     @industry_from = params[:query_from]
+    @role_from = params[:query_role]
 
     if current_user.nil?
       @results = User.all
     else
-      @results = User.where.not(id: current_user.id)
+      @results = User.all.where.not(id: current_user.id)
     end
 
     @search_filter_to = @results.where("future_role ~* ?", @industry_to)
-    @users = @search_filter_to.where("current_industry ~* ?", @industry_from)
-
-    if @results.empty?
+    @search_filter_from = @search_filter_to.where("current_industry ~* ?", @industry_from)
+    @search_filter_role = @search_filter_from.where(current_role: @role_from)
+    
+    if @industry_to.nil? && @industry_from.nil? && @role_from.nil?
       @shortlisted_profiles = @results
-      @shortlist_msg = 'We could not find any matches!'
-    elsif @users.empty?
-      @shortlisted_profiles = @search_filter_to
+      @shortlist_msg = 'Please do not leave the search empty!'
+    elsif @industry_to.nil? || @industry_from.nil? || @role_from.nil?
+      @shortlisted_profiles = @results
+      @shortlist_msg = 'For better search result, please do not leave any field empty!'
+    elsif @search_filter_role.empty?
+      @shortlisted_profiles = @search_filter_to + @search_filter_from
+      @shortlisted_profiles = @shortlisted_profiles.uniq
       @shortlist_msg = 'We could not find exact matches for your current industry but you may want to look up these....'
     else
-      @shortlisted_profiles = @users
+      @shortlisted_profiles = @search_filter_role.uniq
       @shortlist_msg = 'Here are profiles that exactly match your search !'
     end
   end
