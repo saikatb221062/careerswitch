@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import 'bootstrap';
+import { backToResults } from '../components/back_to_results';
 
 import { profileModal } from '../components/profile_modal';
 
@@ -22,4 +23,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   profileModal();
+  backToResults();
 });
