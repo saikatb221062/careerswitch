@@ -1,0 +1,101 @@
+$background: grey;
+$darkerbackground: #333333;
+$textcolor: black;
+$primarycolor: #fd3e81;
+$secendarycolor: #00ffd4;
+
+body {
+	box-sizing: border-box;
+	padding-bottom: 50px;
+	min-width: 960px;
+}
+
+.bd-row {
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+  margin-left: 300px;
+}
+
+#timetable {
+  width: 100%; height: auto;
+  max-width: 768px;
+  overflow-y: hidden;
+  border: 2px solid black;
+  border-radius: 5px;
+  border-color: #1EDD88;
+  background-color: white;
+  ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0 0 0 0;
+  }
+  .timetable_content {
+    width: 1024px;
+  }
+}
+
+#timetable-topic {
+  width: 100%; height: 550px;
+  margin-top: 50px;
+  max-width: 768px;
+  overflow-y: hidden;
+  border: 2px solid black;
+  border-radius: 5px;
+  border-color: coral;
+  margin-right: 5px;
+  background-color: white;
+  ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0 0 0 0;
+  }
+  .timetable_content {
+    width: 1024px;
+  }
+
+  .topic-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+}
+
+.months {
+  max-height: 50px;
+  overflow: hidden;
+  
+  li  {
+    width: 110px;
+    text-align: center;
+    float: left;
+    display: inline-block;
+    border-right: 1px solid #ccc;
+    padding: 1em;
+  }
+}
+
+.timeslots {
+  li {
+    border-top: 1px solid #ccc;
+    padding: .5em;
+  }
+  .timeslot {
+    background: lightblue;
+    padding: .5em;
+    display: inline-block;
+  }
+} 
+
+.float-left {
+  display: flex;
+  float: left;
+}
+
+.test-center {
+  background-color: #1EDD88;
+  color: white;
+}
+
+.grab {cursor: -webkit-grab; cursor: grab;}
