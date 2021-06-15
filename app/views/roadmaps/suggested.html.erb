@@ -12,6 +12,7 @@
     <h6 style="line-height: 40%;"><%= roadmap.start_date.strftime("%b %Y") %> to <%= roadmap.end_date.strftime("%b %Y") %></h6>
     <br>
     <p class="rd1-p">Courses</p>
+    <%= link_to "Select this template", builder_roadmap_path, class: "btn btn-dark mb-3" %>
     <ul class="list-group list-group-flush rd1-ul">
       <% roadmap.courses.each do |course| %>
       <li class="rd1-li list-group-item">
