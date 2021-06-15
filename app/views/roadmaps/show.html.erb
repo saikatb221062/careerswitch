@@ -1,0 +1,39 @@
+<div id="back-to-results">
+  <a href="#" class="btn btn-outline-success rounded-pill" style="float: left;">Back to Results</a>
+</div>
+<br>
+<br>
+<br>
+
+<div class="media">
+  <img src="<%= @roadmap.user.img_url %>" class="mr-3" width="193" height="193" alt="pic">
+
+  <div class="media-body" style="text-align:left;">
+    <h4 class="mt-0 rd1-h3"><%= @roadmap.user.first_name %> <%= @roadmap.user.last_name %></h4>
+    <blockquote class="blockquote text-right">
+      <p class="mb-0" style="font-size:16px;"><i><%= @roadmap.user.advice %></i></p>
+      <footer class="blockquote-footer" style="font-size:12px; font-weight: lighter;">My motto in life<cite title="Source Title"></cite></footer>
+    </blockquote>
+    <div class="media mt-3">
+      <div class="media-body">
+        <h6 class="mt-0">Location: <%= @roadmap.user.location %></h6>
+        <h6 class="mt-0">Switch from: <%= @roadmap.user.current_role %>, <%= @roadmap.user.current_industry %> to <%= @roadmap.user.future_role %></h6>
+        <h6 class="mt-0">Career Change Journey: <%= @roadmap.start_date.strftime("%b %Y") %> to <%= @roadmap.end_date.strftime("%b %Y") %></h6>
+        <h6 class="mt-0">Budget: USD <%= @roadmap.user.budget %> Timeframe:<%= @roadmap.user.timeframe %> weeks</h6>
+        <br>
+        <h5 class="text-primary">What inspires me!</h5>
+        <h6 class="mt-0"><%= @roadmap.user.motivation %></h6>
+        <h5 class="text-primary">My Journey Experience</h5>
+        <h6 class="mt-0"><%= @roadmap.user.journey_experience %></h6>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h5>My Courses</h5>
+<ul class="list-group" style="text-align:left">
+  <% @courses.each do |course| %>
+  <li class="list-group-item" style="text-align:left"><%= course.title %></li>
+  <% end %>
+</ul>
