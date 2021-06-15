@@ -1,6 +1,5 @@
 <h1 class="display-5">Career Switcher Match Results !</h1>
-<br>
-<h3><span class="text-italic"> from </span><strong><%= @industry_from %></strong> <span class="text-italic"> to </span><strong><%= @industry_to %></strong> </h3>
+<h3><span class="text-italic"> from </span><strong><span id="industry-from"><%= @industry_from %><span></strong> <span class="text-italic"> to </span><strong><%= @industry_to %></strong> </h3>
 
 <h5><%= @shortlist_msg %></h5>
 <hr>
@@ -12,7 +11,7 @@
       <img class="matched-user-image img-fluid" style="vertical-align:middle; width:70px; height: 70px; border-radius: 50%;" src="<%= matched_user.img_url %>" alt="">
     </div>
     <br>
-    <h3 class="text-center"><span class="first-name"><%= matched_user.first_name %></span> <span class="last-name"><%= matched_user.last_name %></span></h3>
+    <h3 class="text-center rd1-h4"><span class="first-name"><%= matched_user.first_name %></span> <span class="last-name"><%= matched_user.last_name %></span></h3>
     <br>
     <p class="current-role font-weight-bold"><%= matched_user.current_role %>, </p>
     <p class="current-ind font-weight-bold"><%= matched_user.current_industry %></p>
@@ -49,19 +48,17 @@
 
 <!-- Modal Two - User Signed In -->
 <div class="modal fade" id="modalTwo" tabindex="-1" aria-labelledby="modalTwoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-xl top-zero">
     <div class="modal-content">
       <div class="modal-dialog modal-xl">
         <div class="mb2-14 text-center">
           <img class="img-fluid" style="vertical-align:middle; width:70px; height: 70px; border-radius: 50%;" src="#" alt="">
         </div>
         <br>
-        <h3><span id="mb2-1"></span> <span id="mb2-2"></h3>
+        <h3 class="rd1-h3"><span id="mb2-1"></span> <span id="mb2-2"></h3>
         <p>Location: <span id="mb2-3"></span></p>
-        <p>from <span id="mb2-4"></span>, <span id="mb2-5"></span></p>
-        <p>To <span id="mb2-6"></span></p>
-        <p>Timeframe <span id="mb2-7"> weeks</span></p>
-        <p>Budget: USD<span id="mb2-8"></span></p>
+        <p>from <strong><span id="mb2-4"></span>, <span id="mb2-5"></span></strong> to <strong><span id="mb2-6"></span></strong></p>
+        <p>Timeframe <span id="mb2-7"> weeks</span> Budget: USD<span id="mb2-8"></span></p>
         <p>Available Hours Per Week <span id="mb2-9"></span></p>
         <p>Journey Experience <span id="mb2-10"></span></p>
         <p>Satisfaction <span id="mb2-11"></span></p>
