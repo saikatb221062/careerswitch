@@ -161,71 +161,73 @@ def seedRoadmaps
 
   Roadmap.destroy_all
 
-  start_dates = [
-    '15-Feb-19', 
-    '11-Mar-21', 
-    '5-Apr-21', 
-    '21-May-20', 
+  start_dates = [ 
+    '1-Feb-19', 
+    '1-Mar-19', 
+    '1-Apr-19', 
+    '1-May-19', 
+    '1-Jun-19', 
+    '1-Jul-19', 
+    '1-Aug-19', 
+    '1-Sep-19', 
+    '1-Oct-19', 
+    '1-Nov-19', 
+    '1-Dec-19', 
+    '1-Jan-20', 
+    '1-Feb-20', 
+    '1-Mar-20', 
+    '1-Apr-20', 
+    '1-May-20', 
     '1-Jun-20', 
-    '31-Jul-20', 
-    '14-Aug-20', 
-    '19-Feb-19', 
-    '15-Mar-21', 
-    '9-Apr-21', 
-    '25-May-20', 
-    '5-Jun-20', 
-    '4-Aug-20', 
-    '18-Aug-20', 
-    '23-Feb-19', 
-    '19-Jan-21', 
-    '13-Apr-21', 
-    '29-May-20', 
-    '9-Jun-20', 
-    '8-Aug-20', 
-    '22-Aug-20', 
-    '27-Feb-19', 
-    '23-Jan-21', 
-    '17-Apr-21', 
-    '2-Jun-20', 
-    '13-Jun-20', 
-    '12-Aug-20', 
-    '26-Aug-20', 
-    '3-Mar-19', 
-    '27-Jan-21', 
+    '1-Jul-20', 
+    '1-Aug-20', 
+    '1-Sep-20', 
+    '1-Oct-20', 
+    '1-Nov-20', 
+    '1-Dec-20', 
+    '1-Jan-21', 
+    '1-Feb-21', 
+    '1-Mar-21', 
+    '1-Apr-21', 
+    '1-May-21', 
+    '1-Jun-21', 
+    '1-Jul-21'
   ]
 
   end_dates = [
-    '16-May-19', 
-    '19-Jun-21',
-    '4-Jul-21',
-    '17-Nov-20',
-    '27-May-21',
-    '29-Oct-20',
-    '10-Feb-21',
-    '14-Feb-20',
-    '10-Mar-22',
-    '4-Apr-22',
-    '20-May-21',
-    '31-May-21',
-    '30-Jul-21',
-    '13-Aug-21',
-    '18-Feb-20',
-    '14-Jan-22',
-    '8-Apr-22',
-    '24-May-21',
-    '4-Jun-21',
-    '3-Aug-21',
-    '17-Aug-21',
-    '22-Feb-20',
-    '18-Jan-22',
-    '12-Apr-22',
-    '28-May-21',
-    '8-Jun-21',
-    '7-Aug-21',
-    '21-Aug-21',
-    '26-Feb-20',
-    '22-Jan-22' 
+    '31-Jul-19', 
+    '27-Oct-19', 
+    '30-Jun-19', 
+    '29-Aug-19', 
+    '29-Oct-19', 
+    '28-Dec-19', 
+    '27-Feb-20', 
+    '28-May-20', 
+    '31-Oct-19', 
+    '30-Jan-20', 
+    '26-Oct-20', 
+    '26-Dec-20', 
+    '28-Oct-20', 
+    '26-Dec-20', 
+    '27-Mar-21', 
+    '30-Jun-20', 
+    '29-Sep-20', 
+    '28-Nov-20', 
+    '31-Aug-20', 
+    '28-Jun-21', 
+    '26-Sep-21', 
+    '31-Dec-20', 
+    '31-Mar-21', 
+    '31-May-21', 
+    '03-Mar-21', 
+    '26-Nov-21', 
+    '01-May-21', 
+    '30-Jul-21', 
+    '27-Apr-22', 
+    '27-Jan-22'
    ]
+
+  rdmap_dur_array = [ 6, 8, 3, 4, 5, 6, 7, 9, 1, 3, 11, 12, 9, 10, 12, 2, 4, 5, 1, 10,12, 2, 4, 5, 1, 9, 1, 3, 11, 7 ]
 
   idx = 0
   users = User.all
@@ -234,10 +236,12 @@ def seedRoadmaps
     puts "Creating Roadmap #{idx + 1} - for user id #{users[idx].id}"
     d1 = Date.parse start_dates[idx]
     d2 = Date.parse end_dates[idx]
+    roadmap_duration = rdmap_dur_array[idx]
     Roadmap.create!(
       privacy_option: false,
       start_date: d1,
       end_date: d2,
+      duration: roadmap_duration,
       user_id: users[idx].id
     )
     idx += 1
@@ -294,13 +298,10 @@ def seedCoursesRoadmapsJoinTable
     roadmap_id = roadmaps[idx].id
     courses_array = two_d_array[idx]
 
-    # puts "Courses Array for idx #{idx} Roadmap ID #{roadmap_id}"
-    # p courses_array
     c_idx = 0
     18.times do
       course_to_get = courses_array[c_idx]
-      # puts "Roadmap ID: #{roadmap_id} Course to Get: #{course_to_get}"
-
+      
       if course_to_get > 0
         total_combos += 1
         course = courses[course_to_get - 1]
@@ -317,7 +318,6 @@ def seedCoursesRoadmapsJoinTable
     end
     idx += 1
   end
-  # puts "Total Combos: #{total_combos}"
 end
 
 def seedUsers
