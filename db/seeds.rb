@@ -299,7 +299,6 @@ def seedCoursesRoadmapsJoinTable
     c_idx = 0
     18.times do
       course_to_get = courses_array[c_idx]
-
       # puts "Roadmap ID: #{roadmap_id} Course to Get: #{course_to_get}"
 
       if course_to_get > 0
@@ -310,7 +309,8 @@ def seedCoursesRoadmapsJoinTable
       CourseRoadmap.create!(
         status: statuses.sample,
         course_id: course.id,
-        roadmap_id: roadmap_id
+        roadmap_id: roadmap_id,
+        order: c_idx + 1
       )
       end
       c_idx += 1
@@ -538,3 +538,50 @@ end
 
 printStats
 
+@nicole = User.create!(
+      first_name: "Nicole",
+      email: "leowminzi@gmail.com",
+      password: "123456",
+      last_name: "Leow",
+      budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
+      timeframe: [6, 12, 18, 24].sample,
+      current_role: "Accounting",
+      current_industry: "Web Developer",
+      future_industry: "Web Developer",
+      future_role: "Web Developer",
+      available_hrs_per_week: [12, 24, 36, 40, 60].sample,
+      status: '',
+      img_url: "",
+      advice: Faker::Quote.yoda,
+      location: Faker::Address.city,
+      motivation: Faker::Quote.matz,
+      journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
+      satisfaction: ""
+      ) 
+
+      @another = User.create!(
+        first_name: "Friend",
+        email: "friend@gmail.com",
+        password: "123456",
+        last_name: "Friend",
+        budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
+        timeframe: [6, 12, 18, 24].sample,
+        current_role: "Accounting",
+        current_industry: "Web Developer",
+        future_industry: "Web Developer",
+        future_role: "Web Developer",
+        available_hrs_per_week: [12, 24, 36, 40, 60].sample,
+        status: '',
+        img_url: "",
+        advice: Faker::Quote.yoda,
+        location: Faker::Address.city,
+        motivation: Faker::Quote.matz,
+        journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
+        satisfaction: ""
+        ) 
+
+Connection.create!(
+  connecting_id: @nicole.id,
+  connected_id: @another.id,
+  user_id: @nicole.id
+)
