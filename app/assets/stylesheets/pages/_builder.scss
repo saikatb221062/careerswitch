@@ -1,10 +1,12 @@
-$background: grey;
-$darkerbackground: #333333;
-$textcolor: black;
-$primarycolor: #fd3e81;
-$secendarycolor: #00ffd4;
+$blue:    #3498db;
+$purple:  #9b59b6;
+$navy:    #34495e;
+$green:   #2ecc71;
+$red:     #e74c3c;
+$orange:  #f39c12;
 
 body {
+  background: #E5E5E5;
 	box-sizing: border-box;
 	padding-bottom: 50px;
 	min-width: 960px;
@@ -17,85 +19,40 @@ body {
   margin-left: 300px;
 }
 
-#timetable {
-  width: 100%; height: auto;
-  max-width: 768px;
-  overflow-y: hidden;
-  border: 2px solid black;
-  border-radius: 5px;
-  border-color: #1EDD88;
-  background-color: white;
-  ul {
-    padding-left: 0;
-    list-style: none;
-    margin: 0 0 0 0;
-  }
-  .timetable_content {
-    width: 1024px;
-  }
+.blue   { background: $blue }
+.purple { background: $purple }
+.navy   { background: $navy }
+.green  { background: $green }
+.red    { background: $red }
+.orange { background: $orange }
+
+table {
+   font-family: 'Open Sans', Helvetica;
+   color: black;
+   table-layout: fixed;
+   width: 100%;
+   tr {
+      
+     &:nth-child(2n){
+        background: #eff0f1; 
+     }
+     
+     &:nth-child(2n){
+        background: #fff; 
+     }
+   }
+   
+   th, td {
+      padding: 1em; 
+      width: 10em;
+   }
 }
 
-#timetable-topic {
-  width: 100%; height: 550px;
-  margin-top: 50px;
-  max-width: 768px;
-  overflow-y: hidden;
-  border: 2px solid black;
-  border-radius: 5px;
-  border-color: coral;
-  margin-right: 5px;
-  background-color: white;
-  ul {
-    padding-left: 0;
-    list-style: none;
-    margin: 0 0 0 0;
-  }
-  .timetable_content {
-    width: 1024px;
-  }
-
-  .topic-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 30px;
-  }
-}
-
-.months {
-  max-height: 50px;
-  overflow: hidden;
-  
-  li  {
-    width: 110px;
-    text-align: center;
-    float: left;
-    display: inline-block;
-    border-right: 1px solid #ccc;
-    padding: 1em;
-  }
-}
-
-.timeslots {
-  li {
-    border-top: 1px solid #ccc;
-    padding: .5em;
-  }
-  .timeslot {
-    background: lightblue;
-    padding: .5em;
-    display: inline-block;
-  }
-} 
-
-.float-left {
-  display: flex;
-  float: left;
-}
-
-.test-center {
-  background-color: #1EDD88;
-  color: white;
+.months, .time {
+  background: #007580;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  text-align: center;
 }
 
 .grab {cursor: -webkit-grab; cursor: grab;}
