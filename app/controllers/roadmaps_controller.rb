@@ -10,17 +10,16 @@ class RoadmapsController < ApplicationController
   def suggested
     # get all roadmaps where roadmap user is not the current user
     # and roadmap user future role = current user future role
-    sql_query = <<-SQL
-    SELECT * FROM roadmaps INNER JOIN users ON users.id = roadmaps.user_id WHERE roadmaps.user_id <> '#{current_user.id}' AND users.future_role = '#{current_user.future_role}'
-    SQL
 
-    @roadmaps = Roadmap.find_by_sql(sql_query)
+
+    @roadmaps = Roadmap.all.joins(:user).where(users: {
+      future_role: current_user.future_role 
+    })
   end
 
   def builder
-    @users = User.all
-    @topics = Topic.all
-    @courses = Course.all
-    @roadmaps = Roadmap.all
+    @roadmap = Roadmap.find(params[:id])
+    @course_roadmaps = CourseRoadmap.where(roadmap: @roadmap)
+    @courses = CourseRoadmap.where(roadmap: @roadmap).map(&:course)
   end
 end

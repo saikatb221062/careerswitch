@@ -10,9 +10,9 @@
     <p class="rd1-p"><span class="text-muted"><%= roadmap.user.future_role %></span></p>
     <p class="rd1-p">Career Change Journey</p>
     <h6 style="line-height: 40%;"><%= roadmap.start_date.strftime("%b %Y") %> to <%= roadmap.end_date.strftime("%b %Y") %></h6>
+    Duration: <%= roadmap.duration %>months
     <br>
-
-    <%= link_to "Select this template", builder_roadmap_path, class: "btn btn-dark mb-3" %>
+    <%= link_to "Select this template", builder_roadmap_path(roadmap), class: "btn btn-dark mb-3" %>
 
     <!-- Example single danger button -->
     <br>
