@@ -99,7 +99,8 @@ def seedCourses
 
   course_fees = [ 10000, 10000, 15000, 150, 500, 250, 250, 300, 500, 0, 1000, 750, 250, 0, 0, 1000, 0, 200, 300, 0, 150, 250, 350, 550, 0, 250, 1000, 2600, 2900, 0 ]
 
-  durations = [ 2, 4, 6, 18, 36, 48, 52 ]
+  # durations = [ 2, 4, 6, 18, 36, 48, 52 ]
+  durations = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
   hours_per_week_values = [ 10, 15, 20, 25, 40 ]
   
   topics_in_table = Topic.all
@@ -111,11 +112,11 @@ def seedCourses
   30.times do
     if idx == 0
       course_url = "https://www.lewagon.com/singapore"
-      course_duration = 26
+      course_duration = 6
       hours_per_week = 12
     elsif idx == 1
       course_url = "https://www.lewagon.com/singapore"
-      course_duration = 9
+      course_duration = 2
       hours_per_week = 40
     else
       course_url = Faker::Internet.url
