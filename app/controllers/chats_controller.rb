@@ -1,5 +1,11 @@
 class ChatsController < ApplicationController
   def chat
+    if current_user.nil?
+      @connections = Connection.none
+    else
+      @connections = Connection.where(connecting_id: current_user.id) + Connection.where(connected_id: current_user.id)
+    end
+
     @user = current_user
     @connection = Connection.find(params[:id])
     if @connection.connected_id == @user.id
@@ -12,6 +18,12 @@ class ChatsController < ApplicationController
   end
 
   def sending
+    if current_user.nil?
+      @connections = Connection.none
+    else
+      @connections = Connection.where(connecting_id: current_user.id) + Connection.where(connected_id: current_user.id)
+    end
+    
     @user = current_user
     @connection = Connection.find(params[:id])
     if @connection.connected_id == @user.id

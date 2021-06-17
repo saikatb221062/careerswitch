@@ -1,0 +1,14 @@
+<div class="col-12 col-md-6 mb-5">
+  <div class="d-flex flex-wrap justify-content-between border border-black rounded rounded-lg">
+    <div class="connection-each-image position-relative col-4 col-md-3 px-0">
+      <img class="connection_each-image" src="<%= @connection_usr_img %>" alt="<% @connection_usr_name %>">
+    </div>
+    <div class="connection-each-info p-2 position-relative col-8 col-md-9">
+      <h3 class="font-weight-bold text-success"><%= @connection_usr_name %></h3>
+      <p class="text-secondary mb-2"><%= @connection_usr_loc %></p>
+      <div class="py-2">
+        <%= link_to 'Chat', chat_path(connection.id), class: 'btn btn-sm rounded-pill btn-secondary px-4' %>
+      </div>
+    </div>
+  </div>
+</div>
