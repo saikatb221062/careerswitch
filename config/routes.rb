@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "pages#home"
+  root to: "users#index"
 
   get '/results', to: 'pages#results', as: :show_pages
   resources :connections, only: [:create, :update]
@@ -18,4 +19,11 @@ Rails.application.routes.draw do
   end
   get '/chat/:id', to: 'chats#chat', as: :chat
   post 'chat/:id', to: 'chats#sending'
+
+  resources :users, only: [:index] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
 end
