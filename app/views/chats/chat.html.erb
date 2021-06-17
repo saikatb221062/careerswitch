@@ -31,7 +31,7 @@
       <% @connection_usr_loc = User.find(connection.connected_id).location %>
       <% @connection_usr_img = User.find(connection.connected_id).img_url %>
     <% end %>
-    <%= render 'connection_each_card', connection: connection %>
+    <%= render 'friend_card', connection: connection %>
   <% end %>
 </div>
 
