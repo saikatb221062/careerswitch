@@ -27,7 +27,9 @@
         <p> There is currently no messages </p>
       <% else %>
         <% @chat_messages.each do |message| %>
-          <p> <%= message.user.first_name %>: <%= message.content %> </p>
+          <div id="message-<%= message.id %>">
+            <p> <%= message.user.first_name %>: <%= message.content %> </p>
+          </div>
         <% end %>
       <% end %>
       </div>
@@ -50,28 +52,4 @@
     <%= link_to "Back", "/dashboard/networks" %>
   </div>
 </div>
-
-
-<div class="container center mt-5" style="text-align:center">
-
-  <h1>Other Chats</h1>
-
-  <% @connections.each do |connection| %>
-    <% if connection.connected_id == current_user.id %>
-      <% connection_usr_fst_nm = User.find(connection.connecting_id).first_name %>
-      <% connection_usr_lst_nm = User.find(connection.connecting_id).last_name %>
-      <% @connection_usr_name = "#{connection_usr_fst_nm} #{connection_usr_lst_nm}" %>
-      <% @connection_usr_loc = User.find(connection.connecting_id).location %>
-      <% @connection_usr_img = User.find(connection.connecting_id).img_url %>
-    <% else %>
-      <% connection_usr_fst_nm = User.find(connection.connected_id).first_name %>
-      <% connection_usr_lst_nm = User.find(connection.connected_id).last_name %>
-      <% @connection_usr_name = "#{connection_usr_fst_nm} #{connection_usr_lst_nm}" %>
-      <% @connection_usr_loc = User.find(connection.connected_id).location %>
-      <% @connection_usr_img = User.find(connection.connected_id).img_url %>
-    <% end %>
-    <%= render 'friend_card', connection: connection %>
-  <% end %>
-</div>
-
 

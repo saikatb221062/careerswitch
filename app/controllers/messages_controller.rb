@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
     )
 
     SendMessageJob.perform_later(messages)
-
-  end
+    
+    redirect_to chat_path(@connection.id, anchor: "message-#{messages.id}")
+  end 
 end
