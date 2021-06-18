@@ -365,6 +365,20 @@ def seedUsers
 
   women_faces = [ 1520760, 1644924, 1691294, 1845993, 3021554, 3021563, 3394658,  3936894, 4258184, 5025111, 5649997, 6682475, 7073078, 7717254, 8219320 ]
 
+  locations = [ 
+    'Singapore',
+    'Hong Kong',
+    'Beijing',
+    'Jakarta',
+    'Melbourne',
+    'New York',
+    'Paris',
+    'London',
+    'Dubai',
+    'New Delhi',
+    'Seoul'
+ ]
+
   i = 1
   j = 0
   k = 0
@@ -401,7 +415,7 @@ def seedUsers
       status: '',
       img_url: @img_url,
       advice: Faker::Quote.yoda,
-      location: Faker::Address.city,
+      location: locations.sample,
       motivation: Faker::Quote.matz,
       journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
       satisfaction: @satisfaction.sample
@@ -554,7 +568,7 @@ printStats
       status: '',
       img_url: "",
       advice: Faker::Quote.yoda,
-      location: Faker::Address.city,
+      location: locations.sample,
       motivation: Faker::Quote.matz,
       journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
       satisfaction: ""
@@ -575,7 +589,7 @@ printStats
         status: '',
         img_url: "",
         advice: Faker::Quote.yoda,
-        location: Faker::Address.city,
+        location: locations.sample,
         motivation: Faker::Quote.matz,
         journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
         satisfaction: ""
