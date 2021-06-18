@@ -568,7 +568,7 @@ printStats
       status: '',
       img_url: "",
       advice: Faker::Quote.yoda,
-      location: locations.sample,
+      location: [ 'Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul' ].sample,
       motivation: Faker::Quote.matz,
       journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
       satisfaction: ""
@@ -589,7 +589,7 @@ printStats
         status: '',
         img_url: "",
         advice: Faker::Quote.yoda,
-        location: locations.sample,
+        location: [ 'Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul' ].sample,
         motivation: Faker::Quote.matz,
         journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
         satisfaction: ""
