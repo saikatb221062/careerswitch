@@ -6,6 +6,8 @@
 
 <div class="d-flex flex-wrap justify-content-between align-items-center">
   <% @shortlisted_profiles.each do |matched_user| %>
+  <% next if matched_user.img_url.nil? %>
+  <% matched_user.roadmap.nil? ? match_rdmp_id = 0 : match_rdmp_id = matched_user.roadmap.id %>
   <div class="profiles card mt-3 mb-3 border border-success" style="width: 16rem; height: 25rem;">
     <div class="matched-img-div text-center">
       <img class="matched-user-image img-fluid" style="vertical-align:middle; width:70px; height: 70px; border-radius: 50%;" src="<%= matched_user.img_url %>" alt="">
@@ -18,7 +20,7 @@
     <p class="text-muted">to</p>
     <p class="future-ind font-weight-bold"><%= matched_user.future_industry %></p>
 
-    <button class="myBtn btn btn-success" type="button" data-target="modalOne" data-matched-first-nm="<%= matched_user.first_name %>" data-matched-user-id="<%= matched_user.id %>" data-matched-first-nm="<%= matched_user.first_name %>" data-matched-last-nm="<%= matched_user.last_name %>" data-matched-current-role="<%= matched_user.current_role %>" data-matched-current-ind="<%= matched_user.current_industry %>" data-matched-fut-ind="<%= matched_user.future_industry %>" data-matched-img="<%= matched_user.img_url %>" data-matched-location="<%= matched_user.location %>" data-matched-motivation="<%= matched_user.motivation %>" data-matched-satisfaction="<%= matched_user.satisfaction %>" data-matched-experience="<%= matched_user.journey_experience %>" data-matched-advice="<%= matched_user.advice %>" data-matched-budget="<%= matched_user.budget %>" data-matched-timeframe="<%= matched_user.timeframe %>" data-matched-hrs="<%= matched_user.available_hrs_per_week %>" data-matched-roadmap="<%= matched_user.roadmap.id %>">More!</button>
+    <button class="myBtn btn btn-success" type="button" data-target="modalOne" data-matched-first-nm="<%= matched_user.first_name %>" data-matched-user-id="<%= matched_user.id %>" data-matched-first-nm="<%= matched_user.first_name %>" data-matched-last-nm="<%= matched_user.last_name %>" data-matched-current-role="<%= matched_user.current_role %>" data-matched-current-ind="<%= matched_user.current_industry %>" data-matched-fut-ind="<%= matched_user.future_industry %>" data-matched-img="<%= matched_user.img_url %>" data-matched-location="<%= matched_user.location %>" data-matched-motivation="<%= matched_user.motivation %>" data-matched-satisfaction="<%= matched_user.satisfaction %>" data-matched-experience="<%= matched_user.journey_experience %>" data-matched-advice="<%= matched_user.advice %>" data-matched-budget="<%= matched_user.budget %>" data-matched-timeframe="<%= matched_user.timeframe %>" data-matched-hrs="<%= matched_user.available_hrs_per_week %>" data-matched-roadmap="<%= match_rdmp_id %>">More!</button>
   </div>
   <% end %>
 </div>
@@ -39,8 +41,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-dark rounded-pill px-2 px-md-4" data-dismiss="modal">Close</button>
         <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary mr-2 mr-md-3 rounded-pill px-2 px-md-4' %>
-        <!-- <button type="button" class="btn btn-primary">Sign in</button> -->
-        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success rounded-pill px-2 px-md-4' %>
+        <%= link_to 'Sign Up', new_user_registration_path(:c_role => params[:query_role], :c_ind => params[:query_from], :t_role => params[:query_to]), class: 'btn btn-success rounded-pill px-2 px-md-4' %>
       </div>
     </div>
   </div>
