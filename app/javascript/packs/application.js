@@ -29,6 +29,6 @@ document.addEventListener('turbolinks:load', () => {
   profileModal();
   backToResults();
   addCourseBtn();
-  startChatRoom();
   scrollDown();
+  startChatRoom();
 });

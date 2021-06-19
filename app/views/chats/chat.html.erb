@@ -16,7 +16,7 @@
 <class="container" style="text-align:center">
 
   <div>
-    <h1>Chat <span id="chat_id" ><%= params[:id] %></span> </h1>
+    <h1>Chat</h1>
     <p><b><%= @user.first_name %></b> and <b><%= @friend.first_name %></b></p>
   </div>
 
@@ -27,7 +27,7 @@
         <p> There is currently no messages </p>
       <% else %>
         <% @chat_messages.each do |message| %>
-          <div id="message-<%= message.id %>">
+          <div class="message-container" id="message-<%= message.id %>">
             <i class="author">
               <span><b><%= message.user.first_name %></b></span>
               <small><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
@@ -47,7 +47,7 @@
       <%= hidden_field_tag "receiver_id", @friend.id %>
       <%= hidden_field_tag "sender_id", @user.id %>
       <%= hidden_field_tag "chat_id", @connection.id %>
-      <%= text_field_tag :messages, nil, autofocus: true %>
+      <%= text_field_tag :message, nil, autofocus: true %>
       <%= button_tag "Send" %>
     <% end %>
   </div>

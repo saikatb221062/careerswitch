@@ -1,21 +1,28 @@
+import { scrollDown } from "../packs/scroll";
 import consumer from "./consumer"
 
 const startChatRoom = () => {
-  const chat_id = document.getElementById("chat_id").value;
   
-  consumer.subscriptions.create({channel: "MessageChannel", chat_id: chat_id}, {
-    connected() {
-      console.log("Channel Connected!!!" + chat_id);
-    },
+  const messagesContainer = document.getElementById("messages");
+  
+  if (messagesContainer) {
+    const id = document.getElementById("chat_id").value;
+    consumer.subscriptions.create({channel: "MessageChannel", id: id}, {
+      connected() {
+        console.log("Channel Connected!!!" + id);
+      },
 
-    disconnected() {
-      console.log("Disconnected")
-    },
+      disconnected() {
+        console.log("Disconnected")
+      },
 
-    received(data) {
-      document.getElementById("messages").innerHTML += data
-    }
-  });
+      received(data) {
+        messagesContainer.insertAdjacentHTML('beforeend', data);
+        scrollDown()
+      }
+    });
+  }
 }
+
 
 export { startChatRoom }
