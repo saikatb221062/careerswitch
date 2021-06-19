@@ -31,30 +31,32 @@ class PagesController < ApplicationController
     @search_filter_from = @search_filter_to.where("current_industry ~* ?", @industry_from)
     @search_filter_role = @search_filter_from.where(current_role: @role_from)
 
-    if @search_filter_to.empty?
-      @shortlisted_profiles = @search_filter_to
-      @shortlist_msg = 'Sorry, we could not find any matches for your search'
-    elsif @search_filter_role.empty?
-      @shortlisted_profiles = @search_filter_to
-      @shortlist_msg = 'We could not find exact matches for you but you may want to look up these similar profiles'
-    else
-      @shortlisted_profiles = @search_filter_role
-      @shortlist_msg = 'Here are profiles that exactly match your search !'
-    end
-
-    #  if @industry_to.nil? && @industry_from.nil? && @role_from.nil?
-    #   @shortlisted_profiles = @results
-    #   @shortlist_msg = 'Please do not leave the search empty!'
-    # elsif @industry_to.nil? || @industry_from.nil? || @role_from.nil?
-    #   @shortlisted_profiles = @results
-    #   @shortlist_msg = 'For better search result, please do not leave any field empty!'
+    # Saikat's code - commented
+    # if @search_filter_to.empty?
+    #   @shortlisted_profiles = @search_filter_to
+    #   @shortlist_msg = 'Sorry, we could not find any matches for your search'
     # elsif @search_filter_role.empty?
-    #   @shortlisted_profiles = @search_filter_to + @search_filter_from
-    #   @shortlisted_profiles = @shortlisted_profiles.uniq
-    #   @shortlist_msg = 'We could not find exact matches for your current industry but # you may want to look up these....'
+    #   @shortlisted_profiles = @search_filter_to
+    #   @shortlist_msg = 'We could not find exact matches for you but you may want to # look up these similar profiles'
     # else
-    #   @shortlisted_profiles = @search_filter_role.uniq
+    #   @shortlisted_profiles = @search_filter_role
     #   @shortlist_msg = 'Here are profiles that exactly match your search !'
     # end
+
+    # Nicole's code - re-instated 19-Jun
+    if @industry_to.nil? && @industry_from.nil? && @role_from.nil?
+      @shortlisted_profiles = @results
+      @shortlist_msg = 'Please do not leave the search empty!'
+    elsif @industry_to.nil? || @industry_from.nil? || @role_from.nil?
+      @shortlisted_profiles = @results
+      @shortlist_msg = 'For better search result, please do not leave any field empty!'
+    elsif @search_filter_role.empty?
+      @shortlisted_profiles = @search_filter_to + @search_filter_from
+      @shortlisted_profiles = @shortlisted_profiles.uniq
+      @shortlist_msg = 'We could not find exact matches for your current industry but you may want to look up these....'
+    else
+      @shortlisted_profiles = @search_filter_role.uniq
+      @shortlist_msg = 'Here are profiles that exactly match your search !'
+    end
   end
 end
