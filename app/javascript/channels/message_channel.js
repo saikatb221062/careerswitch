@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-document.addEventListener('turbolinks:load', () => {
+const startChatRoom = () => {
   const chat_id = document.getElementById("chat_id").value;
   
   consumer.subscriptions.create({channel: "MessageChannel", chat_id: chat_id}, {
@@ -13,7 +13,9 @@ document.addEventListener('turbolinks:load', () => {
     },
 
     received(data) {
-      document.getElementById("messages").innerHTML += data.html
+      document.getElementById("messages").innerHTML += data
     }
   });
-});
+}
+
+export { startChatRoom }

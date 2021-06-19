@@ -11,7 +11,10 @@ class MessagesController < ApplicationController
       user_id: @user.id,
     )
 
-    SendMessageJob.perform_later(messages)
+    MessageChannel.broadcast_to(
+      @connection,
+      render_to_string(partial: "message", locals: { message: messages })
+    )
     
     redirect_to chat_path(@connection.id, anchor: "message-#{messages.id}")
   end 

@@ -43,7 +43,7 @@
       <%= hidden_field_tag "receiver_id", @friend.id %>
       <%= hidden_field_tag "sender_id", @user.id %>
       <%= hidden_field_tag "chat_id", @connection.id %>
-      <%= text_field_tag :messages, nil %>
+      <%= text_field_tag :messages, nil, autofocus: true %>
       <%= button_tag "Send" %>
     <% end %>
   </div>
