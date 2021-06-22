@@ -1,40 +1,25 @@
 <p style="margin-left: 320px; font-size: 18px;">You have selected a template from <%= @roadmap.user.first_name %>'s roadmap</p>
-<h2 style="margin-left: 320px"><strong>Here's where you can start!</strong></h2>
-<br>
+<h3 style="margin-left: 320px"><strong>Select the courses you want to add to your roadmap!</strong></h3>
 
 <div class="builder-sidenav">
   <p class="text-center" style="font-weight: bolder;">Add a course to your roadmap</p>
   <ul class="list-group list-group-flush">
+  <%= form_for(@my_roadmap) do |f| %>
     <% @courses.each do |course| %>
     <li class="list-group-item text-primary">
-      <i class="fas fa-plus-circle grab" style="float: right;"></i>
       <div class="dish-list-line-div">
-        <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>:</div>
-        <div draggable="true" class="d-inline dish-item">><%= course.title %><br>Cost: SGD<%= course.cost %> | <%= course.duration %> weeks </div>
+        <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>
+        </div>
+        <div draggable="true" class="d-inline dish-item">><%= course.title %>Cost: SGD<%= course.cost %> | <%= course.duration %> months </div>
+        <%= f.check_box :courses, { multiple: true }, course.id, nil %>
       </div>
     </li>
     <% end %>
+  <% end %>
   </ul>
 </div>
 
-<div class="bd-container">
-  <div class="bd-row">
-    <div class="tab">
-      <table>
-        <tr class="months">
-          <% @month_array = (@roadmap.start_date..@roadmap.end_date).map(&:beginning_of_month).uniq.map(&:month) %>
-          <% @month_array.each do |m| %>
-            <th><%= Date::MONTHNAMES[m] %></th>
-          <% end %>
-        </tr>
-        <tr>
-        <% (1..@course_roadmaps.count).each do |road| %>
-          <% @month_array.each do |m| %>
-          <% end %>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
-</div>
+<%= submit_tag 'Save', form: 'new_roadmap' %>
+
+
 
