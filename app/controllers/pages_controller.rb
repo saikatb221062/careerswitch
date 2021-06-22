@@ -27,7 +27,7 @@ class PagesController < ApplicationController
       @results = User.all.where.not(id: current_user.id)
     end
 
-    @search_filter_to = @results.where("future_role ~* ?", @industry_to)
+    @search_filter_to = @results.where(future_role: @industry_to)
     @search_filter_from = @search_filter_to.where("current_industry ~* ?", @industry_from)
     @search_filter_role = @search_filter_from.where(current_role: @role_from)
 
@@ -44,12 +44,15 @@ class PagesController < ApplicationController
     # end
 
     # Nicole's code - re-instated 19-Jun
-    if @industry_to.nil? && @industry_from.nil? && @role_from.nil?
+    if @industry_to.empty? && @industry_from.empty? && @role_from.empty?
       @shortlisted_profiles = @results
       @shortlist_msg = 'Please do not leave the search empty!'
-    elsif @industry_to.nil? || @industry_from.nil? || @role_from.nil?
+    elsif @industry_to.empty? || @industry_from.empty? || @role_from.empty?
       @shortlisted_profiles = @results
       @shortlist_msg = 'For better search result, please do not leave any field empty!'
+    elsif @search_filter_to.empty?
+      @shortlisted_profiles = @results
+      @shortlist_msg = "Sorry there's no exact match from your search, however, you can be the pioneer in this path and there may be people who wish to be like you in the future. Here's a closer role you may be interested in!"
     elsif @search_filter_role.empty?
       @shortlisted_profiles = @search_filter_to + @search_filter_from
       @shortlisted_profiles = @shortlisted_profiles.uniq
