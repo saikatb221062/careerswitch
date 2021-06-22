@@ -13,6 +13,8 @@ import 'jquery';
 import { backToResults } from '../components/back_to_results';
 import { profileModal } from '../components/profile_modal';
 import { addCourseBtn } from '../packs/roadmap';
+import { startChatRoom } from '../channels/message_channel'
+import { scrollDown } from '../packs/scroll';
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -20,10 +22,13 @@ import { addCourseBtn } from '../packs/roadmap';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   profileModal();
   backToResults();
   addCourseBtn();
+  scrollDown();
+  startChatRoom();
 });
