@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     member do
       get 'builder'
     end
+    collection do 
+      get 'builder', to: 'roadmaps#mybuilder'
+      post 'builder', to: 'roadmaps#create'
+      patch 'builder', to: 'roadmaps#update'
+    end
   end
   get '/chat/:id', to: 'chats#chat', as: :chat
   post 'chat/:id', to: 'chats#sending'

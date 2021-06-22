@@ -1,17 +1,37 @@
-const addCourseBtn = () => {
-  const courseFetch = document.querySelector(".course-selected")
-  function addCourse() {
-  var box = document.createElement("div");
-  box.setAttribute('class', 'itembox')
-  var holder = document.createElement("p");
-  holder.setAttribute('class', 'output');
-  // You can set the inner text of the p tag without creating a text node.
-  holder.innerText = "course"
-  box.appendChild(holder);
-  // Trades should be an element with and ID because you probably only ever want to insert into one place.
-  var trades = document.getElementById("add");
-  trades.appendChild(box);
-  }
+const roadMapBuild = () => {
+    const addCourseBtn = document.querySelector("#add-course");
+    const saveButton = document.querySelector("#click-save");
+
+    addCourseBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      const courseProvider = button.data("course-provider");
+      console.log(courseProvider);
+      var courseTitle = button.data("course-title");
+      console.log(courseTitle);
+      var courseCost = button.data("course-cost");
+      var courseId = button.data("course-id");
+
+    const newCourseList = {
+      courseId: document.querySelector("#click-modal").dataset.courseId,
+      courseProvider: document.querySelector("#click-modal").dataset.courseProvider,
+      courseTitle: document.querySelector("#click-modal").dataset.courseTitle,
+      courseCost: document.querySelector("#click-modal").dataset.courseCost
+    }
+
+    saveToLocalStorage(newCourseList);
+
+    const saveToLocalStorage = (newCourseList) => {
+      if (window.localStorage.courseItems) {
+        const courseArray = JSON.parse(window.localStorage.courseItems)
+        courseArray.push(newCourseList);
+        window.localStorage.courseItems = JSON.stringify(courseArray);
+      } else {
+        window.localStorage.courseItems = JSON.stringify([newCourseList]);
+      }
+      console.log(window.localStorage.courseItems);
+    } 
+  });
 }
 
-export { addCourseBtn }
+
+export { roadMapBuild };
