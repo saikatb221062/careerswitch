@@ -1,4 +1,4 @@
-<h1>Connect Dots</h1>
+<h1 class="home-header">Connect Dots</h1>
 
 <%= form_tag show_pages_path, method: :get do %>
   <form class="simple-form">
@@ -61,27 +61,27 @@
       </select>
     </div>
 
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn home-btn" %>
   </form>     
 <% end %>
 
 <div class="container mt-5">
-  <h2>How it works</h2>
+  <h2 class="home-header">How it works</h2>
 
   <div class="cards">
-    <div class="card">
+    <div class="card home-card">
       <img src="https://arthur-littm.github.io/startup-landing/images/apply.svg" alt="apply-image" >
       <h3>Step 1: Select an Industry</h3>
       <p>Choose an indutry to switch to!</p>
     </div>
 
-    <div class="card">
+    <div class="card home-card">
       <img src="https://arthur-littm.github.io/startup-landing/images/learn.svg" alt="learning">
       <h3>Step 2: Sign Up</h3>
       <p>Sign up as a member to view full content!</p>
     </div>
 
-    <div class="card">
+    <div class="card home-card">
       <img src="https://arthur-littm.github.io/startup-landing/images/product.svg" alt="building">
       <h3>Step 3: Search</h3>
       <p>Start searching for users with similar switch!</p> 

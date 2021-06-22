@@ -12,7 +12,7 @@ import 'jquery';
 
 import { backToResults } from '../components/back_to_results';
 import { profileModal } from '../components/profile_modal';
-import { addCourseBtn } from '../packs/roadmap';
+// import { addCourseBtn } from '../packs/roadmap';
 import { startChatRoom } from '../channels/message_channel'
 import { scrollDown } from '../packs/scroll';
 
@@ -28,7 +28,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   profileModal();
   backToResults();
-  addCourseBtn();
+  // addCourseBtn();
   scrollDown();
   startChatRoom();
 });
