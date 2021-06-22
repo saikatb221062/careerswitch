@@ -365,6 +365,20 @@ def seedUsers
 
   women_faces = [ 1520760, 1644924, 1691294, 1845993, 3021554, 3021563, 3394658,  3936894, 4258184, 5025111, 5649997, 6682475, 7073078, 7717254, 8219320 ]
 
+  locations = [ 
+    'Singapore',
+    'Hong Kong',
+    'Beijing',
+    'Jakarta',
+    'Melbourne',
+    'New York',
+    'Paris',
+    'London',
+    'Dubai',
+    'New Delhi',
+    'Seoul'
+ ]
+
   i = 1
   j = 0
   k = 0
@@ -401,7 +415,7 @@ def seedUsers
       status: '',
       img_url: @img_url,
       advice: Faker::Quote.yoda,
-      location: Faker::Address.city,
+      location: locations.sample,
       motivation: Faker::Quote.matz,
       journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
       satisfaction: @satisfaction.sample
@@ -554,7 +568,7 @@ printStats
       status: '',
       img_url: "",
       advice: Faker::Quote.yoda,
-      location: Faker::Address.city,
+      location: [ 'Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul' ].sample,
       motivation: Faker::Quote.matz,
       journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
       satisfaction: ""
@@ -575,14 +589,44 @@ printStats
         status: '',
         img_url: "",
         advice: Faker::Quote.yoda,
+        location: [ 'Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul' ].sample,
+        motivation: Faker::Quote.matz,
+        journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
+        satisfaction: ""
+        ) 
+
+
+        @second = User.create!(
+        first_name: "Friend",
+        email: "second@gmail.com",
+        password: "123456",
+        last_name: "Second",
+        budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
+        timeframe: [6, 12, 18, 24].sample,
+        current_role: "Accounting",
+        current_industry: "Web Developer",
+        future_industry: "Web Developer",
+        future_role: "Web Developer",
+        available_hrs_per_week: [12, 24, 36, 40, 60].sample,
+        status: '',
+        img_url: "",
+        advice: Faker::Quote.yoda,
         location: Faker::Address.city,
         motivation: Faker::Quote.matz,
         journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
         satisfaction: ""
         ) 
 
-Connection.create!(
+
+@my_connection = Connection.create!(
   connecting_id: @nicole.id,
   connected_id: @another.id,
   user_id: @nicole.id
 )
+
+@another_connection = Connection.create!(
+  connecting_id: @nicole.id,
+  connected_id: @second.id,
+  user_id: @nicole.id
+)
+

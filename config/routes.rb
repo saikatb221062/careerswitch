@@ -24,5 +24,5 @@ Rails.application.routes.draw do
     end
   end
   get '/chat/:id', to: 'chats#chat', as: :chat
-  post 'chat/:id', to: 'chats#sending'
+  post 'chat/:id', to: 'messages#create', as: :message
 end
