@@ -27,8 +27,9 @@ const profileModal = () => {
       var matchedSatisfaction = event.target.dataset.matchedSatisfaction
       var matchedTimeframe = event.target.dataset.matchedTimeframe
       var matchedRoadmap = event.target.dataset.matchedRoadmap
-      // var matchedUserId = event.target.dataset.matchedUserId
-      
+      var matchedUserId = event.target.dataset.matchedUserId
+      var matchedUserIsConnection = (event.target.dataset.matchedUserIsConnection === "true")
+
       if (currentUser) {
         const mb2_1 = document.getElementById('mb2-1')
         const mb2_2 = document.getElementById('mb2-2')
@@ -46,7 +47,8 @@ const profileModal = () => {
         const mb2_14 = document.querySelector('.mb2-14')
         const mb2_15 = document.getElementById('mb2-15')
         const industryFrom = document.getElementById('industry-from').innerText
-        
+        const matchedUserIdButton = document.getElementById('matched-user-id')
+
         mb2_1.innerText = matchedFirstNm
         mb2_2.innerText = matchedLastNm
         mb2_3.innerText = matchedLocation
@@ -66,6 +68,12 @@ const profileModal = () => {
 
         mb2_14.innerHTML = `${img_1}${matchedImgURL}${img_3}`
 
+        matchedUserIdButton.dataset.user = matchedUserId
+        if (matchedUserIsConnection) { 
+          matchedUserIdButton.innerHTML = '<a href="">Unfollow</a>'
+        } else {
+          matchedUserIdButton.innerHTML = '<a href="">Follow</a>'
+        }
         // store the current URL in sessionStorage
         // When this modal gets redirected to "See Roadmap",
         // the link-back button on that page will

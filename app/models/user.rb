@@ -10,22 +10,25 @@ class User < ApplicationRecord
 
   has_many :conversations, foreign_key: :sender_id
 
-  has_many :follower_relationships, foreign_key: :connecting_id, class_name: 'Connection'
-  has_many :followers, through: :follower_relationships, source: :follower
-
-  has_many :following_relationships, foreign_key: :connected_id, class_name: 'Connection'
-  has_many :following, through: :following_relationships, source: :following
-
-  def follow(user_id)
-    following_relationships.create(connecting_id: user_id)
+  has_many :connecting_relationships, foreign_key: :connecting_id, class_name: 'Connection'
+  
+  def connect(user_id)
+    connecting_relationships.create!(connecting_id: id, connecter_id: user_id)
   end
 
-  def unfollow(user_id)
-    following_relationships.find_by(connecting_id: user_id).destroy
+  def connections
+    Connection.where(connecting_id: id).or(Connection.where(connecter_id: id))
   end
 
-  def is_following?(user_id)
-    relationship = Follow.find_by(connected_id: id, connecting_id: user_id)
-    return true if relationship
+  # def unfollow(user_id)
+  #   following_relationships.find_by(connecting_id: user_id).destroy
+  # end
+
+  def is_connected?(user_id)
+    relationship = Connection.find_by(
+      '(connecter_id = ? AND connecting_id = ?) OR (connecting_id = ? AND connecter_id = ?)',
+      user_id, id, user_id, id
+    )
+    return relationship
   end
 end

@@ -1,0 +1,4 @@
+console.log('#<%=@button%>-<%=@user.id%>-btn');
+var connectBtn = document.querySelector('#<%=@button%>-<%=@user.id%>-btn');
+console.log(connectBtn);
+connectBtn.innerText = "<%= @button %>" == 'disconnect' ? 'Connect with me' : 'Disconnect';

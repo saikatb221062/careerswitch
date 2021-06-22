@@ -1,0 +1,7 @@
+<span data-user="<%= user.id %>">
+  <% if user_signed_in? && current_user.is_connected?(user.id) %>
+    <%= link_to "Disconnect", remove_connection_path(user.id, button: 'disconnect'), method: :post, remote: true, id: "connect-#{user.id}-btn", class: 'btn btn-primary mr-2 mr-md-3 rounded-pill px-2 px-md-4' %>
+  <% else %>
+    <%= link_to "Connect with me", add_connection_path(user.id, button: 'connect'), method: :post, remote: true, id: "connect-#{user.id}-btn", class: 'btn btn-primary mr-2 mr-md-3 rounded-pill px-2 px-md-4' %>
+  <% end %>
+</span>

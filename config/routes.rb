@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "pages#home"
-  root to: "users#index"
 
   get '/results', to: 'pages#results', as: :show_pages
-  resources :connections, only: [:create, :update]
+  post '/connections/:id', to: 'connections#follow', as: :add_connection
+  delete '/connections/:id', to: 'connections#unfollow', as: :remove_connection 
   get '/connections/requests', to: 'connections#requests', as: :requests_connections
   get '/dashboard', to: 'pages#dashboard', as: :dashboard_page
   get '/editprofile', to: 'users#editprofile', as: :edit_profile
