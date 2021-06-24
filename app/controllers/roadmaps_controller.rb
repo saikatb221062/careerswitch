@@ -11,20 +11,12 @@ class RoadmapsController < ApplicationController
     # get all roadmaps where roadmap user is not the current user
     # and roadmap user future role = current user future role
 
-<<<<<<< Updated upstream
     @roadmaps = Roadmap.suggested_roadmaps(current_user)
-=======
-
-    @roadmaps = Roadmap.all.joins(:user).where(users: {
-      future_role: current_user.future_role 
-    })
->>>>>>> Stashed changes
   end
 
   def builder
     @roadmap = Roadmap.find(params[:id])
     @courses = CourseRoadmap.where(roadmap: @roadmap).map(&:course)
-<<<<<<< Updated upstream
     @all_courses = Course.all
     @my_roadmap = Roadmap.new
   end
@@ -72,8 +64,6 @@ class RoadmapsController < ApplicationController
     if @my_roadmap.save
       redirect_to builder_roadmaps_path
     end
-=======
->>>>>>> Stashed changes
   end
 
 end
