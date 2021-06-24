@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <p style="font-size: 18px;">You have selected a template from <%= @roadmap.user.first_name %>'s roadmap</p>
 <h3><strong>Select the courses you want to add to your roadmap!</strong></h3>
 
@@ -18,6 +19,52 @@
         <%= submit_tag 'Save', form: 'new_roadmap' %>
       <% end %>
       </ul>
+=======
+<p style="margin-left: 320px; font-size: 18px;">You have selected a template from <%= @roadmap.user.first_name %>'s roadmap</p>
+<h2 style="margin-left: 320px"><strong>Here's where you can start!</strong></h2>
+<br>
+
+<div class="builder-sidenav">
+  <p class="text-center" style="font-weight: bolder;">Add a course to your roadmap</p>
+  <ul class="list-group list-group-flush">
+    <% @courses.each do |course| %>
+    <li class="list-group-item text-primary">
+      <i class="fas fa-plus-circle grab" style="float: right;"></i>
+      <div class="dish-list-line-div">
+        <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>:</div>
+        <div draggable="true" class="d-inline dish-item">><%= course.title %><br>Cost: SGD<%= course.cost %> | <%= course.duration %> weeks</div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="bd-container">
+  <div class="bd-row">
+    <div class="tab">
+      <table>
+        <tr class="months">
+          <% @today = Date.today %>
+          <% (1..10).each do %>
+          <th>hi</th>
+          <% end %>
+        </tr>
+        <tr>
+          <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
+          <td></td>
+          <td></td>
+          <td>- </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>-</td>
+        </tr>
+      </table>
+>>>>>>> Stashed changes
     </div>
   </div>
 </div>

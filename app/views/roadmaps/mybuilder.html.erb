@@ -14,7 +14,7 @@
       <table>
         <tr class="months">
           <% @month_array.each do |m| %>
-            <th><%= Date::MONTHNAMES[m] %></th>
+            <th style="background-color: red;"><%= Date::MONTHNAMES[m] %></th>
           <% end %>
         </tr>
         <% @my_courses.each do |course| %>
@@ -32,14 +32,16 @@
   <ul class="list-group list-group-flush">
     <%= form_for(@my_roadmap) do |f| %>
       <% @courses.each do |course| %>
-      <li class="list-group-item text-primary">
-        <div class="dish-list-line-div">
-          <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>
-          </div>
-          <div draggable="true" class="d-inline dish-item">><%= course.title %>Cost: SGD<%= course.cost %> | <%= course.duration %> months </div>
-          <%= f.check_box :courses, { multiple: true, checked: @chosen_courses.include?(course) }, course.id, nil %>
+        <% unless course.duration > current_user.timeframe %>
+        <li class="list-group-item text-primary">
+          <div class="dish-list-line-div">
+              <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>
+              </div>
+              <div draggable="true" class="d-inline dish-item">><%= course.title %>Cost: SGD<%= course.cost %> | <%= course.duration %> months </div>
+              <%= f.check_box :courses, { multiple: true, checked: @chosen_courses.include?(course) }, course.id, nil %>
         </div>
       </li>
+      <% end %>
       <% end %>
   <% end %>
   </ul>
