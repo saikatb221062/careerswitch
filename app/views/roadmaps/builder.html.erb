@@ -1,25 +1,27 @@
-<p style="margin-left: 320px; font-size: 18px;">You have selected a template from <%= @roadmap.user.first_name %>'s roadmap</p>
-<h3 style="margin-left: 320px"><strong>Select the courses you want to add to your roadmap!</strong></h3>
+<p style="font-size: 18px;">You have selected a template from <%= @roadmap.user.first_name %>'s roadmap</p>
+<h3><strong>Select the courses you want to add to your roadmap!</strong></h3>
 
-<div class="builder-sidenav">
-  <p class="text-center" style="font-weight: bolder;">Add a course to your roadmap</p>
-  <ul class="list-group list-group-flush">
-  <%= form_for(@my_roadmap) do |f| %>
-    <% @courses.each do |course| %>
-    <li class="list-group-item text-primary">
-      <div class="dish-list-line-div">
-        <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>
-        </div>
-        <div draggable="true" class="d-inline dish-item">><%= course.title %>Cost: SGD<%= course.cost %> | <%= course.duration %> months </div>
-        <%= f.check_box :courses, { multiple: true }, course.id, nil %>
-      </div>
-    </li>
-    <% end %>
-  <% end %>
-  </ul>
+  <div class="course-list">
+      <p class="text-center" style="font-weight: bolder;">Add a course to your roadmap</p>
+      <ul class="list-group list-group-flush">
+      <%= form_for(@my_roadmap) do |f| %>
+        <% @courses.each do |course| %>
+        <li class="list-group-item text-primary">
+          <div class="dish-list-line-div">
+            <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>
+            </div>
+            <div draggable="true" class="d-inline dish-item">><%= course.title %>Cost: SGD<%= course.cost %> | <%= course.duration %> months </div>
+            <%= f.check_box :courses, { multiple: true }, course.id, nil %>
+          </div>
+        </li>
+        <% end %>
+        <%= submit_tag 'Save', form: 'new_roadmap' %>
+      <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<%= submit_tag 'Save', form: 'new_roadmap' %>
 
 
 

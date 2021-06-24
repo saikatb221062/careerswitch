@@ -16,7 +16,19 @@ body {
   box-sizing: border-box;
   flex-wrap: wrap;
   margin-bottom: 1em;
-  margin-left: 300px;
+}
+
+.course-list {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  z-index: 1;
+  top: 54px;
+  left: 0;
+  background-color: #007580;
+  overflow-x: hidden;
+  padding-top: 20px;
+  color: white;
 }
 
 .blue   { background: $blue }
@@ -34,11 +46,11 @@ table {
    tr {
       
      &:nth-child(2n){
-        background: #eff0f1; 
+        background: blue; 
      }
      
      &:nth-child(2n){
-        background: #fff; 
+        background: #f77807; 
      }
    }
    
