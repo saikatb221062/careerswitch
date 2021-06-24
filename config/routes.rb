@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get '/results', to: 'pages#results', as: :show_pages
-  post '/connections/:id', to: 'connections#follow', as: :add_connection
-  delete '/connections/:id', to: 'connections#unfollow', as: :remove_connection 
+  post '/connections/:id', to: 'connections#connect', as: :add_connection
+  delete '/connections/:id', to: 'connections#disconnect', as: :remove_connection 
   get '/connections/requests', to: 'connections#requests', as: :requests_connections
   get '/dashboard', to: 'pages#dashboard', as: :dashboard_page
   get '/editprofile', to: 'users#editprofile', as: :edit_profile
@@ -20,10 +20,5 @@ Rails.application.routes.draw do
   get '/chat/:id', to: 'chats#chat', as: :chat
   post 'chat/:id', to: 'chats#sending'
 
-  resources :users, only: [:index] do
-    member do
-      post :follow
-      post :unfollow
-    end
-  end
+  resources :users, only: [:index]
 end

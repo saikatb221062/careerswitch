@@ -1,5 +1,5 @@
 class ConnectionsController < ApplicationController
-  def follow
+  def connect
     @user = User.find(params[:id])
     @button = params[:button]
     if current_user.connect(@user.id)
@@ -9,12 +9,12 @@ class ConnectionsController < ApplicationController
     end
   end
 
-  def unfollow
+  def disconnect
     @user = User.find(params[:id])
     @button = params[:button]
-    if current_user.unfollow(@user)
+    if current_user.disconnect
       respond_to do |format|
-        format.js { render action: :follow }
+        format.js
       end
     end
   end

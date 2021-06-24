@@ -11,13 +11,17 @@ class User < ApplicationRecord
   has_many :conversations, foreign_key: :sender_id
 
   has_many :connecting_relationships, foreign_key: :connecting_id, class_name: 'Connection'
-  
+
   def connect(user_id)
     connecting_relationships.create!(connecting_id: id, connecter_id: user_id)
   end
 
   def connections
     Connection.where(connecting_id: id).or(Connection.where(connecter_id: id))
+  end
+
+  def disconnect
+    Connection.where(connecting_id: id).or(Connection.where(connecter_id: id)).first.destroy
   end
 
   # def unfollow(user_id)
