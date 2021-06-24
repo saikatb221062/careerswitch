@@ -1,0 +1,73 @@
+.scrollbar {
+  margin-left: 30px;
+  float: left;
+  height: 300px;
+  width: 65px;
+  background: #a8edea;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: 20px;
+  }
+
+.scrollbar-morpheus-den::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+    
+.scrollbar-morpheus-den::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+    
+.scrollbar-morpheus-den::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#30cfd0), to(#330867));
+  background-image: -webkit-linear-gradient(bottom, #30cfd0 0%, #330867 100%);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+    
+.scrollbar-morpheus-den {
+  scrollbar-color: #330867 #F5F5F5;
+}
+
+.scrollbar-indigo::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+  
+.scrollbar-indigo::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #3f51b5;
+}
+  
+.scrollbar-indigo {
+  scrollbar-color: #3f51b5 #F5F5F5;
+}
+
+.btn-outline-back {
+  border-color: #138496;
+  color: #138496;
+}
+
+.btn-outline-back:hover {
+  background-color: #138496;
+  color: white;
+}
+
+.author-name {
+  color: #3a5d66;
+  font-size: 20px;
+}
+
+.author-time {
+  color: grey;
+  font-size: 16px;
+}
+
+.author-content {
+  font-size: 18px;
+}

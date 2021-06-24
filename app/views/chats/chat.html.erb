@@ -21,7 +21,7 @@
   </div>
 
   <div class="d-flex p-2 justify-content-center">
-    <div class="message-body text-left" style="width:400px; height:400px; overflow:auto">
+    <div class="message-body text-left scrollbar scrollbar-morpheus-den bordered-indigo" style="width:450px; height:400px; overflow:auto">
       <div id="messages" class="message-body"> 
       <% if @chat_messages.empty? %>
         <p> There is currently no messages </p>
@@ -29,10 +29,10 @@
         <% @chat_messages.each do |message| %>
           <div class="message-container" id="message-<%= message.id %>">
             <i class="author">
-              <span><b><%= message.user.first_name %></b></span>
-              <small><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
+              <span class="author-name"><b><%= message.user.first_name %></b></span>
+              <small class="author-time"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
             </i>
-          <p><%= message.content %></p>
+          <p class="author-content"><%= message.content %></p>
           </div>
         <% end %>
       <% end %>
@@ -48,12 +48,10 @@
       <%= hidden_field_tag "sender_id", @user.id %>
       <%= hidden_field_tag "chat_id", @connection.id %>
       <%= text_field_tag :message, nil, autofocus: true %>
-      <%= button_tag "Send" %>
+      <%= button_tag "Send", :class => 'btn btn-outline-success my-2 my-sm-0' %>
     <% end %>
   </div>
 
-  <div class="mt-2" style="text-align:center">
-    <%= link_to "Back", "/dashboard/networks" %>
-  </div>
+  <a class="btn btn-outline-back" href="/dashboard/networks" role="button">Back</a>
 </div>
 
