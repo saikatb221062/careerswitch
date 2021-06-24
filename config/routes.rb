@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/dashboard/networks', to: 'pages#networks', as: :networks_page
   get '/roadmaps/suggested', to: 'roadmaps#suggested', as: :suggested_roadmap
   
-  resources :roadmaps, only: [:create, :show] do 
+  resources :roadmaps, only: [:create, :show, :update] do 
     resources :comments, only: [:create]
     member do
       get 'builder'
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     collection do 
       get 'builder', to: 'roadmaps#mybuilder'
       post 'builder', to: 'roadmaps#create'
-      patch 'builder', to: 'roadmaps#update'
     end
   end
   get '/chat/:id', to: 'chats#chat', as: :chat
