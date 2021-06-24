@@ -12,7 +12,6 @@
     <h6 style="line-height: 40%;"><%= roadmap.start_date.strftime("%b %Y") %> to <%= roadmap.end_date.strftime("%b %Y") %></h6>
     Duration: <%= roadmap.duration %>months
     <br>
-<<<<<<< Updated upstream
     
     <% if current_user.roadmap.present? %>
       <%= link_to "Update your roadmap", builder_roadmaps_path, class: "btn btn-dark mb-3" %>
@@ -34,7 +33,7 @@
         <% end %>
       </div>
     </div>
-=======
+    
     <p class="rd1-p">Courses</p>
     <%= link_to "Select this template", builder_roadmap_path(roadmap), class: "btn btn-dark mb-3" %>
     <ul class="list-group list-group-flush rd1-ul">
@@ -45,7 +44,6 @@
       </li>
       <% end %>
     </ul>
->>>>>>> Stashed changes
   </div>
   <% end %>
 </div>
