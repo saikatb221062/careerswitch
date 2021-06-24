@@ -35,4 +35,5 @@ class User < ApplicationRecord
     )
     return relationship
   end
+  scope :except_current_user, ->(id) { where.not(id: id) }
 end
