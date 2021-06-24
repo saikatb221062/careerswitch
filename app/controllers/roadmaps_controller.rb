@@ -13,11 +13,6 @@ class RoadmapsController < ApplicationController
 
 
     @roadmaps = Roadmap.suggested_roadmaps(current_user)
-
-
-    @roadmaps = Roadmap.all.joins(:user).where(users: {
-      future_role: current_user.future_role 
-    })
   end
 
   def builder
