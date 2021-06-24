@@ -19,14 +19,12 @@ Rails.application.routes.draw do
     member do
       get 'builder'
     end
-<<<<<<< Updated upstream
     collection do 
       get 'builder', to: 'roadmaps#mybuilder'
       post 'builder', to: 'roadmaps#create'
     end
-=======
->>>>>>> Stashed changes
   end
+  
   get '/chat/:id', to: 'chats#chat', as: :chat
   post 'chat/:id', to: 'messages#create', as: :message
 end
