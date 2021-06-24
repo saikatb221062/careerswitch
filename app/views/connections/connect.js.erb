@@ -1,0 +1,9 @@
+// console.log('#<%=@button%>-<%=@user.id%>-btn');
+const element = document.querySelector('#<%=@button%>-<%=@user.id%>-btn');
+// console.log(element);
+
+element.innerText = 'Disconnect';
+element.classList.add('btn-danger');
+element.classList.remove('btn-primary');
+element.classList.add('disabled')
+

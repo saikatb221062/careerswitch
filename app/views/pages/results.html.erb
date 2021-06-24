@@ -13,11 +13,52 @@
 <!-- Grid Container -->
 <div class="result-cards">
   <% @shortlisted_profiles.each do |matched_user| %>
-  <% next if matched_user.first_name.nil? || matched_user.first_name.empty? %>
-  <% matched_user.roadmap.nil? ? match_rdmp_id = 0 : match_rdmp_id = matched_user.roadmap.id %>
-
-  <%= render 'matches_grid', matched_user: matched_user, match_rdmp_id: match_rdmp_id %>
-
+  <div class="profiles card mt-3 mb-3 border border-success" style="width: 16rem; height: 25rem;">
+    <div class="matched-img-div text-center">
+      <img class="matched-user-image img-fluid" style="vertical-align:middle; width:70px; height: 70px; border-radius: 50%;" src="<%= matched_user.img_url %>" alt="">
+    </div>
+    <br>
+    <h3 class="text-center rd1-h4"><span class="first-name"><%= matched_user.first_name %></span> <span class="last-name"><%= matched_user.last_name %></span></h3>
+    <br>
+    <p class="current-role font-weight-bold"><%= matched_user.current_role %>, </p>
+    <p class="current-ind font-weight-bold"><%= matched_user.current_industry %></p>
+    <p class="text-muted">to</p>
+    <p class="future-ind font-weight-bold"><%= matched_user.future_industry %></p>
+    <% if user_signed_in? %>
+      <button class="btn btn-success" type="button" data-target="#modalTwo-<%= matched_user.id %>" data-toggle="modal">More!</button>
+    <% else %>
+      <button class="btn btn-success" type="button" data-target="#modalOne" data-toggle="modal">More!</button>
+    <% end %>
+  </div>
+  <!-- Modal Two - User Signed In -->
+  <div class="modal fade" id="modalTwo-<%= matched_user.id %>" tabindex="-1" aria-labelledby="modalTwoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl top-zero">
+      <div class="modal-content">
+        <div class="modal-dialog modal-xl">
+          <div class="mb2-14 text-center">
+            <img class="img-fluid" style="vertical-align:middle; width:70px; height: 70px; border-radius: 50%;" src="<%= matched_user.img_url %>" alt="<%= matched_user.first_name %> <%= matched_user.last_name %>">
+          </div>
+          <br>
+          <h3 class="rd1-h3"><span id="mb2-1"><%= matched_user.first_name %></span> <span id="mb2-2"><%= matched_user.last_name %></span></h3>
+          <p>Location: <span id="mb2-3"><%= matched_user.location %></span></p>
+          <p>from <strong><span id="mb2-4"><%= matched_user.current_industry %></span>, <span id="mb2-5"><%= matched_user.current_role %></span></strong> to <strong><span id="mb2-6"><%= matched_user.future_industry %></span></strong></p>
+          <p>Timeframe <span id="mb2-7"><%= matched_user.timeframe %> weeks</span> Budget: USD<span id="mb2-8"><%= matched_user.budget %></span></p>
+          <p>Available Hours Per Week <span id="mb2-9"><%= matched_user.available_hrs_per_week %></span></p>
+          <p>Journey Experience <span id="mb2-10"><%= matched_user.journey_experience %></span></p>
+          <p>Satisfaction <span id="mb2-11"><%= matched_user.satisfaction %></span></p>
+          <p>Advice <span id="mb2-12"><%= matched_user.advice %></span></p>
+          <p>Motivation <span id="mb2-13"><%= matched_user.motivation %></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark rounded-pill px-2 px-md-4" data-dismiss="modal">Close</button>
+          <%= render partial: "follow_button", locals: {user: matched_user} %>
+          <div id="mb2-15">
+            <a href="#" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>
 
@@ -47,54 +88,29 @@
 <div class="modal fade" id="modalTwo" tabindex="-1" aria-labelledby="modalTwoLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable top-zero">
     <div class="modal-content">
-      <div class="modal-body">
-        <div class="cell">
-          <div class="small">
-            <img id="mb2-imgurl" src="" alt="matched-user">
-            <h2 id="mb2-name">Profile Name</h2>
-            <p class="mb2-small-hdr">Success Story</p>
-            <p class="mb2-small-dtl" id="mb2-currrole">Previous Role</p>
-            <p class="mb2-small-to">to</p>
-            <p class="mb2-small-dtl" id="mb2-futrole">Future Role</p>
-            <p class="mb2-small-hdr">Member since</p>
-            <p class="mb2-small-dtl">
-              <span id="mb2-mbrsince">Member Since</span>
-            </p>
-            <p class="mb2-small-hdr">from</p>
-            <p class="mb2-small-dtl">
-              <span id="mb2-locn">Location</span>
-            </p>
-            <p class="mb2-small-hdr">Status</p>
-            <p class="mb2-small-dtl">
-              <span id="mb2-status">Status</span>
-            </p>
-            <i class="fab fa-facebook-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 4px; color: #c7c5c6; text-align: left;"></i>
-            <i class="fab fa-twitter-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 4px; color: #c7c5c6; text-align: left;"></i>
-            <i class="fab fa-instagram-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 4px; color: #c7c5c6; text-align: left;"></i>
-            <i class="fab fa-linkedin" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 4px; color: #c7c5c6; text-align: left;"></i>
-
-          </div>
-          <div class="large">
-            <p class="large-p1 text-muted">I was previously<span id="mb2-currentrole"></span> in the <span id="mb2-currentind"></span> industry.</p>
-            <p class="large-p2">I am now a <span id="mb2-futurerole"></span>.</p>
-            <p class="d-none"><span id="mb2-futureind"></span></p>
-            <p class="large-p4">Highlights</p>
-            <p class="large-p3 text-secondary">I started my career change journey with a target to achieve my goals in <span id="mb2-timeframe"></span> months. I set aside a budget of S$<span id="mb2-budget"></span>, and committed to putting in at least <span id="mb2-hrsperwk"></span> hours per week, working towards my dream!</p>
-            <p class="large-p4">Why did I change?</p>
-            <p class="large-p5 text-secondary" id="mb2-motivation">Motivation</p>
-            <p class="d-none" id="mb2-satisfaction">Satisfaction</p>
-            <p class="d-none" id="mb2-journey">Journey Experience</p>
-            <p class="large-p4">My Experience and Advice</p>
-            <p class="large-p6 text-secondary" id="mb2-advice">Advice</p>
-            <br>
-            <div class="mb2-small-links">
-              <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill mr-2 mr-md-2 px-4 px-md-4" data-dismiss="modal">Close</button>
-              <%= link_to 'Connect', requests_connections_path, class: 'btn btn-sm btn-outline-warning rounded-pill mr-2 mr-md-2 px-2 px-md-2' %>
-              <a id="mb2-seeRoadmap" href="#" class="btn btn-sm btn-outline-primary rounded-pill mr-2 mr-md-2 px-2 px-md-2">See Roadmap</a>
-            </div>
-          </div>
+      <div class="modal-dialog modal-xl">
+        <div class="mb2-14 text-center">
+          <img class="img-fluid" style="vertical-align:middle; width:70px; height: 70px; border-radius: 50%;" src="#" alt="">
+        </div>
+        <br>
+        <h3 class="rd1-h3"><span id="mb2-1"></span> <span id="mb2-2"></h3>
+        <p>Location: <span id="mb2-3"></span></p>
+        <p>from <strong><span id="mb2-4"></span>, <span id="mb2-5"></span></strong> to <strong><span id="mb2-6"></span></strong></p>
+        <p>Timeframe <span id="mb2-7"> weeks</span> Budget: USD<span id="mb2-8"></span></p>
+        <p>Available Hours Per Week <span id="mb2-9"></span></p>
+        <p>Journey Experience <span id="mb2-10"></span></p>
+        <p>Satisfaction <span id="mb2-11"></span></p>
+        <p>Advice <span id="mb2-12"></span></p>
+        <p>Motivation <span id="mb2-13"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark rounded-pill px-2 px-md-4" data-dismiss="modal">Close</button>
+        <span id="matched-user-id" data-user=""></span>
+        <div id="mb2-15">
+          <a href="#" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+

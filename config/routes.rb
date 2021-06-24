@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get '/results', to: 'pages#results', as: :show_pages
+  post '/connections/:id', to: 'connections#connect', as: :add_connection
+  delete '/connections/:id', to: 'connections#disconnect', as: :remove_connection 
   get '/results/:id', to: 'pages#showmatch', as: :show_match
   
   resources :connections, only: [:create, :update]

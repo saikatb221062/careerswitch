@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:follow, :unfollow]
+
   def editprofile
   end
   
@@ -18,9 +20,14 @@ class UsersController < ApplicationController
     redirect_to dashboard_page_path
   end
 
+  def index
+    @users = User.where.not(id: current_user.id)
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :budget, :timeframe, :current_role, :current_industry, :future_role, :future_industry, :available_hrs_per_week, :status)
   end
+
 end
