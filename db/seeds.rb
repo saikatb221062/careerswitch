@@ -687,7 +687,7 @@ Connection.create!(
 Connection.create!(
   connecting_id: @minyoung.id,
   connected_id: @chris.id,
-  user_id: @nicole.id
+  user_id: @minyoung.id
 )
 
 printStats
