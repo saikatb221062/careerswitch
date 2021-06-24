@@ -11,6 +11,7 @@ class RoadmapsController < ApplicationController
     # get all roadmaps where roadmap user is not the current user
     # and roadmap user future role = current user future role
 
+
     @roadmaps = Roadmap.suggested_roadmaps(current_user)
   end
 
