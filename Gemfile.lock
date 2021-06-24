@@ -179,7 +179,11 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+<<<<<<< HEAD
+    redis (4.3.1)
+=======
     redis (4.2.5)
+>>>>>>> 58c55f70cb47a33c195922432056428eaf4f2c79
     regexp_parser (2.1.1)
     responders (3.0.1)
       actionpack (>= 5.0)
