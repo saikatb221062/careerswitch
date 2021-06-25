@@ -1,0 +1,13 @@
+  <!-- CARDS -->
+  <div class="result-card">
+    <img src="<%= matched_user.img_url %>" alt="matched-user">
+    <div class="card-name">
+      <p><strong>
+          <%= matched_user.first_name %> <%= matched_user.last_name %>
+        </strong></p>
+      <p class="text-muted"><%= matched_user.future_role %></p>
+    </div>
+
+    <i class="fas fa-plus-circle profileBtn" data-target="#profBtn" data-matched-user-id="<%= matched_user.id %>" data-matched-roadmap="<%= match_rdmp_id %>"></i>
+  </div>
+  

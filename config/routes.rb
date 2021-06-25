@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get '/results', to: 'pages#results', as: :show_pages
+  get '/results/:id', to: 'pages#showmatch', as: :show_match
+  
   resources :connections, only: [:create, :update]
   get '/connections/requests', to: 'connections#requests', as: :requests_connections
   get '/dashboard', to: 'pages#dashboard', as: :dashboard_page
@@ -11,11 +13,20 @@ Rails.application.routes.draw do
   patch '/dashboard', to:'users#updateprofile', as: :update_profile
   get '/dashboard/networks', to: 'pages#networks', as: :networks_page
   get '/roadmaps/suggested', to: 'roadmaps#suggested', as: :suggested_roadmap
-  get '/roadmaps/builder', to: 'roadmaps#builder', as: :builder_roadmap
   
-  resources :roadmaps, only: [:create, :show] do 
+  resources :roadmaps, only: [:create, :show, :update] do 
     resources :comments, only: [:create]
+    member do
+      get 'builder'
+    end
+
+    collection do 
+      get 'builder', to: 'roadmaps#mybuilder'
+      post 'builder', to: 'roadmaps#create'
+    end
   end
+  
   get '/chat/:id', to: 'chats#chat', as: :chat
-  post 'chat/:id', to: 'chats#sending'
+  post 'chat/:id', to: 'messages#create', as: :message
 end
+

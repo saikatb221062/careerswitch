@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   has_many :conversations, foreign_key: :sender_id
+
+  scope :except_current_user, -> (id) { where.not(id: id) }
 end

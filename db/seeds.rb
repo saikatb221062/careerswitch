@@ -39,10 +39,10 @@ def seedCourses
   'Fulltack Academy',
   'Vdemy',
   'SpillsFuture',
-  'SmellyFish',
+  'ScalyFish',
   'JollyRoger',
   'Bursera',
-  'SmellyFish',
+  'ScalyFish',
   'JollyRoger',
   'Vdemy',
   'QueSeraSera',
@@ -54,7 +54,7 @@ def seedCourses
   'Bursera',
   'Vdemy',
   'SpillsFuture',
-  'SmellyFish',
+  'ScalyFish',
   'JollyRoger',
   'Bursera',
   'Jack Sparrow School',
@@ -71,30 +71,30 @@ def seedCourses
     'Full Stack Web Dev Bootcamp',
     'Live Online Coding Bootcamp',
     'HTML & CSS Online Course',
-    'Website Design In One Day',
+    'Rapid Website Design',
     'HTML & CSS',
     'HTML & CSS Basics',
     'HTML & CSS Fundamentals',
     'Javascript Online',
     'Javascript Basics',
     'Javascript Fundamentals',
-    'Master Javascript in 7 Weeks',
+    'Pronto Master Javascript',
     'Rectangular JS',
     'HTML & CSS Online!',
-    'Create / Design Website In One Day',
+    'Rapid Website Design',
     'HTML & CSS Basics',
     'HTML & CSS Fundamentals',
     'HTML & CSS Basics',
     'Git/Github Basics',
     'Git/Github Fundamentals',
-    'Git/Github in a Week',
+    'Git/Github Pronto!',
     'Git/Github Immersive',
     'Git Set Go !',
     'SQLite3',
     'PostgreSQL',
     'MongoDB Atlas',
     'mySQL with innoDB and NDB',
-    'DB DB Dub Dub …'
+    'DB DB Duh Duh'
   ]
 
   course_fees = [ 10000, 10000, 15000, 150, 500, 250, 250, 300, 500, 0, 1000, 750, 250, 0, 0, 1000, 0, 200, 300, 0, 150, 250, 350, 550, 0, 250, 1000, 2600, 2900, 0 ]
@@ -255,36 +255,36 @@ def seedCoursesRoadmapsJoinTable
   CourseRoadmap.destroy_all
 
   two_d_array = [
-    [ 1, 4, 0, 6, 7, 0, 12, 11, 13, 18, 20, 0, 21, 22, 0, 28, 29, 0 ], 
-    [ 2, 5, 0, 9, 8, 7, 11, 12, 13, 16, 0, 0, 22, 23, 0, 30, 0, 0 ], 
-    [ 1, 0, 0, 9, 8, 10, 13, 14, 11, 18, 20, 0, 25, 0, 0, 29, 30, 0 ], 
-    [ 1, 2, 0, 8, 10, 6, 11, 14, 15, 19, 16, 0, 23, 24, 0, 29, 30, 0 ], 
-    [ 1, 3, 0, 9, 0, 0, 12, 14, 0, 19, 18, 0, 23, 24, 0, 26, 27, 28 ], 
-    [ 1, 2, 0, 10, 8, 7, 12, 13, 0, 19, 16, 0, 22, 23, 0, 27, 28, 29 ], 
-    [ 2, 0, 0, 8, 9, 0, 14, 0, 0, 16, 19, 0, 25, 0, 0, 29, 30, 0 ], 
-    [ 4, 0, 0, 10, 9, 0, 13, 11, 0, 20, 16, 0, 23, 24, 0, 30, 0, 0 ], 
-    [ 3, 1, 0, 6, 8, 0, 14, 15, 0, 16, 0, 0, 23, 24, 0, 30, 0, 0 ], 
-    [ 1, 5, 0, 8, 0, 0, 15, 0, 0, 17, 0, 0, 24, 25, 0, 28, 29, 0 ], 
-    [ 1, 0, 0, 6, 0, 0, 13, 15, 0, 16, 18, 0, 24, 25, 0, 30, 0, 0 ], 
-    [ 1, 5, 0, 6, 7, 0, 14, 11, 0, 19, 18, 0, 23, 24, 0, 29, 30, 0 ], 
-    [ 5, 0, 0, 8, 6, 10, 11, 14, 13, 18, 0, 0, 22, 23, 0, 30, 0, 0 ], 
-    [ 4, 0, 0, 8, 10, 7, 13, 0, 0, 20, 0, 0, 24, 25, 0, 29, 30, 0 ], 
-    [ 1, 0, 0, 8, 9, 0, 14, 0, 0, 16, 20, 0, 22, 23, 0, 26, 27, 29 ], 
-    [ 2, 0, 0, 9, 0, 0, 13, 11, 12, 19, 16, 0, 21, 22, 0, 30, 0, 0 ], 
-    [ 1, 4, 0, 6, 7, 0, 12, 11, 13, 18, 20, 0, 21, 22, 0, 28, 29, 0 ], 
-    [ 2, 5, 0, 9, 8, 7, 11, 12, 13, 16, 0, 0, 22, 23, 0, 30, 0, 0 ], 
-    [ 1, 0, 0, 9, 8, 10, 13, 14, 11, 18, 20, 0, 25, 0, 0, 29, 30, 0 ], 
-    [ 1, 2, 0, 8, 10, 6, 11, 14, 15, 19, 16, 0, 23, 24, 0, 29, 30, 0 ], 
-    [ 1, 3, 0, 9, 0, 0, 12, 14, 0, 19, 18, 0, 23, 24, 0, 26, 27, 28 ], 
-    [ 1, 2, 0, 10, 8, 7, 12, 13, 0, 19, 16, 0, 22, 23, 0, 27, 28, 29 ], 
-    [ 2, 0, 0, 8, 9, 0, 14, 0, 0, 16, 19, 0, 25, 0, 0, 29, 30, 0 ], 
-    [ 4, 0, 0, 10, 9, 0, 13, 11, 0, 20, 16, 0, 23, 24, 0, 30, 0, 0 ], 
-    [ 3, 1, 0, 6, 8, 0, 14, 15, 0, 16, 0, 0, 23, 24, 0, 30, 0, 0 ], 
-    [ 1, 5, 0, 8, 0, 0, 15, 0, 0, 17, 0, 0, 24, 25, 0, 28, 29, 0 ], 
-    [ 1, 0, 0, 6, 0, 0, 13, 15, 0, 16, 18, 0, 24, 25, 0, 30, 0, 0 ], 
-    [ 1, 5, 0, 6, 7, 0, 14, 11, 0, 19, 18, 0, 23, 24, 0, 29, 30, 0 ], 
-    [ 5, 0, 0, 8, 6, 10, 11, 14, 13, 18, 0, 0, 22, 23, 0, 30, 0, 0 ], 
-    [ 4, 0, 0, 8, 10, 7, 13, 0, 0, 20, 0, 0, 24, 25, 0, 29, 30, 0 ]
+    [ 1, 4, 0, 0, 0, 0, 12, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 2, 5, 0, 9, 8, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 0, 0, 9, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 29, 30, 0 ], 
+    [ 2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0 ], 
+    [ 0, 3, 0, 0, 0, 0, 12, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 4, 0, 0, 0, 0, 12, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 2, 5, 0, 9, 8, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 0, 0, 9, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 29, 30, 0 ], 
+    [ 2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0 ], 
+    [ 0, 3, 0, 0, 0, 0, 12, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 4, 0, 0, 0, 0, 12, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 2, 5, 0, 9, 8, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 0, 0, 9, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 29, 30, 0 ], 
+    [ 2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0 ], 
+    [ 0, 3, 0, 0, 0, 0, 12, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 4, 0, 0, 0, 0, 12, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 2, 5, 0, 9, 8, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 0, 0, 9, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 29, 30, 0 ], 
+    [ 2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0 ], 
+    [ 0, 3, 0, 0, 0, 0, 12, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 4, 0, 0, 0, 0, 12, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 2, 5, 0, 9, 8, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 0, 0, 9, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 29, 30, 0 ], 
+    [ 2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0 ], 
+    [ 0, 3, 0, 0, 0, 0, 12, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 4, 0, 0, 0, 0, 12, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 2, 5, 0, 9, 8, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ], 
+    [ 1, 0, 0, 9, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 29, 30, 0 ], 
+    [ 2, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0 ], 
+    [ 0, 3, 0, 0, 0, 0, 12, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0 ]
   ]
   
   statuses = [ "Completed", "In progress", "Yet to Start" ]
@@ -329,25 +329,49 @@ def seedUsers
   User.destroy_all
 
   current_role = [
-    'Supervisor', 
-    'Admin Manager', 
-    'Contractor', 
-    'Consultant', 
-    'Advisor', 
-    'Salesperson'] 
+    'Marketing',
+    'Design',
+    'Product Management',
+    'Copywriter',
+    'Account Management',
+    'Project Management',
+    'Business Analysis',
+    'Risk Management',
+    'Human Resources',
+    'Accountant',
+    'Sales',
+    'Customer Support',
+    'Operation',
+    'Research',
+    'Instructor',
+    'Consulting',
+    'Self-employed',
+    'Freelance'
+  ] 
 
   current_ind =  [
-      'Accounting', 
-      'Finance', 
-      'Health Care', 
-      'Banking', 
-      'Education']
+    'Consulting',
+    'Art/Design',
+    'IT/Tech Agriculture',
+    'Hospitality',
+    'Law',
+    'Leisure/Tourism',
+    'Marketing/Advertising',
+    'Media/Entertainment',
+    'Public Services/Govt',
+    'Retail',
+    'Pharmaceuticals',
+    'Self-employed',
+    'Freelance'
+  ]
 
-  future_ind = [
-    'Fullstack Engineering', 
-    'Frontend Developer', 
-    'Backend Developer', 
-    'Data Analyst']
+  future_roles = [
+    'Web Developer',
+    'Product Manager',
+    'Fullstack Engineering',
+    'Frontend Developer',
+    'Backend Developer',
+  ]
 
   @satisfaction = [ 
     "Great", 
@@ -361,9 +385,53 @@ def seedUsers
   @src3 = '/pexels-photo-'
   @src5 = '.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=750&h=1260'
 
-  men_faces = [ 749091, 977374, 1267335, 1546912, 2269872, 2341350, 2531553, 211476,   3370021, 3406022, 3754833, 4052800, 4061512, 6102841, 7431273 ]
+  men_faces = [ 
+    749091, 
+    977374, 
+    1267335, 
+    1546912, 
+    2269872, 
+    2341350, 
+    2531553, 
+    211476, 
+    3370021, 
+    3406022, 
+    3754833, 
+    4052800, 
+    4061512, 
+    6102841, 
+    7431273 ]
 
-  women_faces = [ 1520760, 1644924, 1691294, 1845993, 3021554, 3021563, 3394658,  3936894, 4258184, 5025111, 5649997, 6682475, 7073078, 7717254, 8219320 ]
+  women_faces = [ 
+    1520760, 
+    1644924, 
+    1691294, 
+    1845993, 
+    3021554, 
+    3021563, 
+    3394658, 
+    3936894, 
+    4258184, 
+    5025111, 
+    5649997, 
+    6682475, 
+    7073078, 
+    7717254, 
+    8219320 ]
+
+  locations = [ 
+    'Singapore',
+    'Hong Kong',
+    'Beijing',
+    'Jakarta',
+    'Melbourne',
+    'New York',
+    'Paris',
+    'London',
+    'Dubai',
+    'New Delhi',
+    'Seoul'
+ ]
 
   i = 1
   j = 0
@@ -381,7 +449,7 @@ def seedUsers
       j += 1
     end
 
-    @future_ind = future_ind.sample
+    @future_role = future_roles.sample
     user_email = "#{@name1}@#{Faker::Internet.domain_name}"
 
     puts "Creating User #{i} of 30 - #{user_email}"
@@ -395,18 +463,17 @@ def seedUsers
       timeframe: [6, 12, 18, 24].sample,
       current_role: current_role.sample,
       current_industry: current_ind.sample,
-      future_industry: @future_ind,
-      future_role: @future_ind,
+      future_industry: 'Tech/IT',
+      future_role: @future_role,
       available_hrs_per_week: [12, 24, 36, 40, 60].sample,
-      status: '',
+      status: ['Online', 'Offline'].sample,
       img_url: @img_url,
       advice: Faker::Quote.yoda,
-      location: Faker::Address.city,
+      location: locations.sample,
       motivation: Faker::Quote.matz,
       journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
       satisfaction: @satisfaction.sample
       )
-
     i += 1
   end
 end
@@ -424,7 +491,7 @@ def seedConnections
   j = 19
 
   # We will create connections data for the first 5 users that have been created
-  # We will connect each of those users to last  20 to 29 
+  # We will connect each of those users to Users 20 to 29 
   
   until i > 4 do
     puts "Seeding Connections for #{i+1} of 5 Users"
@@ -537,52 +604,90 @@ else
   puts "Nothing to do? GoodBye !"
 end
 
-printStats
+
+# Creating Users for Connectdots build team
+print `clear`
+puts "🏆🏆 Now Creating Users and Connections for the Connectdots Delta Force team !🏆🏆"
 
 @nicole = User.create!(
-      first_name: "Nicole",
-      email: "leowminzi@gmail.com",
-      password: "123456",
-      last_name: "Leow",
-      budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
-      timeframe: [6, 12, 18, 24].sample,
-      current_role: "Accounting",
-      current_industry: "Web Developer",
-      future_industry: "Web Developer",
-      future_role: "Web Developer",
-      available_hrs_per_week: [12, 24, 36, 40, 60].sample,
-      status: '',
-      img_url: "",
-      advice: Faker::Quote.yoda,
-      location: Faker::Address.city,
-      motivation: Faker::Quote.matz,
-      journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
-      satisfaction: ""
-      ) 
+  first_name: "Nicole",
+  email: "leowminzi@gmail.com",
+  password: "123456",
+  last_name: "Leow",
+  budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
+  timeframe: [6, 12, 18, 24].sample,
+  current_role: "Consultant",
+  current_industry: "Banking",
+  future_industry: "Tech/IT",
+  future_role: "Web Developer",
+  available_hrs_per_week: [12, 24, 36, 40, 60].sample,
+  status: ['Online', 'Offline'].sample,
+  img_url: "https://ca.slack-edge.com/T02NE0241-U01K3EYTT6Y-bc20a7c16358-512",
+  advice: Faker::Quote.yoda,
+  location: 'Singapore',
+  motivation: Faker::Quote.matz,
+  journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
+  satisfaction: ""
+) 
 
-      @another = User.create!(
-        first_name: "Friend",
-        email: "friend@gmail.com",
-        password: "123456",
-        last_name: "Friend",
-        budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
-        timeframe: [6, 12, 18, 24].sample,
-        current_role: "Accounting",
-        current_industry: "Web Developer",
-        future_industry: "Web Developer",
-        future_role: "Web Developer",
-        available_hrs_per_week: [12, 24, 36, 40, 60].sample,
-        status: '',
-        img_url: "",
-        advice: Faker::Quote.yoda,
-        location: Faker::Address.city,
-        motivation: Faker::Quote.matz,
-        journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
-        satisfaction: ""
-        ) 
+@minyoung = User.create!(
+  first_name: "Minyoung",
+  email: "minyoungchang65@gmail.com",
+  password: "123456",
+  last_name: "Chang",
+  budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
+  timeframe: [6, 12, 18, 24].sample,
+  current_role: "Chairman",
+  current_industry: "Insurance",
+  future_industry: "Tech/IT",
+  future_role: "Web Developer",
+  available_hrs_per_week: [12, 24, 36, 40, 60].sample,
+  status: ['Online', 'Offline'].sample,
+  img_url: "https://ca.slack-edge.com/T02NE0241-U01JQJAF7S6-46eb625dbda2-512",
+  advice: Faker::Quote.yoda,
+  location: 'Singapore',
+  motivation: Faker::Quote.matz,
+  journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
+  satisfaction: ""
+) 
+
+@chris = User.create!(
+  first_name: "Chris",
+  email: "chris@bootcamp.sg",
+  password: "123456",
+  last_name: "De Lima",
+  budget: [500, 1000, 1500, 2000, 2500, 3000].sample,
+  timeframe: [6, 12, 18, 24].sample,
+  current_role: "Consultant",
+  current_industry: "Finance",
+  future_industry: "Tech/IT",
+  future_role: "Web Developer",
+  available_hrs_per_week: [12, 24, 36, 40, 60].sample,
+  status: ['Online', 'Offline'].sample,
+  img_url: "https://ca.slack-edge.com/T02NE0241-U01J21DET2T-5c4a15d1564a-512",
+  advice: Faker::Quote.yoda,
+  location: 'Singapore',
+  motivation: Faker::Quote.matz,
+  journey_experience: Faker::Lorem.paragraph_by_chars(number: 512, supplemental:  false),
+  satisfaction: ""
+) 
 
 Connection.create!(
   connecting_id: @nicole.id,
-  connected_id: @another.id,
+  connected_id: @minyoung.id,
   user_id: @nicole.id
 )
+
+Connection.create!(
+  connecting_id: @nicole.id,
+  connected_id: @chris.id,
+  user_id: @nicole.id
+)
+
+Connection.create!(
+  connecting_id: @minyoung.id,
+  connected_id: @chris.id,
+  user_id: @minyoung.id
+)
+
+printStats

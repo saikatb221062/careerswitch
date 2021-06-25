@@ -1,17 +1,37 @@
-<p style="margin-left: 320px; font-size: 18px;">You have selected a template from <%= @roadmaps[0].user.first_name %>'s roadmap</p>
+<p style="font-size: 18px;">You have selected a template from <%= @roadmap.user.first_name %>'s roadmap</p>
+<h3><strong>Select the courses you want to add to your roadmap!</strong></h3>
+
+  <div class="course-list">
+      <p class="text-center" style="font-weight: bolder;">Add a course to your roadmap</p>
+      <ul class="list-group list-group-flush">
+      <%= form_for(@my_roadmap) do |f| %>
+        <% @courses.each do |course| %>
+        <li class="list-group-item text-primary">
+          <div class="dish-list-line-div">
+            <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>
+            </div>
+            <div draggable="true" class="d-inline dish-item">><%= course.title %>Cost: SGD<%= course.cost %> | <%= course.duration %> months </div>
+            <%= f.check_box :courses, { multiple: true }, course.id, nil %>
+          </div>
+        </li>
+        <% end %>
+        <%= submit_tag 'Save', form: 'new_roadmap' %>
+      <% end %>
+      </ul>
+
+<p style="margin-left: 320px; font-size: 18px;">You have selected a template from <%= @roadmap.user.first_name %>'s roadmap</p>
 <h2 style="margin-left: 320px"><strong>Here's where you can start!</strong></h2>
 <br>
 
-  
 <div class="builder-sidenav">
   <p class="text-center" style="font-weight: bolder;">Add a course to your roadmap</p>
-  <ul class="list-group list-group-flush" onclick="addCourse()" id="add">
+  <ul class="list-group list-group-flush">
     <% @courses.each do |course| %>
     <li class="list-group-item text-primary">
       <i class="fas fa-plus-circle grab" style="float: right;"></i>
       <div class="dish-list-line-div">
-        <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.topic.name %>:</div>
-        <div draggable="true" class="d-inline dish-item" id="course-selected"><%= course.provider %><br><%= course.title %><br>Cost: SGD<%= course.cost %> | <%= course.duration %> weeks</div>
+        <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>:</div>
+        <div draggable="true" class="d-inline dish-item">><%= course.title %><br>Cost: SGD<%= course.cost %> | <%= course.duration %> weeks</div>
       </div>
     </li>
     <% end %>
@@ -20,35 +40,33 @@
 
 <div class="bd-container">
   <div class="bd-row">
-    <div id="timetable-topic" class="float-left" style="width: 15%;">
-      <div class="timetable_content">
-        <ul class="topic-header">
-          <% @topics.each do |topic| %>
-          <li style="margin-bottom: 25px;">
-            <span class="timeslot"><%= topic.name %><hr /></span>
-          </li>
+    <div class="tab">
+      <table>
+        <tr class="months">
+          <% @today = Date.today %>
+          <% (1..10).each do %>
+          <th>hi</th>
           <% end %>
-        </ul>
-        <ul class="timeslots example-dropzone">
-        </ul>
-      </div>
-    </div>
-    <div id="timetable" class="float-right" style="width: 80%;">
-      <div class="timetable_content">
-        <ul class="months clearfix">
-          <% @roadmaps[0..15].each do |roadmap| %>
-          <li data-month="08"><%= roadmap.start_date.strftime("%b") %></li>
-          <% end %>
-        </ul>
-        <ul class="timeslots" id="trades">
-          <% @courses[0..6].each do |course| %>
-          <li>
-            <span class="timeslot" ondragstart="onDragStart(event);" data-month-start="2015-05-10"><%= course.provider %><br><%= course.title%></span>
-          </li>
-          <% end %>
-        </ul>
-      </div>
+        </tr>
+        <tr>
+          <td class="cs335 blue" data-tooltip="Software Engineering & Software Process">CS335 [JH1]</td>
+          <td></td>
+          <td></td>
+          <td>- </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>-</td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
+
+
+
 
