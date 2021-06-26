@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     member do
       get 'builder'
     end
-
     collection do 
       get 'builder', to: 'roadmaps#mybuilder'
       post 'builder', to: 'roadmaps#create'

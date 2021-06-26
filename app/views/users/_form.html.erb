@@ -14,60 +14,56 @@
 <div class="dashboard">
   <div class="dashboard-row">
     <div class="dashboard-card">
-  <div class="cover-bg">
-  <%= form_for(user, url: update_profile_path, method: :patch) do |f| %>
-    <%= f.submit "Save", class: 'btn btn-edit mr-4 mt-3' %>
-    <%= link_to dashboard_page_path, class: 'btn btn-edit mr-4 mt-3' do %>
-    Back
-    <% end %>
-  </div>
-  <div class="user-info-wrap">
-    <div class="user-photo"></div>
-    <div class="user-info">
-      <%= f.input :photo, as: :file, class: 'btn btn-edit mr-4 mt-3' %>
+  <%= form_for(current_user, url: update_profile_path, method: :patch) do |f| %>
+    <div class="cover-bg">
+      <%= f.submit "Save", class: 'btn btn-edit mr-4 mt-3' %>
+      <%= link_to 'Back', dashboard_page_path, class: 'btn btn-edit mr-4 mt-3' %>
     </div>
-  </div>
-  <div class="user-bio">
-    <div class="col-12 col-md-12">
-      <h3 class="bio-subject">Location*</h3><%= f.select :location, ['Singapore','Hong Kong','Beijing','Jakarta','Melbourne','New York','Paris','London','Dubai','New Delhi','Seoul'], class: 'form-control', required: true %>
+    <div class="user-info-wrap">
+      <div class="user-photo"></div>
+      <%= f.file_field :photo, class: 'btn btn-upload' %>
     </div>
-    <div class="col-12 col-md-6">
-      <h3 class="bio-subject">First Name*</h3><%= f.text_field :first_name, class: 'form-control', required: true %>
+    <div class="user-bio">
+      <div class="col-12 col-md-12">
+        <h3 class="bio-subject">Location*</h3><%= f.select :location, ['Singapore','Hong Kong','Beijing','Jakarta','Melbourne','New York','Paris','London','Dubai','New Delhi','Seoul'], class: 'form-control', required: true %>
+      </div>
+      <div class="col-12 col-md-6">
+        <h3 class="bio-subject">First Name*</h3><%= f.text_field :first_name, class: 'form-control', required: true %>
+      </div>
+      <div class="col-12 col-md-6">
+        <h3 class="bio-subject">Last Name*</h3><%= f.text_field :last_name, class: 'form-control', required: true %>
+      </div>
+      <div class="col-12 col-md-6 pt-3">
+        <h3 class="bio-subject">Budget (SGD)* </h3><%= f.text_field :budget, class: 'form-control', required: true %>
+      </div>
+      <div class="col-12 col-md-6 pt-3">
+        <h3 class="bio-subject">Timeframe (month)*</h3><%= f.text_field :timeframe, class: 'form-control', required: true %>
+      </div>
+      <div class="col-12 col-md-6 pt-3">
+        <h3 class="bio-subject">Current Industry*</h3><%= f.select :current_industry, [ 'Consulting', 'Art/Design', 'IT/Tech', 'Agriculture', 'Banking/Finance', 'Hospitality', 'Law', 'Leisure/Tourism', 'Marketing/Advertising', 'Media/Entertainment', 'Public Services/Govt', 'Retail', 'Pharmaceuticals', 'Self-employed', 'Freelance' ], class: 'form-control', required: true, :style => "width: 200px;" %>
+      </div>
+      <div class="col-12 col-md-6 pt-3">
+        <h3 class="bio-subject">Current Job Title*</h3><%= f.select :current_role, [
+      'Marketing','Design','Product Management','Copywriter','Account Management','Project Management','Business Analysis','Risk Management','Human Resources','Accountant','Sales','Customer Support','Operation','Research','Instructor','Consulting','Self-employed','Freelance'], class: 'form-control', required: true, :style => "width: 200px;" %>
+      </div>
+      <div class="col-12 col-md-6 pt-3">
+        <h3 class="bio-subject">Future Industry*</h3><%= f.text_field :future_industry, class: 'form-control', required: true %>
+      </div>
+      <div class="col-12 col-md-6 pt-3">
+        <h3 class="bio-subject">Dream Job in Tech*</h3><%= f.select :future_role, ['Still Exploring', 'Web Developer','Product Manager', 'Fullstack Engineering', 'Frontend Developer', 'Backend Developer', "Android Developer", "iOS Developer", "Data Scientist", "Hardware Engineer", "Cloud Engineer", "DevOps Engineer", "IT Consultant"], class: 'form-control', required: true, :style => "width: 200px;" %>
+      </div>
+      <div class="col-12 col-md-12 pt-3">
+        <h3 class="bio-subject">What's your motivation to switch to Tech?</h3><%= f.text_field :motivation, class: 'form-control', :style => "height: 100px;" %>
+      </div>
+      <div class="col-12 col-md-12 pt-3">
+        <h3 class="bio-subject">Share your experience. How did you leverage your previous career experiences to your new role in Tech?</h3><%= f.text_field :journey_experience, class: 'form-control', :style => "height: 100px;" %>
+      </div>
+      <div class="col-12 col-md-12 pt-3">
+        <h3 class="bio-subject">Any advice or tips to share with your network?</h3><%= f.text_field :advice, class: 'form-control', :style => "height: 100px;" %>
+      </div>
+      <div class="col-12 col-md-12 pt-3 ">
+        <h3 class="bio-subject">Are you happy with your new role in Tech?</h3><%= f.select :satisfaction, [ "Great", "Fabulous", "Super", "Could be better", "Nice !" ], class: 'form-control', :style => "width: 430px;" %>
+      </div>
     </div>
-    <div class="col-12 col-md-6">
-      <h3 class="bio-subject">Last Name*</h3><%= f.text_field :last_name, class: 'form-control', required: true %>
-    </div>
-    <div class="col-12 col-md-6 pt-3">
-      <h3 class="bio-subject">Budget (SGD)* </h3><%= f.text_field :budget, class: 'form-control', required: true %>
-    </div>
-    <div class="col-12 col-md-6 pt-3">
-      <h3 class="bio-subject">Timeframe (month)*</h3><%= f.text_field :timeframe, class: 'form-control', required: true %>
-    </div>
-    <div class="col-12 col-md-6 pt-3">
-      <h3 class="bio-subject">Current Industry*</h3><%= f.select :current_industry, [ 'Consulting', 'Art/Design', 'IT/Tech', 'Agriculture', 'Banking/Finance', 'Hospitality', 'Law', 'Leisure/Tourism', 'Marketing/Advertising', 'Media/Entertainment', 'Public Services/Govt', 'Retail', 'Pharmaceuticals', 'Self-employed', 'Freelance' ], class: 'form-control', required: true, :style => "width: 200px;" %>
-    </div>
-    <div class="col-12 col-md-6 pt-3">
-      <h3 class="bio-subject">Current Job Title*</h3><%= f.select :current_role, [
-    'Marketing','Design','Product Management','Copywriter','Account Management','Project Management','Business Analysis','Risk Management','Human Resources','Accountant','Sales','Customer Support','Operation','Research','Instructor','Consulting','Self-employed','Freelance'], class: 'form-control', required: true, :style => "width: 200px;" %>
-    </div>
-    <div class="col-12 col-md-6 pt-3">
-      <h3 class="bio-subject">Future Industry*</h3><%= f.text_field :future_industry, class: 'form-control', required: true %>
-    </div>
-    <div class="col-12 col-md-6 pt-3">
-      <h3 class="bio-subject">Dream Job in Tech*</h3><%= f.select :future_role, ['Still Exploring', 'Web Developer','Product Manager', 'Fullstack Engineering', 'Frontend Developer', 'Backend Developer', "Android Developer", "iOS Developer", "Data Scientist", "Hardware Engineer", "Cloud Engineer", "DevOps Engineer", "IT Consultant"], class: 'form-control', required: true, :style => "width: 200px;" %>
-    </div>
-    <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">What's your motivation to switch to Tech?</h3><%= f.text_field :motivation, class: 'form-control', :style => "height: 100px;" %>
-    </div>
-    <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Share your experience. How did you leverage your previous career experiences to your new role in Tech?</h3><%= f.text_field :journey_experience, class: 'form-control', :style => "height: 100px;" %>
-    </div>
-    <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Any advice or tips to share with your network?</h3><%= f.text_field :advice, class: 'form-control', :style => "height: 100px;" %>
-    </div>
-    <div class="col-12 col-md-12 pt-3 ">
-      <h3 class="bio-subject">Are you happy with your new role in Tech?</h3><%= f.select :satisfaction, [ "Great", "Fabulous", "Super", "Could be better", "Nice !" ], class: 'form-control', :style => "width: 430px;" %>
-    </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>

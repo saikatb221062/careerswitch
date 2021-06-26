@@ -23,6 +23,11 @@ body {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.btn-upload {
+    padding-top: 10px;
+
+}
+
 .cover-bg {
   width: 100%;
   height: 120px;
@@ -60,7 +65,7 @@ body {
     margin-top: 12px
   }
   
-  &-photo {
+  &-photo img {
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -84,4 +89,5 @@ body {
     font-weight: bold;
   }
   }
+
 }

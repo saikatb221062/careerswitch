@@ -20,10 +20,10 @@
     <% end %>
   </div>
   <div class="user-info-wrap">
-    <div class="user-photo"><%= @user.photo.attached? ? cl_image_path(@user.photo.key) : asset_path('placeholder.jpg') %></div>
+    <div class="user-photo"><%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %></div>
     <div class="user-info">
       <div class="user-name"><%= @user.first_name %> <%= @user.last_name %></div>
-      <div class="user-title"><%= @user.current_role %> in <%= @user.current_industry %> @ <%= @user.location %> Singapore</div>
+      <div class="user-title"><%= @user.current_role %> in <%= @user.current_industry %> @ <%= @user.location %></div>
       <div class="user-title mt-0">Aiming to become a/an <%= @user.future_role %></div>
     </div>
   </div>
@@ -35,13 +35,13 @@
       <h3 class="bio-subject">Timeframe</h3><%= @user.timeframe %> months 
     </div>
     <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Motivation</h3><%= @user.motivation %>I'm a tech enthusiast and have been always curious to learn about how tech works.
+      <h3 class="bio-subject">Motivation</h3><%= @user.motivation %>
     </div>
     <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Journey Experience</h3><%= @user.journey_experience %>My journey from a product marketing manager to a fullstack software engineer was definitely not easy but worth all the efforts and time. Initially I tried some free courses on codecademy blabla.
+      <h3 class="bio-subject">Journey Experience</h3><%= @user.journey_experience %>
     </div>
     <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Advice/Tips To Share</h3><%= @user.advice %>I regret for not starting learning programming earlier, so if you are still debating, my advice is definitel GO AND TRY IT FIRST! It may sound daunting to switch your career and start something from scratch blabla.
+      <h3 class="bio-subject">Advice/Tips To Share</h3><%= @user.advice %>
     </div>
     <div class="col-12 col-md-12 pt-3">
       <h3 class="bio-subject">Satisfied To The New Role In Tech?</h3><%= @user.satisfaction %> 
