@@ -11,10 +11,16 @@
               <th class="month-display"><%= Date::MONTHNAMES[m] %></th>
             <% end %>
           </tr>
-          <% @my_courses.each do |course| %>
-          <tr>
-            <td colspan="<%= course.duration%>"><%= course.title %> By <%= course.provider %></td>
-          </tr>
+          <% @my_roadmap.courses.order('created_at DESC').each_with_index do |course, index| %>
+            <tr>
+              <% if course.order(@my_roadmap) > @my_roadmap.courses.order('created_at DESC')[index - 1].order(@my_roadmap) %>
+                <%= @my_roadmap.courses.order('created_at DESC')[0...index].map(&:duration).reduce(&:+).times do %>
+                  <td></td>
+                <% end %> 
+              <% end %>
+              
+              <td colspan="<%= course.duration%>"><%= course.title %> By <%= course.provider %></td>
+            </tr>
           <% end %>
         </table>
     </div>
