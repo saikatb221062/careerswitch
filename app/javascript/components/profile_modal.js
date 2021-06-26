@@ -1,79 +1,83 @@
 const profileModal = () => {
+  console.log('I am in ProfileModal!')
   const myButtons = document.querySelectorAll(".myBtn")
+  console.log(`myButtons: ${myButtons}`);
   const currentUser = document.getElementById("current-user-email")
   const profiles = document.querySelectorAll('.profiles');
 
   if (!currentUser) { 
-    // console.log ("No Current User")
+    console.log ("No Current User")
     profiles.forEach(blurProfiles);
   }
 
   myButtons.forEach(item => {
     item.addEventListener('click', event => {
-      // console.log(event.target.dataset.matchedFirstNm)
-      // console.log(event.target.dataset)
-      var matchedAdvice = event.target.dataset.matchedAdvice
-      var matchedBudget = event.target.dataset.matchedBudget
-      var matchedCurrentInd = event.target.dataset.matchedCurrentInd
-      var matchedCurrentRole = event.target.dataset.matchedCurrentRole
-      var matchedExperience = event.target.dataset.matchedExperience
-      var matchedFirstNm = event.target.dataset.matchedFirstNm
-      var matchedHrs = event.target.dataset.matchedHrs
-      var matchedFutInd = event.target.dataset.matchedFutInd
-      var matchedImgURL = event.target.dataset.matchedImg
-      var matchedLastNm = event.target.dataset.matchedLastNm
-      var matchedLocation = event.target.dataset.matchedLocation
-      var matchedMotivation = event.target.dataset.matchedMotivation
-      var matchedSatisfaction = event.target.dataset.matchedSatisfaction
-      var matchedTimeframe = event.target.dataset.matchedTimeframe
-      var matchedRoadmap = event.target.dataset.matchedRoadmap
+      // console.log('You clicked !')
+      // var matchedAdvice = event.target.dataset.matchedAdvice
+      // var matchedBudget = event.target.dataset.matchedBudget
+      // var matchedCurrentInd = event.target.dataset.matchedCurrentInd
+      // var matchedCurrentRole = event.target.dataset.matchedCurrentRole
+      // var matchedExperience = event.target.dataset.matchedExperience
+      // var matchedFirstNm = event.target.dataset.matchedFirstNm
+      // 
+      // var matchedHrs = event.target.dataset.matchedHrs
+      // var matchedFutInd = event.target.dataset.matchedFutInd
+      // var matchedImgURL = event.target.dataset.matchedImg
+      // var matchedLastNm = event.target.dataset.matchedLastNm
+      // var matchedLocation = event.target.dataset.matchedLocation
+      // var matchedMotivation = event.target.dataset.matchedMotivation
+      // var matchedSatisfaction = event.target.dataset.matchedSatisfaction
+      // var matchedTimeframe = event.target.dataset.matchedTimeframe
+      // var matchedRoadmap = event.target.dataset.matchedRoadmap
       var matchedUserId = event.target.dataset.matchedUserId
       var matchedUserIsConnection = (event.target.dataset.matchedUserIsConnection === "true")
-
+      
       if (currentUser) {
-        const mb2_1 = document.getElementById('mb2-1')
-        const mb2_2 = document.getElementById('mb2-2')
-        const mb2_3 = document.getElementById('mb2-3')
-        const mb2_4 = document.getElementById('mb2-4')
-        const mb2_5 = document.getElementById('mb2-5')
-        const mb2_6 = document.getElementById('mb2-6')
-        const mb2_7 = document.getElementById('mb2-7')
-        const mb2_8 = document.getElementById('mb2-8')
-        const mb2_9 = document.getElementById('mb2-9')
-        const mb2_10 = document.getElementById('mb2-10')
-        const mb2_11 = document.getElementById('mb2-11')
-        const mb2_12 = document.getElementById('mb2-12')
-        const mb2_13 = document.getElementById('mb2-13')
-        const mb2_14 = document.querySelector('.mb2-14')
-        const mb2_15 = document.getElementById('mb2-15')
-        const industryFrom = document.getElementById('industry-from').innerText
-        const matchedUserIdButton = document.getElementById('matched-user-id')
-
-        mb2_1.innerText = matchedFirstNm
-        mb2_2.innerText = matchedLastNm
-        mb2_3.innerText = matchedLocation
-        mb2_4.innerText = matchedCurrentRole
-        mb2_5.innerText = matchedCurrentInd
-        mb2_6.innerText = matchedFutInd
-        mb2_7.innerText = `${matchedTimeframe} weeks`
-        mb2_8.innerText = matchedBudget
-        mb2_9.innerText = matchedHrs
-        mb2_10.innerText = matchedExperience
-        mb2_11.innerText = matchedSatisfaction
-        mb2_12.innerText = matchedAdvice
-        mb2_13.innerText = matchedMotivation
+        // const mb2_1 = document.getElementById('mb2-1')
+        // const mb2_2 = document.getElementById('mb2-2')
+        // const mb2_3 = document.getElementById('mb2-3')
+        // const mb2_4 = document.getElementById('mb2-4')
+        // const mb2_5 = document.getElementById('mb2-5')
+        // const mb2_6 = document.getElementById('mb2-6')
+        // const mb2_7 = document.getElementById('mb2-7')
+        // const mb2_8 = document.getElementById('mb2-8')
+        // const mb2_9 = document.getElementById('mb2-9')
+        // const mb2_10 = document.getElementById('mb2-10')
+        // const mb2_11 = document.getElementById('mb2-11')
+        // const mb2_12 = document.getElementById('mb2-12')
+        // const mb2_13 = document.getElementById('mb2-13')
+        // const mb2_14 = document.querySelector('.mb2-14')
+        // const mb2_15 = document.getElementById('mb2-15')
+        // const industryFrom = document.getElementById('industry-from').innerText
+        // const matchedUserIdButton = document.getElementById('matched-user-id')
+       // 
+        // mb2_1.innerText = matchedFirstNm
+        // mb2_2.innerText = matchedLastNm
+        // mb2_3.innerText = matchedLocation
+        // mb2_4.innerText = matchedCurrentRole
+        // mb2_5.innerText = matchedCurrentInd
+        // mb2_6.innerText = matchedFutInd
+        // mb2_7.innerText = `${matchedTimeframe} weeks`
+        // mb2_8.innerText = matchedBudget
+        // mb2_9.innerText = matchedHrs
+        // mb2_10.innerText = matchedExperience
+        // mb2_11.innerText = matchedSatisfaction
+        // mb2_12.innerText = matchedAdvice
+        // mb2_13.innerText = matchedMotivation
               
-        const img_1 = '<img class="img-fluid" style="vertical-align:middle; width:80px; height: 80px; border-radius: 50%;" src="'
-        const img_3 = '" alt="">'
+        // const img_1 = '<img class="img-fluid" style="vertical-align:middle; width:80px; // height: 80px; border-radius: 50%;" src="'
+        // const img_3 = '" alt="">'
 
-        mb2_14.innerHTML = `${img_1}${matchedImgURL}${img_3}`
+        // mb2_14.innerHTML = `${img_1}${matchedImgURL}${img_3}`
 
-        matchedUserIdButton.dataset.user = matchedUserId
-        if (matchedUserIsConnection) { 
-          matchedUserIdButton.innerHTML = '<a href="">Unfollow</a>'
-        } else {
-          matchedUserIdButton.innerHTML = '<a href="">Follow</a>'
-        }
+        // matchedUserIdButton.dataset.user = matchedUserId
+
+
+        // if (matchedUserIsConnection) { 
+        //   matchedUserIdButton.innerHTML = '<a href="">Unfollow</a>'
+        // } else {
+        //   matchedUserIdButton.innerHTML = '<a href="">Follow</a>'
+        // }
         // store the current URL in sessionStorage
         // When this modal gets redirected to "See Roadmap",
         // the link-back button on that page will
@@ -87,17 +91,17 @@ const profileModal = () => {
         sessionStorage.setItem('currentURL', currentURL);
         console.log(sessionStorage.getItem('currentURL'));
                 
-        const mb2_15_1 = '<a href="/roadmaps/'
-        const mb2_15_3 = '" id="mb2-15" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>'
+        //const mb2_15_1 = '<a href="/roadmaps/'
+        //const mb2_15_3 = '" id="mb2-15" class="btn btn-success mr-2 mr-md-3 rounded-pill // px-2 //px-md-4">See Roadmap</a>'//
 
-        mb2_15.innerHTML = `${mb2_15_1}${matchedRoadmap}${mb2_15_3}`
+        // mb2_15.innerHTML = `${mb2_15_1}${matchedRoadmap}${mb2_15_3}`
 
-        console.log(mb2_15.innerHTML)
+        // console.log(mb2_15.innerHTML)
 
-        $("#modalTwo").modal("show");   
+        // $("#modalTwo").modal("show");   
       }
       else {
-        $("#modalOne").modal("show");
+        // $("#modalOne").modal("show");
       }
     })
   })
@@ -141,7 +145,6 @@ const profileModal = () => {
     else 
     {
       item.classList.remove("bg-secondary")
-      profileBtn.classList.remove("btn-secondary")
       profileBtn.classList.remove("text-muted")
       profileBtn.classList.add("btn-success")
     } 
