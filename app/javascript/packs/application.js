@@ -31,7 +31,9 @@ document.addEventListener('turbolinks:load', () => {
   showProfile();
   backToResults();
   // addCourseBtn();
-  // roadMapBuild();
+  //roadMapBuild();
+  // front-end-search-chat();
+  
   // addCourseBtn();
   scrollDown();
   startChatRoom();

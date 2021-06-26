@@ -12,168 +12,41 @@
   </div>
 </div>
 <div class="dashboard">
-  <div class="row">
-    <div class="col-12">
-      <div class="dashboard-card">
-        <div class="container-card-body">
-          <div class="container-card-title mb-4">
-            <div class="d-flex justify-content-start">
-              <div class="image-container">
-                <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                <div class="middle">
-                  <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
-                  <input type="file" style="display: none;" id="profilePicture" name="file" />
-                </div>
-              </div>
-              <div class="userData ml-3 mt-4">
-                <h2 class="d-block ml-4" style="font-size: 1.5rem; font-weight: bold">Hello! User Name</a></h2>
-                <%= link_to edit_profile_path, class: 'btn btn-dark mr-4 mt-3' do %>
-                  Edit My Profile
-                <% end %>
-              </div>
-              <div class="ml-auto">
-                <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
-              </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-12">
-                  <div class="tab-content ml-1" id="myTabContent">
-                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
-                       <div class="row">
-                        <div class="col-sm-3 col-md-2 col-5">
-                          <label style="font-weight:bold;">Location</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.location %>
-                        </div>
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Status</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.status %>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div class="row">
-                        <div class="col-sm-3 col-md-2 col-5">
-                          <label style="font-weight:bold;">First Name</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.first_name %>
-                        </div>
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Last Name</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.last_name %>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div class="row">
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Current role</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.current_role %>
-                        </div>
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Current industry</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.current_role %>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div class="row">
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Future role</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.future_role %>
-                        </div>
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Future industry</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.future_industry %>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div class="row">
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Budget</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.budget %>
-                        </div>
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Timeframe</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.timeframe %>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div class="row">
-                        <div class="col-sm-4 col-md-3 col-5">
-                            <label style="font-weight:bold;">Available hours per week</label>
-                        </div>
-                        <div class="col-md-2 col-6">
-                          <%= @user.available_hrs_per_week %>
-                        </div>
-                        <div class="col-sm-3 col-md-2 col-5">
-                            <label style="font-weight:bold;">Satisfaction</label>
-                        </div>
-                        <div class="col-md-3 col-6">
-                          <%= @user.satisfaction %>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div class="row">
-                        <div class="col-sm-4 col-md-3 col-5">
-                            <label style="font-weight:bold;">What was your motivation to switch to tech?</label>
-                        </div>
-                        <div class="col-md-2 col-6">
-                          <%= @user.motivation %>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div class="row">
-                        <div class="col-sm-4 col-md-3 col-5">
-                            <label style="font-weight:bold;">How would you describe your journey in 3 sentences?</label>
-                        </div>
-                        <div class="col-md-2 col-6">
-                          <%= @user.journey_experience %>
-                        </div>
-                      </div>
-                      <hr />
-
-                      <div class="row">
-                        <div class="col-sm-4 col-md-3 col-5">
-                            <label style="font-weight:bold;">Do you have any advice to other people?</label>
-                        </div>
-                        <div class="col-md-2 col-6">
-                          <%= @user.advice %>
-                        </div>
-                      </div>
-                      <hr />
-                    </div>
-                </div>
-            </div>
-
-
-                </div>
-
-            </div>
-        </div>
+  <div class="dashboard-row">
+    <div class="dashboard-card">
+  <div class="cover-bg">
+    <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-3' do %>
+    Edit
+    <% end %>
+  </div>
+  <div class="user-info-wrap">
+    <div class="user-photo"><%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %></div>
+    <div class="user-info">
+      <div class="user-name"><%= @user.first_name %> <%= @user.last_name %></div>
+      <div class="user-title"><%= @user.current_role %> in <%= @user.current_industry %> @ <%= @user.location %></div>
+      <div class="user-title mt-0">Aiming to become a/an <%= @user.future_role %></div>
     </div>
+  </div>
+  <div class="user-bio">
+    <div class="col-12 col-md-6">
+      <h3 class="bio-subject">Budget</h3>SGD <%= @user.budget %>
+    </div>
+    <div class="col-12 col-md-6">
+      <h3 class="bio-subject">Timeframe</h3><%= @user.timeframe %> months 
+    </div>
+    <div class="col-12 col-md-12 pt-3">
+      <h3 class="bio-subject">Motivation</h3><%= @user.motivation %>
+    </div>
+    <div class="col-12 col-md-12 pt-3">
+      <h3 class="bio-subject">Journey Experience</h3><%= @user.journey_experience %>
+    </div>
+    <div class="col-12 col-md-12 pt-3">
+      <h3 class="bio-subject">Advice/Tips To Share</h3><%= @user.advice %>
+    </div>
+    <div class="col-12 col-md-12 pt-3">
+      <h3 class="bio-subject">Satisfied To The New Role In Tech?</h3><%= @user.satisfaction %> 
+    </div>
+  </div>
+</div>
+  </div>
 </div> 
