@@ -25,9 +25,9 @@ class PagesController < ApplicationController
   end
 
   def results
-    @industry_to = params[:query_to]
-    @industry_from = params[:query_from]
-    @role_from = params[:query_role]
+    @industry_to = params[:query_to] || "A Tech Role"
+    @industry_from = params[:query_from] || "Your industry" 
+    @role_from = params[:query_role] || "Your role" 
 
     if current_user.nil?
       @results = User.all
