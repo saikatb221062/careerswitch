@@ -66,11 +66,11 @@ table {
    width: 100%;
    tr {
       
-     &:nth-child(2n + 1){
+     &:nth-child(2n + 1) td:last-child {
         background: #fdb029; 
      }
      
-     &:nth-child(2n){
+     &:nth-child(2n) td:last-child {
         background: #ec5c52; 
      }
    }

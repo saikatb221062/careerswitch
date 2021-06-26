@@ -4,6 +4,7 @@
   </div>
   <div class="bd-row">
     <div class="col-12 col-md-6">
+    
     <p class="text-center" style="font-weight: bolder;">Your roadmap</p>
         <table>
           <tr class="months">
@@ -11,16 +12,15 @@
               <th class="month-display"><%= Date::MONTHNAMES[m] %></th>
             <% end %>
           </tr>
-          <% @my_roadmap.courses.order('created_at DESC').each_with_index do |course, index| %>
-            <tr>
-              <% if course.order(@my_roadmap) > @my_roadmap.courses.order('created_at DESC')[index - 1].order(@my_roadmap) %>
-                <%= @my_roadmap.courses.order('created_at DESC')[0...index].map(&:duration).reduce(&:+).times do %>
-                  <td></td>
-                <% end %> 
+          <% @course_roadmaps.sort_by(&:created_at).each_with_index do |course_roadmap, index| %>
+          <tr>
+              
+              <% index > 0 && @course_roadmaps[0...index].map(&:course).map(&:duration).reduce(&:+).times do  %>
+                <td></td>
               <% end %>
               
-              <td colspan="<%= course.duration%>"><%= course.title %> By <%= course.provider %></td>
-            </tr>
+              <td colspan="<%= course_roadmap.course.duration%>"><%= course_roadmap.course.title %> By <%= course_roadmap.course.provider %></td>
+          </tr>
           <% end %>
         </table>
     </div>
@@ -30,7 +30,7 @@
       <div class="box">
         <ul class="list-group list-group-flush">
           <%= form_for(@my_roadmap) do |f| %>
-            <% @courses.each do |course| %>
+            <% @unchosen_courses.each do |course| %>
               <% unless course.duration > current_user.timeframe %>
               <li class="list-group-item text-primary">
                 <div class="dish-list-line-div">
@@ -48,5 +48,7 @@
         <%= submit_tag 'Save', form: "edit_roadmap_#{@my_roadmap.id}" %>
       </div>
     </div>
+
+    
   </div>
 </div>
