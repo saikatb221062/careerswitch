@@ -11,6 +11,7 @@ class RoadmapsController < ApplicationController
     # get all roadmaps where roadmap user is not the current user
     # and roadmap user future role = current user future role
 
+
     @roadmaps = Roadmap.suggested_roadmaps(current_user)
   end
 
@@ -33,7 +34,8 @@ class RoadmapsController < ApplicationController
     @my_roadmap.privacy_option = false
     @my_roadmap.start_date = Date.today
     @my_roadmap.end_date = @my_roadmap.start_date + (current_user.timeframe).months
-    @my_roadmap.duration = (@my_roadmap.end_date.year * 12 + @my_roadmap.end_date.month) - (@my_roadmap.start_date.year * 12 + @my_roadmap.start_date.month) 
+    @my_roadmap.duration = (@my_roadmap.end_date.year * 12 + @my_roadmap.end_date.month) - (@my_roadmap.start_date.year * 12 + @my_roadmap.start_date.month)
+    @month_array = ((@my_roadmap.start_date).month..(@my_roadmap.end_date).month)
     if @my_roadmap.save
       redirect_to builder_roadmaps_path
     end
