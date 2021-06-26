@@ -36,20 +36,6 @@ ActiveRecord::Schema.define(version: 2021_06_22_120938) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "buddy_requests", force: :cascade do |t|
-    t.string "requestor"
-    t.string "receiver"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "buddyships", force: :cascade do |t|
-    t.string "buddy_a"
-    t.string "buddy_b"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "connections", force: :cascade do |t|
     t.integer "connecting_id"
     t.integer "connecter_id"

@@ -500,8 +500,8 @@ def seedConnections
       puts "User ##{i+1} with UsedId=#{users[i].id} <--- connected to ---> User ##{j+1} with UserId #{users[j].id}"
       Connection.create!(
         connecting_id: users[i].id,
-        connected_id: users[j].id,
-        user_id: users[i].id
+        connecter_id: users[j].id,
+        # user_id: users[i].id
       )
       j += 1
     end
@@ -674,20 +674,17 @@ puts "🏆🏆 Now Creating Users and Connections for the Connectdots Delta Forc
 
 Connection.create!(
   connecting_id: @nicole.id,
-  connected_id: @minyoung.id,
-  user_id: @nicole.id
+  connecter_id: @minyoung.id
 )
 
 Connection.create!(
   connecting_id: @nicole.id,
-  connected_id: @chris.id,
-  user_id: @nicole.id
+  connecter_id: @chris.id
 )
 
 Connection.create!(
   connecting_id: @minyoung.id,
-  connected_id: @chris.id,
-  user_id: @minyoung.id
+  connecter_id: @chris.id
 )
 
 printStats

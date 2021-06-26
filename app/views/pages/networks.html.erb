@@ -16,18 +16,18 @@
 <section class="connections-container" style="margin-left: 120px;">
   <div class="row mt-5">
     <% @connections.each do |cnctn| %>
-      <% if cnctn.connected_id == current_user.id %>
+      <% if cnctn.connecter_id == current_user.id %>
         <% cnctn_usr_fst_nm = User.find(cnctn.connecting_id).first_name %>
         <% cnctn_usr_lst_nm = User.find(cnctn.connecting_id).last_name %>
         <% @cnctn_usr_name = "#{cnctn_usr_fst_nm} #{cnctn_usr_lst_nm}" %>
         <% @cnctn_usr_loc = User.find(cnctn.connecting_id).location %>
         <% @cnctn_usr_img = User.find(cnctn.connecting_id).img_url %>
       <% else %>
-        <% cnctn_usr_fst_nm = User.find(cnctn.connected_id).first_name %>
-        <% cnctn_usr_lst_nm = User.find(cnctn.connected_id).last_name %>
+        <% cnctn_usr_fst_nm = User.find(cnctn.connecter_id).first_name %>
+        <% cnctn_usr_lst_nm = User.find(cnctn.connecter_id).last_name %>
         <% @cnctn_usr_name = "#{cnctn_usr_fst_nm} #{cnctn_usr_lst_nm}" %>
-        <% @cnctn_usr_loc = User.find(cnctn.connected_id).location %>
-        <% @cnctn_usr_img = User.find(cnctn.connected_id).img_url %>
+        <% @cnctn_usr_loc = User.find(cnctn.connecter_id).location %>
+        <% @cnctn_usr_img = User.find(cnctn.connecter_id).img_url %>
       <% end %>
       <%= render 'connection_each_card', cnctn: cnctn %>
       <% end %>
