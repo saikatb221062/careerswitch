@@ -20,7 +20,7 @@ class PagesController < ApplicationController
     if current_user.nil?
       @connections = Connection.none
     else
-      @connections = Connection.where(connecting_id: current_user.id) + Connection.where(connected_id: current_user.id)
+      @connections = Connection.where(connecting_id: current_user.id) + Connection.where(connecter_id: current_user.id)
     end
   end
 
