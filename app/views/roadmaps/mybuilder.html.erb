@@ -15,11 +15,14 @@
           <% @course_roadmaps.sort_by(&:created_at).each_with_index do |course_roadmap, index| %>
           <tr>
               
-              <% index > 0 && @course_roadmaps[0...index].map(&:course).map(&:duration).reduce(&:+).times do  %>
+              <% index > && @course_roadmaps[0...index].map(&:course).map(&:duration).reduce(&:+).times do  %>
                 <td></td>
               <% end %>
               
-              <td colspan="<%= course_roadmap.course.duration%>"><%= course_roadmap.course.title %> By <%= course_roadmap.course.provider %></td>
+              <td colspan="<%= course_roadmap.course.duration%>">
+                <%= course_roadmap.course.title %> By <%= course_roadmap.course.provider %>
+                <%= link_to 'X', course_roadmap, method: :delete, class: 'btn btn-danger' %>
+              </td>
           </tr>
           <% end %>
         </table>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'course_roadmaps/destroy'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "pages#home"
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
       post 'builder', to: 'roadmaps#create'
     end
   end
+
+  resources :course_roadmaps, only: [:destroy]
   
   get '/chat/:id', to: 'chats#chat', as: :chat
   post 'chat/:id', to: 'messages#create', as: :message
