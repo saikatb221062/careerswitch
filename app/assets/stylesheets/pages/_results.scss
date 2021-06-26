@@ -70,11 +70,13 @@ h5 {
   cursor: -webkit-pointer; 
   cursor: pointer;
   font-size: 18px;
-  color: rgb(255, 83, 83);
+  // color: rgb(255, 83, 83);
+  color: #1d7756;
 }
 
 .profileBtn:hover {
-  color: red;
+  // color: red;
+  color: #74a27e;
 }
 
 .modal-title {
