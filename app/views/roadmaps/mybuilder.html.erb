@@ -1,49 +1,46 @@
-<h3>My roadmap from <%= current_user.current_industry %> as <%= current_user.current_role %> to <%= current_user.future_role %></h3>
-<br>
-
-<div class="dropdown-menu">
-  <% @courses.each do |course| %>
-  <a class="dropdown-item" href="<%= course.provider_url %>" target="_blank"><span class="rd1-li2"><%= course.provider %></span> <span class="rd1-li3"><%= course.title %></span></a>
-  <div class="dropdown-divider"></div>
-  <% end %>
-</div>
 
 <div class="bd-container">
+  <div class="head">My roadmap from <%= current_user.current_industry %> as <%= current_user.current_role %> to <%= current_user.future_role %>
+  </div>
   <div class="bd-row">
-    <div class="tab">
-      <table>
-        <tr class="months">
-          <% @month_array.each do |m| %>
-            <th style="background-color: red;"><%= Date::MONTHNAMES[m] %></th>
+    <div class="col-12 col-md-6">
+    <p class="text-center" style="font-weight: bolder;">Your roadmap</p>
+        <table>
+          <tr class="months">
+            <% @month_array.each do |m| %>
+              <th class="month-display"><%= Date::MONTHNAMES[m] %></th>
+            <% end %>
+          </tr>
+          <% @my_courses.each do |course| %>
+          <tr>
+            <td colspan="<%= course.duration%>"><%= course.title %> By <%= course.provider %></td>
+          </tr>
           <% end %>
-        </tr>
-        <% @my_courses.each do |course| %>
-        <tr>
-          <td colspan="<%= course.duration%>"><%= course.title %> By <%= course.provider %></td>
-        </tr>
-        <% end %>
-      </table>
+        </table>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <p class="text-center" style="font-weight: bolder;">please browse the list below and add to your roadmap</p>
+      <div class="box">
+        <ul class="list-group list-group-flush">
+          <%= form_for(@my_roadmap) do |f| %>
+            <% @courses.each do |course| %>
+              <% unless course.duration > current_user.timeframe %>
+              <li class="list-group-item text-primary">
+                <div class="dish-list-line-div">
+                  <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>
+                  </div>
+                  <div draggable="true" class="d-inline dish-item">><%= course.title %>Cost: SGD<%= course.cost %> | <%= course.duration %> months
+                  </div>
+                  <%= f.check_box :courses, { multiple: true, checked: @chosen_courses.include?(course) }, course.id, nil %>
+                </div>
+              </li>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+        <%= submit_tag 'Save', form: "edit_roadmap_#{@my_roadmap.id}" %>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="col-12 col-md-6">
-  <p class="text-center" style="font-weight: bolder;">If you don't find the course you want to add, please browse the list below and add to your roadmap</p>
-  <ul class="list-group list-group-flush">
-    <%= form_for(@my_roadmap) do |f| %>
-      <% @courses.each do |course| %>
-        <% unless course.duration > current_user.timeframe %>
-        <li class="list-group-item text-primary">
-          <div class="dish-list-line-div">
-              <div class="d-inline text-warning font-italic" style="font-size:14px;"><%= course.provider %>
-              </div>
-              <div draggable="true" class="d-inline dish-item">><%= course.title %>Cost: SGD<%= course.cost %> | <%= course.duration %> months </div>
-              <%= f.check_box :courses, { multiple: true, checked: @chosen_courses.include?(course) }, course.id, nil %>
-        </div>
-      </li>
-      <% end %>
-      <% end %>
-  <% end %>
-  </ul>
-  <%= submit_tag 'Save', form: "edit_roadmap_#{@my_roadmap.id}" %>
 </div>

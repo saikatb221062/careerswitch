@@ -12,7 +12,7 @@ import 'jquery';
 
 import { backToResults } from '../packs/back_to_results';
 import { showProfile } from '../packs/show_profile';
-import { roadMapBuild} from '../packs/roadmap';
+// import { roadMapBuild} from '../packs/roadmap';
 // import { addCourseBtn } from '../packs/roadmap';
 
 import { startChatRoom } from '../channels/message_channel'
@@ -31,8 +31,8 @@ document.addEventListener('turbolinks:load', () => {
   showProfile();
   backToResults();
   // addCourseBtn();
-  roadMapBuild();
-  front-end-search-chat();
+  //roadMapBuild();
+  // front-end-search-chat();
   // addCourseBtn();
   scrollDown();
   startChatRoom();
