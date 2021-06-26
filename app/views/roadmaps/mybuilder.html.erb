@@ -4,6 +4,7 @@
   </div>
   <div class="bd-row">
     <div class="col-12 col-md-6">
+    
     <p class="text-center" style="font-weight: bolder;">Your roadmap</p>
         <table>
           <tr class="months">
@@ -11,9 +12,17 @@
               <th class="month-display"><%= Date::MONTHNAMES[m] %></th>
             <% end %>
           </tr>
-          <% @my_courses.each do |course| %>
+          <% @course_roadmaps.sort_by(&:created_at).each_with_index do |course_roadmap, index| %>
           <tr>
-            <td colspan="<%= course.duration%>"><%= course.title %> By <%= course.provider %></td>
+              
+              <% index > && @course_roadmaps[0...index].map(&:course).map(&:duration).reduce(&:+).times do  %>
+                <td></td>
+              <% end %>
+              
+              <td colspan="<%= course_roadmap.course.duration%>">
+                <%= course_roadmap.course.title %> By <%= course_roadmap.course.provider %>
+                <%= link_to 'X', course_roadmap, method: :delete, class: 'btn btn-danger' %>
+              </td>
           </tr>
           <% end %>
         </table>
@@ -24,7 +33,7 @@
       <div class="box">
         <ul class="list-group list-group-flush">
           <%= form_for(@my_roadmap) do |f| %>
-            <% @courses.each do |course| %>
+            <% @unchosen_courses.each do |course| %>
               <% unless course.duration > current_user.timeframe %>
               <li class="list-group-item text-primary">
                 <div class="dish-list-line-div">
@@ -42,5 +51,7 @@
         <%= submit_tag 'Save', form: "edit_roadmap_#{@my_roadmap.id}" %>
       </div>
     </div>
+
+    
   </div>
 </div>
