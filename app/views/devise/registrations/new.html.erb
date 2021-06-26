@@ -13,7 +13,7 @@
                 autofocus: true,
                 input_html: { autocomplete: "last_name" }%>
   <%= f.label :location, "Location:" %><br>
-  <%= f.select :location, %w[Singapore Malaysia Hongkong China Taiwan Korea Japan USA England"],
+  <%= f.select :location, ['Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul'],
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "location" } %>
