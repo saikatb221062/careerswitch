@@ -33,6 +33,7 @@ document.addEventListener('turbolinks:load', () => {
   // addCourseBtn();
   //roadMapBuild();
   // front-end-search-chat();
+  
   // addCourseBtn();
   scrollDown();
   startChatRoom();
