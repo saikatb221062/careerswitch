@@ -1,5 +1,10 @@
 .navbar {
   height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  box-shadow: 3px 5px 9px -4px #B6B6B6;
 }
 
 .navbar-lewagon {
