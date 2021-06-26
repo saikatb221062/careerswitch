@@ -40,7 +40,7 @@ class PagesController < ApplicationController
     @search_filter_role = @search_filter_from.where(current_role: @role_from)
 
     # Nicole's code - re-instated 19-Jun
-    if @industry_to.empty? && @industry_from.empty? && @role_from.empty?
+    if @industry_to.nil? && @industry_from.nil? && @role_from.nil?
       @shortlisted_profiles = @results
       @shortlist_msg = 'Please do not leave the search empty!'
     elsif @industry_to.empty? || @industry_from.empty? || @role_from.empty?
