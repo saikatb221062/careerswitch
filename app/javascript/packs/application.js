@@ -10,8 +10,10 @@ require("channels")
 import 'bootstrap';
 import 'jquery';
 
+import { profileModal } from '../components/profile_modal';
 import { backToResults } from '../packs/back_to_results';
-import { showProfile } from '../packs/show_profile';
+
+// import { showProfile } from '../packs/show_profile';
 // import { roadMapBuild} from '../packs/roadmap';
 // import { addCourseBtn } from '../packs/roadmap';
 
@@ -28,12 +30,12 @@ import { scrollDown } from '../packs/scroll';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  showProfile();
+  // showProfile();
+  profileModal();
   backToResults();
   // addCourseBtn();
-  //roadMapBuild();
+  // roadMapBuild();
   // front-end-search-chat();
-  
   // addCourseBtn();
   scrollDown();
   startChatRoom();

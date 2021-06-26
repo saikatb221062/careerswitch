@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:follow, :unfollow]
+
   def editprofile
   end
   
@@ -19,9 +21,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.where.not(id: current_user.id)
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :budget, :timeframe, :current_role, :current_industry, :future_role, :future_industry, :motivation, :journey_experience, :advice, :satisfaction, :status, :photo, :location)
   end
+
 end
