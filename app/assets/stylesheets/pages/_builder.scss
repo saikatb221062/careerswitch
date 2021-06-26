@@ -6,16 +6,38 @@ $red:     #e74c3c;
 $orange:  #f39c12;
 
 body {
-  background: #E5E5E5;
+  background: #FFFEFA;
 	box-sizing: border-box;
 	padding-bottom: 50px;
 	min-width: 960px;
+  font-family: 'Catamaran'
+}
+
+.head {
+  font-weight: 100px;
+  font-size: 30px;
+  padding-bottom: 80px;
+}
+
+.bd-container {
+  height: auto;
+  padding: 20px;
 }
 
 .bd-row {
   box-sizing: border-box;
+  display: flex;
   flex-wrap: wrap;
   margin-bottom: 1em;
+}
+
+.box {
+  flex: 1 1 200px;
+  border:1px solid black;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: white;
+  padding: 30px;
 }
 
 .course-list {
@@ -41,30 +63,33 @@ body {
 table {
    font-family: 'Open Sans', Helvetica;
    color: black;
-   table-layout: fixed;
    width: 100%;
    tr {
       
      &:nth-child(2n + 1){
-        background: blue; 
+        background: #fdb029; 
      }
      
      &:nth-child(2n){
-        background: #f77807; 
+        background: #ec5c52; 
      }
    }
    
    th, td {
       padding: 1em; 
       width: 10em;
+      font-size: 10px;
    }
 }
 
-.months, .time {
-  background: #007580;
-  text-transform: uppercase;
-  font-size: 0.6em;
-  text-align: center;
+.month-display {
+  background: #1d7756;
 }
 
-.grab {cursor: -webkit-grab; cursor: grab;}
+.months, .time {
+  background: #1d7756;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  color: white;
+  text-align: center;
+}

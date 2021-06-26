@@ -34,7 +34,7 @@
             <h3><b><label for="exampleFormControlSelect1">Industry I am from: </label></b></h3>
             <select class="form-control" <%= search_field_tag :query_from, params[:query_from] %> id="industry_from">
               <option value="" disabled selected>Select your current industry</option>
-              <option>AConsulting</option>
+              <option>Consulting</option>
               <option>Art/Design</option>
               <option>IT/Tech Agriculture</option>
               <option>Hospitality</option>
@@ -54,13 +54,18 @@
             <h3><b><label for="exampleFormControlSelect1">Switching to: </label></b></h3>
             <select class="form-control" <%= search_field_tag :query_to, params[:query_to] %> id="industry_to">
               <option value="" disabled selected>Select ideal role</option>
+              <option>Still Exploring</option>
               <option>Web Developer</option>
               <option>Product Manager</option>
               <option>Fullstack Engineering</option>
               <option>Frontend Developer</option>
               <option>Backend Developer</option>
-              <option>Game Designer</option>
               <option>Data Analyst</option>
+              <option>Android Developer</option>
+              <option>IOS Developer</option>
+              <option>Hardware Engineer</option>
+              <option>Cloud Engineer</option>
+              <option>DevOps Engineer</option>
             </select>
           </div>
 

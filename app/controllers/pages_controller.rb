@@ -43,8 +43,14 @@ class PagesController < ApplicationController
     if @industry_to.nil? && @industry_from.nil? && @role_from.nil?
       @shortlisted_profiles = @results
       @shortlist_msg = 'Please do not leave the search empty!'
-    elsif @industry_to.empty? || @industry_from.empty? || @role_from.empty?
+    elsif @industry_to == "Still Exploring"
       @shortlisted_profiles = @results
+      @shortlist_msg = "Here are some of the suggestions"
+    elsif @industry_to.nil? || @industry_from.nil? || @role_from.nil?
+      @shortlisted_profiles = @results.where(future_role: @industry_to) + @results.where(current_industry: @industry_from) + @results.where(current_role: @role_from)
+        if @shortlisted_profiles.empty?
+          @shortlisted_profiles = @results
+        end
       @shortlist_msg = 'For better search result, please do not leave any field empty!'
     elsif @search_filter_to.empty?
       @shortlisted_profiles = @results

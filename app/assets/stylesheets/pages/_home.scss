@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+body {
+  margin-top: 85px !important;
+}
+
 .container {
   text-align: center;
 }
@@ -34,7 +38,7 @@
 }
 
 .home-btn:hover {
-  background-color: #A2C5B1;
+  background-color: #74A27E;
   color: #014A26;
 }
 
@@ -109,7 +113,7 @@
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
+  color: black;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
@@ -155,6 +159,6 @@
   width: auto;
   height: auto;
   padding: 10px;
-  background-color: #D5EBE1;
+  background-color: #FFFEFA;
   border-radius: 15px;
 }

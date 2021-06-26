@@ -15,9 +15,10 @@ class UsersController < ApplicationController
   end
 
   def updateprofile
-    @user = current_user
-    @user.update(user_params)
-    redirect_to dashboard_page_path
+    user = current_user
+    if user.update(user_params)
+      redirect_to dashboard_page_path
+    end
   end
 
   def index
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :budget, :timeframe, :current_role, :current_industry, :future_role, :future_industry, :available_hrs_per_week, :status)
+    params.require(:user).permit(:first_name, :last_name, :budget, :timeframe, :current_role, :current_industry, :future_role, :future_industry, :motivation, :journey_experience, :advice, :satisfaction, :status, :photo, :location)
   end
 
 end

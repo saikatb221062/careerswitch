@@ -12,6 +12,7 @@ import 'jquery';
 
 import { profileModal } from '../components/profile_modal';
 import { backToResults } from '../packs/back_to_results';
+
 // import { showProfile } from '../packs/show_profile';
 // import { roadMapBuild} from '../packs/roadmap';
 // import { addCourseBtn } from '../packs/roadmap';
