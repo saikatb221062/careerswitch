@@ -1,6 +1,11 @@
 <div id="back-to-results">
   <a href="#" class="btn btn-outline-success rounded-pill" style="float: left;">Back to Results</a>
 </div>
+<% if current_user.roadmap.present? %>
+  <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-dark mb-3" %>
+<% else %>
+  <%= link_to "Select this path to create new", builder_roadmap_path(@roadmap), class: "btn btn-dark" %>
+<% end %>
 <br>
 <br>
 <br>
