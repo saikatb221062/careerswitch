@@ -1,52 +1,66 @@
-<div class="sidenav">
-  <div class="sidenav-text">
-    <%= link_to dashboard_page_path do %>
-      My Dashboard
-    <% end %>
-    <%= link_to networks_page_path do %>
-      My Networks
-    <% end %>
-    <%= link_to suggested_roadmap_path do %>
-      Create Roadmap
-    <% end %>
-  </div>
+<div class="buttons">
+  <%= link_to dashboard_page_path do %>
+    My Dashboard
+  <% end %>
+  <%= link_to networks_page_path do %>
+    My Networks
+  <% end %>
+  <%= link_to suggested_roadmap_path do %>
+    Suggested Roadmap
+  <% end %>
 </div>
+
+
+
 <div class="dashboard">
-  <div class="dashboard-row">
-    <div class="dashboard-card">
-  <div class="cover-bg">
-    <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-3' do %>
-    Edit
-    <% end %>
-  </div>
-  <div class="user-info-wrap">
-    <div class="user-photo"><%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %></div>
-    <div class="user-info">
-      <div class="user-name"><%= @user.first_name %> <%= @user.last_name %></div>
-      <div class="user-title"><%= @user.current_role %> in <%= @user.current_industry %> @ <%= @user.location %></div>
-      <div class="user-title mt-0">Aiming to become a/an <%= @user.future_role %></div>
-    </div>
-  </div>
-  <div class="user-bio">
+  <div class="row dashboard-row">
     <div class="col-12 col-md-6">
-      <h3 class="bio-subject">Budget</h3>SGD <%= @user.budget %>
-    </div>
-    <div class="col-12 col-md-6">
-      <h3 class="bio-subject">Timeframe</h3><%= @user.timeframe %> months 
-    </div>
-    <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Motivation</h3><%= @user.motivation %>
-    </div>
-    <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Journey Experience</h3><%= @user.journey_experience %>
-    </div>
-    <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Advice/Tips To Share</h3><%= @user.advice %>
-    </div>
-    <div class="col-12 col-md-12 pt-3">
-      <h3 class="bio-subject">Satisfied To The New Role In Tech?</h3><%= @user.satisfaction %> 
+      <div class="dashboard-card">
+      <div class="cover-bg">
+        <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-3' do %>
+          Edit
+        <% end %>
+      </div>
+      <div class="user-info-wrap">
+        <div class="user-photo"><%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %></div>
+        <div class="user-info">
+          <div class="user-name"><%= @user.first_name %> <%= @user.last_name %></div>
+          <div class="user-title"><%= @user.current_role %> in <%= @user.current_industry %> @ <%= @user.location %></div>
+          <div class="user-title mt-0">Aiming to become a/an <%= @user.future_role %></div>
+        </div>
+      </div>
+      <div class="user-bio">
+        <div class="col-12 col-md-6">
+          <h3 class="bio-subject">Budget</h3>SGD <%= @user.budget %>
+        </div>
+        <div class="col-12 col-md-6">
+          <h3 class="bio-subject">Timeframe</h3><%= @user.timeframe %> months 
+        </div>
+        <div class="col-12 col-md-12 pt-3">
+          <h3 class="bio-subject">Motivation</h3><%= @user.motivation %>
+        </div>
+        <div class="col-12 col-md-12 pt-3">
+          <h3 class="bio-subject">Journey Experience</h3><%= @user.journey_experience %>
+        </div>
+        <div class="col-12 col-md-12 pt-3">
+          <h3 class="bio-subject">Advice/Tips To Share</h3><%= @user.advice %>
+        </div>
+        <div class="col-12 col-md-12 pt-3">
+          <h3 class="bio-subject">Satisfied To The New Role In Tech?</h3><%= @user.satisfaction %> 
+        </div>
+      </div>
     </div>
   </div>
+  
+  <div class="col-12 col-md-6">
+    <div class="dashboard-card" style="height: 530px;">
+      <%= link_to builder_roadmaps_path, class: 'btn btn-edit mr-4 mt-3 text-white', style: "width: 100px;" do %>
+        My roadmap
+      <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
-  </div>
-</div> 
+
+   

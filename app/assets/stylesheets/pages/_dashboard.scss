@@ -2,6 +2,18 @@ body {
     margin: 0;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.dashboard {
+  padding: 20px;
+}
+
+.dashboard-row {
+  flex-wrap:wrap;
+}
+
 .dashboard-card {
   margin: 70px auto 200px;
   width: 500px;
@@ -50,16 +62,15 @@ body {
   }
   
   &-name {
-    font-weight: 500;
+    font-weight: 900;
     font-size: 20px;
-    font-weight: 500;
     color: #fff;
     margin-bottom: 10px
   }
   
   &-title {
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 800;
     color: black;
     display: block;
     margin-top: 12px
