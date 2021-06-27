@@ -71,12 +71,12 @@ h5 {
   cursor: pointer;
   font-size: 18px;
   // color: rgb(255, 83, 83);
-  color: #1d7756;
+  color: rgb(255, 83, 83);
 }
 
 .profileBtn:hover {
   // color: red;
-  color: #74a27e;
+  color: red;
 }
 
 .modal-title {
@@ -94,6 +94,13 @@ h5 {
   grid-gap: 0px;
   outline: none;
 }
+
+.modal-body-not-signed-in {
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 
 .cell {
   display: flex;
@@ -232,7 +239,7 @@ h5 {
   margin-top: 20px;
   margin-bottom: 0;
   letter-spacing: -0.1px;
-  color: #999193;
+  color: #b8b7b7;
 }
 
 .mb2-small-to {
