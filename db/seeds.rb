@@ -368,7 +368,7 @@ def seedUsers
   future_roles = [
     'Web Developer',
     'Product Manager',
-    'Fullstack Engineering',
+    'Fullstack Engineer',
     'Frontend Developer',
     'Backend Developer',
   ]
@@ -393,7 +393,7 @@ def seedUsers
     2269872, 
     2341350, 
     2531553, 
-    211476, 
+    3211476, 
     3370021, 
     3406022, 
     3754833, 

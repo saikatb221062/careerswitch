@@ -1,44 +1,185 @@
-<div id="back-to-results">
-  <a href="#" class="btn btn-outline-success rounded-pill" style="float: left;">Back to Results</a>
-</div>
-<% if current_user.roadmap.present? %>
-  <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-dark mb-3" %>
-<% else %>
-  <%= link_to "Select this path to create new", builder_roadmap_path(@roadmap), class: "btn btn-dark" %>
-<% end %>
-<br>
-<br>
-<br>
+<div class="wrapper">
+  <div class="box box-1">
+    <img src="<%= @roadmap.user.img_url %>" alt="profileimage">
+    <div class="line-name"><%= @roadmap.user.first_name %> <%= @roadmap.user.last_name %></div>
+    <div class="line-subtitle"><%= @roadmap.user.future_role %></div>
 
-<div class="media">
-  <img src="<%= @roadmap.user.img_url %>" class="mr-3" width="193" height="193" alt="pic">
+    <a data-toggle="collapse" href="#highlights" role="button" aria-expanded="false" aria-controls="highlights">
+      Highlights
+    </a>
+    <div class="collapse" id="highlights">
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">previously</span> <span><%= @roadmap.user.current_role %></span>, <span><%= @roadmap.user.current_industry %></span></div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">from</span> <span><%= @roadmap.user.location %></span></div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">member since</span> <span><%= @roadmap.user.created_at.strftime("%B %Y") %></span></div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">budget: S$ </span><span><%= @roadmap.user.budget %></span></div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">planned timeframe: </span><span><%= @roadmap.user.timeframe %></span> months</div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">availability: </span><span><%= @roadmap.user.available_hrs_per_week %></span>hrs per week</div>
+    </div>
 
-  <div class="media-body" style="text-align:left;">
-    <h4 class="mt-0 rd1-h3"><%= @roadmap.user.first_name %> <%= @roadmap.user.last_name %></h4>
-    <blockquote class="blockquote text-right">
-      <p class="mb-0" style="font-size:16px;"><i><%= @roadmap.user.advice %></i></p>
-      <footer class="blockquote-footer" style="font-size:12px; font-weight: lighter;">My motto in life<cite title="Source Title"></cite></footer>
-    </blockquote>
-    <div class="media mt-3">
-      <div class="media-body">
-        <h6 class="mt-0">Location: <%= @roadmap.user.location %></h6>
-        <h6 class="mt-0">Switch from: <%= @roadmap.user.current_role %>, <%= @roadmap.user.current_industry %> to <%= @roadmap.user.future_role %></h6>
-        <h6 class="mt-0">Career Change Journey: <%= @roadmap.start_date.strftime("%b %Y") %> to <%= @roadmap.end_date.strftime("%b %Y") %></h6>
-        <h6 class="mt-0">Budget: USD <%= @roadmap.user.budget %> Timeframe:<%= @roadmap.user.timeframe %> weeks</h6>
-        <br>
-        <h5 class="text-primary">What inspires me!</h5>
-        <h6 class="mt-0"><%= @roadmap.user.motivation %></h6>
-        <h5 class="text-primary">My Journey Experience</h5>
-        <h6 class="mt-0"><%= @roadmap.user.journey_experience %></h6>
-        <br>
-      </div>
+    <a data-toggle="collapse" href="#mycourses" role="button" aria-expanded="false" aria-controls="mycourses">
+      My Courses
+    </a>
+    <div class="collapse" id="mycourses">
+      <% @courses.each do |course| %>
+      <div class="line-detail"><span class="course"><%= course.title %></span></div>
+      <% end %>
+    </div>
+
+    <a data-toggle="collapse" href="#motivation" role="button" aria-expanded="false" aria-controls="motivation">
+      Motivation
+    </a>
+    <div class="collapse" id="motivation">
+      <div class="line-detail"><%= @roadmap.user.motivation %></div>
+    </div>
+
+    <a data-toggle="collapse" href="#journey" role="button" aria-expanded="false" aria-controls="journey">
+      Journey Experience
+    </a>
+    <div class="collapse" id="journey">
+      <div class="line-detail"><%= @roadmap.user.journey_experience %></div>
+    </div>
+
+    <a data-toggle="collapse" href="#advice" role="button" aria-expanded="false" aria-controls="advice">
+      My Advice!
+    </a>
+    <div class="collapse" id="advice">
+      <div class="line-detail"><%= @roadmap.user.advice %></div>
     </div>
   </div>
-</div>
 
-<h5>My Courses</h5>
-<ul class="list-group" style="text-align:left">
-  <% @courses.each do |course| %>
-  <li class="list-group-item" style="text-align:left"><%= course.title %></li>
-  <% end %>
-</ul>
+  <div class="box box-2">
+    <div class="d-flex justify-content-center align-items-center mb-2">
+      <div id="back-to-results">
+        <a href="#" class="btn btn-sm btn-secondary rounded-pill" style="font-size: 16px;">Back to Results</a>
+      </div>
+      <div id="my-dashboard" class="ml-5">
+        <% if current_user.roadmap.present? %>
+        <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
+        <% else %>
+        <%= link_to "Select this path to create new", builder_roadmap_path(@roadmap), class: "btn btn-sm btn-dark rounded-pill" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="d-none"><span id="rdmap-start"><%= @roadmap.start_date.strftime("%-m") %></span>
+    </div>
+
+    <div class="line-subhdr" style="font-size: 18px; color: #F08080;"><span><%= @roadmap.start_date.strftime("%b %Y") %></span> - <span><%= @roadmap.end_date.strftime("%b %Y") %></span>
+    </div>
+
+    <section class="timeline-wrapper mb-4">
+      <div class="timeline-middle-line"></div>
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>JUN</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-6" class="timeline-p">Course Name 6</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>MAY</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-5" class="timeline-p">Course Name 5</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>APR</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-4" class="timeline-p">Course Name 4</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>MAR</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-3" class="timeline-p">Course Name 3</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>FEB</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-2" class="timeline-p">Course Name 2</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>JAN</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-1" class="timeline-p">Course Name 1</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-wrapper">
+      <div class="timeline-middle-line"></div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>DEC</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-12" class="timeline-p">Course Name 12</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>NOV</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-11" class="timeline-p">Course Name 11</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>OCT</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-10" class="timeline-p">Course Name 10</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>SEP</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-9" class="timeline-p">Course Name 9</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>AUG</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-8" class="timeline-p">Course Name 8</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>JUL</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-7" class="timeline-p">Course Name 7</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
