@@ -27,7 +27,7 @@ class RoadmapsController < ApplicationController
     @my_roadmap.privacy_option = false
     @my_roadmap.start_date = Date.today
     @my_roadmap.end_date = @my_roadmap.start_date + (current_user.timeframe).months
-    @my_roadmap.duration = (@my_roadmap.end_date.year * 12 + @my_roadmap.end_date.month) - (@my_roadmap.start_date.year * 12 + @my_roadmap.start_date.month)
+    @my_roadmap.duration = ((@my_roadmap.end_date.year * 12 + @my_roadmap.end_date.month) - (@my_roadmap.start_date.year * 12 + @my_roadmap.start_date.month))
     @month_array = ((@my_roadmap.start_date).month..(@my_roadmap.end_date).month)
     @my_courses = params[:roadmap][:courses].map { |course_id| Course.find(course_id) }
     @my_roadmap.courses << @my_courses
@@ -38,14 +38,16 @@ class RoadmapsController < ApplicationController
 
   def mybuilder
     @my_roadmap = current_user.roadmap
-    @month_array = ((@my_roadmap.start_date).month..(@my_roadmap.end_date).month)
+    @my_roadmap.privacy_option = false
+    @my_roadmap.start_date = Date.today
+    @my_roadmap.end_date = @my_roadmap.start_date + (current_user.timeframe).months
+    @my_roadmap.duration = ((@my_roadmap.end_date.year * 12 + @my_roadmap.end_date.month) - (@my_roadmap.start_date.year * 12 + @my_roadmap.start_date.month))
     @courses = Roadmap.suggested_roadmaps(current_user).map(&:courses).flatten.uniq
     @my_courses = @my_roadmap.courses
     @course_roadmaps = []
     @my_courses.each do |course|
       @course_roadmaps << CourseRoadmap.find_by(course: course, roadmap: @my_roadmap)
     end
-    # raise
     
     @chosen_courses = @courses & @my_courses
     @unchosen_courses = @courses - @my_courses
