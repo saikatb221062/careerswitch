@@ -13,7 +13,9 @@
     <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-3' do %>
       Edit
     <% end %>
-    <img src="<%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg'), class: "profileimage" %>
+    <div style="margin-left: 100px;">
+      <%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %>
+    </div>
     <div class="line-name"><%= @user.first_name %> <%= @user.last_name %></div>
     <div class="line-subtitle"><%= @user.future_role %></div>
 
@@ -175,7 +177,7 @@
           <p>JUL</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-7" class="timeline-p">Course Name 7</p>
+          <p id="course-name-7" class="timeline-p">No course added yet!</p>
         </div>
       </div>
     </section>
