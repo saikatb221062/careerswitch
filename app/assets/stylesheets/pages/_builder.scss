@@ -1,21 +1,39 @@
-$blue:    #3498db;
-$purple:  #9b59b6;
-$navy:    #34495e;
-$green:   #2ecc71;
-$red:     #e74c3c;
-$orange:  #f39c12;
-
 body {
-  background: #E5E5E5;
+  background: #FFFEFA;
 	box-sizing: border-box;
 	padding-bottom: 50px;
 	min-width: 960px;
+  font-family: 'Catamaran'
 }
 
-.bd-row {
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  margin-bottom: 1em;
+.head {
+  font-weight: 900;
+  font-size: 32px;
+  padding-bottom: 30px;
+  text-align: left;
+  span {
+   background-size:  100% 15%;
+   background-repeat: repeat-x;
+   background-position: left 0% bottom 10%;
+  }
+}
+
+.sub-head {
+  font-weight: 900;
+  font-size: 17px;
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+.underline--magical {
+  background-image: linear-gradient(90deg, hsl(284,91%,69%) 0%, rgb(152, 120, 163) 12.5%,hsl(329,91%,69%) 12.5%, hsl(329,91%,69%) 25%,hsl(14,91%,69%) 25%, rgb(255, 255, 255) 37.5%,hsl(59,91%,69%) 37.5%, hsl(59,91%,69%) 50%,hsl(104,91%,69%) 50%, hsl(104,91%,69%) 62.5%,hsl(149,91%,69%) 62.5%, hsl(149,91%,69%) 75%,hsl(194,91%,69%) 75%, hsl(194,91%,69%) 87.5%,hsl(239,91%,69%) 87.5%, hsl(239,91%,69%) 100%);
+}
+
+
+.bd-container {
+  height: auto;
+  padding: 20px;
+  padding-left: 400px;
 }
 
 .course-list {
@@ -31,40 +49,89 @@ body {
   color: white;
 }
 
-.blue   { background: $blue }
-.purple { background: $purple }
-.navy   { background: $navy }
-.green  { background: $green }
-.red    { background: $red }
-.orange { background: $orange }
-
 table {
-   font-family: 'Open Sans', Helvetica;
-   color: black;
-   table-layout: fixed;
-   width: 100%;
+  width: 100%; height: auto;
+  max-width: 750px;
+  overflow-x: hidden;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  border-spacing: 0;
    tr {
       
-     &:nth-child(2n + 1){
-        background: blue; 
+     &:nth-child(2n + 1) td:last-child {
+        background:#fdb029
      }
      
-     &:nth-child(2n){
-        background: #f77807; 
+     &:nth-child(2n) td:last-child {
+        background: #ec5c52; 
      }
    }
    
    th, td {
       padding: 1em; 
-      width: 10em;
+      font-size: 12px;
+      width: 50px;
+      text-align: left;
    }
 }
 
-.months, .time {
-  background: #007580;
+.month-display {
+  background: black;
+  text-align: center;
+  border: 1px white ridge;
+  width: 100px;
+}
+
+.months {
+  background: #1d7756;
   text-transform: uppercase;
   font-size: 0.6em;
+  color: white;
+  text-align: center;
+  max-height: 50px;
+  overflow: hidden;
+}
+
+.btn-save {
+  float: right;
+  margin-right: 20px;
+  width: 80px;
+  height: 25px;
+  padding: 0px;
+  margin-left: 20px;
+  background: #d5ebe1;
+  font-weight: bold;
   text-align: center;
 }
 
-.grab {cursor: -webkit-grab; cursor: grab;}
+.course-list {
+  float: left;
+}
+
+.btn-danger {
+  width: 10px;
+  height: 10px;
+  font-size: 8px;
+  text-align: center;
+  float: right;
+  background-color: black;
+}
+
+.btn-roadmap {
+  background: #ec5c52;
+  color: white;
+  font-size: 12px;
+  font-weight: 200;
+  margin-left: 900px;
+}
+
+.search {
+  color: yellow;
+  text-decoration: underline;
+}
+
+.provider {
+  color: #ec5c52;
+}
+
+

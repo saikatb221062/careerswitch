@@ -4,6 +4,28 @@
 <%= f.error_notification %>
 
 <div class="form-inputs">
+  <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first_name" } %>
+  <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last_name" }%>
+  <%= f.label :location, "Location:" %><br>
+  <%= f.select :location, ['Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul'],
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "location" } %>
+  <%= f.input :budget,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "budget" }%>
+  <%= f.input :timeframe,
+                required: true,
+                autofocus: true,
+                hint: ("Value in months"),
+                input_html: { autocomplete: "timeframe" }%>
   <%= f.input :email,
                 required: true,
                 autofocus: true,

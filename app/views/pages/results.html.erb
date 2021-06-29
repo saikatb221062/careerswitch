@@ -13,11 +13,78 @@
 <!-- Grid Container -->
 <div class="result-cards">
   <% @shortlisted_profiles.each do |matched_user| %>
-  <% next if matched_user.first_name.nil? || matched_user.first_name.empty? %>
+  <% next if matched_user.first_name.nil? || matched_user.img_url.nil? %>
   <% matched_user.roadmap.nil? ? match_rdmp_id = 0 : match_rdmp_id = matched_user.roadmap.id %>
-
-  <%= render 'matches_grid', matched_user: matched_user, match_rdmp_id: match_rdmp_id %>
-
+  <div class='result-card'>
+    <img src="<%= matched_user.img_url %>" alt="matched-user">
+    <div class="card-name">
+      <p><strong>
+          <%= matched_user.first_name %> <%= matched_user.last_name %>
+        </strong></p>
+      <p class="text-muted"><%= matched_user.future_role %></p>
+      <% if user_signed_in? %>
+      <i class="fas fa-plus-circle profileBtn" data-target="#modalTwo-<%=  matched_user.id %>" data-toggle="modal" data-matched-user-id="<%= matched_user.id %>" data-matched-roadmap="<%= match_rdmp_id %>"></i>
+      <% else %>
+      <i class="fas fa-plus-circle profileBtn" data-target="#modalOne" data-toggle="modal"></i>
+      <% end %>
+    </div>
+  </div>
+  <!-- Modal Two - User Signed In -->
+  <div class="modal fade" id="modalTwo-<%= matched_user.id %>" tabindex="-1" aria-labelledby="modalTwoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable top-zero">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="cell">
+            <div class="small">
+              <img id="mb2-imgurl" src="<%= matched_user.img_url %>" alt="<%= matched_user.first_name %> <%= matched_user.last_name %>">
+              <h2 id="mb2-name"><%= matched_user.first_name %> <%= matched_user.last_name %></h2>
+              <p class="mb2-small-hdr">Success Story</p>
+              <p class="mb2-small-dtl" id="mb2-currrole"><%= matched_user.current_role %></p>
+              <p class="mb2-small-to">to</p>
+              <p class="mb2-small-dtl" id="mb2-futrole"><%= matched_user.future_role %></p>
+              <p class="mb2-small-hdr">Member since</p>
+              <p class="mb2-small-dtl">
+                <span id="mb2-mbrsince"><%= matched_user.created_at.strftime("%B %Y") %></span>
+              </p>
+              <p class="mb2-small-hdr"></p>
+              <p class="mb2-small-dtl">
+                <span id="mb2-locn"><i class="fas fa-compass" style="color: #FFF5EE;"></i> <%= matched_user.location %></span>
+              </p>
+              <i class="fab fa-facebook-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 6px; color: #FFF5EE; text-align: left;"></i>
+              <i class="fab fa-twitter-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 6px; color: #FFF5EE; text-align: left;"></i>
+              <i class="fab fa-instagram-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 6px; color: #FFF5EE; text-align: left;"></i>
+              <i class="fab fa-linkedin" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 6px; color: #FFF5EE; text-align: left;"></i>
+            </div>
+            <div class="large">
+              <p class="large-p1 text-muted">I was previously a <span id="mb2-currentrole"><%= matched_user.current_role %></span> professional in the <span id="mb2-currentind"><%= matched_user.current_industry %></span> industry.</p>
+              <p class="large-p2">I am now a <span id="mb2-futurerole"><%= matched_user.future_role %></span>.</p>
+              <p class="d-none"><span id="mb2-futureind"></span></p>
+              <p class="large-p4">Highlights</p>
+              <p class="large-p3 text-secondary">I started my career change journey with a target to achieve my goals in <span id="mb2-timeframe"><%= matched_user.timeframe %></span> months. I set aside a budget of S$<span id="mb2-budget"><%= matched_user.budget %></span>, and committed to putting in at least <span id="mb2-hrsperwk"><%= matched_user.available_hrs_per_week %></span> hours per week, working towards my dream!</p>
+              <p class="large-p4">Why did I change?</p>
+              <p class="large-p5 text-secondary" id="mb2-motivation"><%= matched_user.motivation %></p>
+              <p class="d-none" id="mb2-satisfaction">Satisfaction</p>
+              <p class="d-none" id="mb2-journey">Journey Experience</p>
+              <p class="large-p4">My Experience and Advice</p>
+              <p class="large-p6 text-secondary" id="mb2-advice"><%= matched_user.advice %></p>
+              <br>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary rounded-pill mr-2 mr-md-3 px-2 px-md-4" data-dismiss="modal">Close</button>
+          <%= render partial: "follow_button", locals: {user: matched_user} %>
+          <div id="mb2-15">
+            <% if matched_user.roadmap.nil? %>
+            <a href="#" class="btn btn-outline-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
+            <% else %>
+            <a href="/roadmaps/<%= matched_user.roadmap.id %>" class="btn btn-outline-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>
 
@@ -31,69 +98,13 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body-not-signed-in">
         Please sign-in or sign-up to access full features of Connectdots...
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill mr-2 mr-md-3 px-2 px-md-4" data-dismiss="modal">Close</button>
         <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-info mr-2 mr-md-3 rounded-pill px-2 px-md-4' %>
         <%= link_to 'Sign Up', new_user_registration_path(:c_role => params[:query_role], :c_ind => params[:query_from], :t_role => params[:query_to]), class: 'btn btn-warning rounded-pill px-2 px-md-4' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Two - User Signed In -->
-<div class="modal fade" id="modalTwo" tabindex="-1" aria-labelledby="modalTwoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable top-zero">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="cell">
-          <div class="small">
-            <img id="mb2-imgurl" src="" alt="matched-user">
-            <h2 id="mb2-name">Profile Name</h2>
-            <p class="mb2-small-hdr">Success Story</p>
-            <p class="mb2-small-dtl" id="mb2-currrole">Previous Role</p>
-            <p class="mb2-small-to">to</p>
-            <p class="mb2-small-dtl" id="mb2-futrole">Future Role</p>
-            <p class="mb2-small-hdr">Member since</p>
-            <p class="mb2-small-dtl">
-              <span id="mb2-mbrsince">Member Since</span>
-            </p>
-            <p class="mb2-small-hdr">from</p>
-            <p class="mb2-small-dtl">
-              <span id="mb2-locn">Location</span>
-            </p>
-            <p class="mb2-small-hdr">Status</p>
-            <p class="mb2-small-dtl">
-              <span id="mb2-status">Status</span>
-            </p>
-            <i class="fab fa-facebook-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 4px; color: #c7c5c6; text-align: left;"></i>
-            <i class="fab fa-twitter-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 4px; color: #c7c5c6; text-align: left;"></i>
-            <i class="fab fa-instagram-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 4px; color: #c7c5c6; text-align: left;"></i>
-            <i class="fab fa-linkedin" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 4px; color: #c7c5c6; text-align: left;"></i>
-
-          </div>
-          <div class="large">
-            <p class="large-p1 text-muted">I was previously<span id="mb2-currentrole"></span> in the <span id="mb2-currentind"></span> industry.</p>
-            <p class="large-p2">I am now a <span id="mb2-futurerole"></span>.</p>
-            <p class="d-none"><span id="mb2-futureind"></span></p>
-            <p class="large-p4">Highlights</p>
-            <p class="large-p3 text-secondary">I started my career change journey with a target to achieve my goals in <span id="mb2-timeframe"></span> months. I set aside a budget of S$<span id="mb2-budget"></span>, and committed to putting in at least <span id="mb2-hrsperwk"></span> hours per week, working towards my dream!</p>
-            <p class="large-p4">Why did I change?</p>
-            <p class="large-p5 text-secondary" id="mb2-motivation">Motivation</p>
-            <p class="d-none" id="mb2-satisfaction">Satisfaction</p>
-            <p class="d-none" id="mb2-journey">Journey Experience</p>
-            <p class="large-p4">My Experience and Advice</p>
-            <p class="large-p6 text-secondary" id="mb2-advice">Advice</p>
-            <br>
-            <div class="mb2-small-links">
-              <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill mr-2 mr-md-2 px-4 px-md-4" data-dismiss="modal">Close</button>
-              <%= link_to 'Connect', requests_connections_path, class: 'btn btn-sm btn-outline-warning rounded-pill mr-2 mr-md-2 px-2 px-md-2' %>
-              <a id="mb2-seeRoadmap" href="#" class="btn btn-sm btn-outline-primary rounded-pill mr-2 mr-md-2 px-2 px-md-2">See Roadmap</a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

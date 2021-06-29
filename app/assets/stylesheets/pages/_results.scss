@@ -29,7 +29,7 @@ h5 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background: rgb(255, 246, 245);
+  background: #d5ebe1;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 4px;
   position: relative;
@@ -70,10 +70,12 @@ h5 {
   cursor: -webkit-pointer; 
   cursor: pointer;
   font-size: 18px;
+  // color: rgb(255, 83, 83);
   color: rgb(255, 83, 83);
 }
 
 .profileBtn:hover {
+  // color: red;
   color: red;
 }
 
@@ -92,6 +94,13 @@ h5 {
   grid-gap: 0px;
   outline: none;
 }
+
+.modal-body-not-signed-in {
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 
 .cell {
   display: flex;
@@ -197,8 +206,12 @@ h5 {
   top: 0;
   border: none;
   outline: none;
+  background-color: #1d7756;
+  background-image: linear-gradient(to bottom, #1d7756, #538b77 70%); 
+  /*
   background-color: rgba(255, 230, 228, 0.9);
   background-image: linear-gradient(to bottom, rgba(255, 230, 228, 0.9), rgba(255, 255, 255, 1)) 
+  */
 }
 
 .modal-body img {
@@ -219,7 +232,7 @@ h5 {
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 0px;
-  color: #444041;
+  color: white;
   margin-bottom: 32px;
 }
 
@@ -230,7 +243,7 @@ h5 {
   margin-top: 20px;
   margin-bottom: 0;
   letter-spacing: -0.1px;
-  color: #999193;
+  color: #b8b7b7;
 }
 
 .mb2-small-to {
@@ -251,7 +264,7 @@ h5 {
   margin-top: 0;
   margin-bottom: 0;
   letter-spacing: -0.1px;
-  color: #444041;
+  color: white;
 }
 
 .mb2-small-links {

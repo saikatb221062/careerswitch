@@ -1,56 +1,104 @@
+body {
+    margin: 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
 .dashboard {
-  margin-left: 230px;
-  width: 900px;
-  border-style: ridge;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 20px;
 }
 
-.container-card-body {
-  padding: 70px;
+.dashboard-row {
+  flex-wrap:wrap;
 }
 
-body{
-    padding-bottom: 50px;
+.dashboard-card {
+  margin: 70px auto 200px;
+  width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  position: relative;
+  z-index: 1
 }
-  .image-container {
-      position: relative;
-  }
 
-  .image {
-      opacity: 1;
-      display: block;
-      width: 100%;
-      height: auto;
-      transition: .5s ease;
-      backface-visibility: hidden;
-      border-radius: 50%;
-  }
+.btn-edit {
+  width: 70px;
+  height: 30px;
+  float: right;
+  font-size: 12px;
+  font-weight: bold;
+  padding-top: 6px;
+  background: #EC525C;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 
-  .middle {
-      transition: .5s ease;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      text-align: center;
-  }
+.btn-upload {
+    padding-top: 10px;
 
-  .image-container:hover .image {
-      opacity: 0.3;
-  }
+}
 
-  .image-container:hover .middle {
-      opacity: 1;
+.cover-bg {
+  width: 100%;
+  height: 120px;
+  background: #1D7756;
+  background-size: 260%;
+  border-radius: 5px 5px 0 0;
+}
+
+.user {
+  &-info {
+    padding-left: 20px;
+    padding-top: 10px;
+    text-align: left;
+    
+    &-wrap {
+      margin-top: -50px;
+      display: flex;
+      padding: 0 20px;
+    }
   }
-  .img-thumbnail {
-    padding: 0.25rem;
-    background-color: #F4F4F4;
-    border: 0.5px solid #dee2e6;
+  
+  &-name {
+    font-weight: 900;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px
+  }
+  
+  &-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+    display: block;
+    margin-top: 12px
+  }
+  
+  &-photo img {
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
-    max-width: 100%;
-    height: auto;
+    background: #fff;
+    background-size: cover;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+  }
+  
+  &-bio {
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+      
+    p {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  
+  .bio-subject {
+    font-weight: bold;
+  }
+  }
+
 }
