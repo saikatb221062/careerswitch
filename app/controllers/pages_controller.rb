@@ -26,8 +26,8 @@ class PagesController < ApplicationController
 
   def results
     @industry_to = params[:query_to] || "A Tech Role"
-    @industry_from = params[:query_from] || "Your industry" 
-    @role_from = params[:query_role] || "Your role" 
+    @industry_from = params[:query_from] || "Your industry"
+    @role_from = params[:query_role] || "Your role"
 
     if current_user.nil?
       @results = User.all
@@ -45,16 +45,16 @@ class PagesController < ApplicationController
       @shortlist_msg = 'Please do not leave the search empty!'
     elsif @industry_to == "Still Exploring"
       @shortlisted_profiles = @results
-      @shortlist_msg = "Here are some of the suggestions"
+      @shortlist_msg = "Here are some suggestions"
     elsif @industry_to.nil? || @industry_from.nil? || @role_from.nil?
       @shortlisted_profiles = @results.where(future_role: @industry_to) + @results.where(current_industry: @industry_from) + @results.where(current_role: @role_from)
-        if @shortlisted_profiles.empty?
-          @shortlisted_profiles = @results
-        end
+      if @shortlisted_profiles.empty?
+        @shortlisted_profiles = @results
+      end
       @shortlist_msg = 'For better search result, please do not leave any field empty!'
     elsif @search_filter_to.empty?
       @shortlisted_profiles = @results
-      @shortlist_msg = "Sorry there's no exact match from your search, however, you can be the pioneer in this path and there may be people who wish to be like you in the future. Here's a closer role you may be interested in!"
+      @shortlist_msg = "Sorry there are no exact matches for your search. However, you could be the pioneer in this path and there may be people who wish to be like you in the future. Here are other profiles you may be interested in!"
     elsif @search_filter_role.empty?
       @shortlisted_profiles = @search_filter_to + @search_filter_from
       @shortlisted_profiles = @shortlisted_profiles.uniq
