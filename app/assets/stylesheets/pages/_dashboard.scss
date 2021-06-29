@@ -1,7 +1,11 @@
-body {
-    margin: 0;
+.user-photo {
+  height: 100px;
+  width: 100px;    
+  border-radius: 50%;
+  background: #fff;
+  background-size: cover;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
 }
-
 .buttons {
   display: flex;
   justify-content: space-around;
@@ -76,14 +80,6 @@ body {
     margin-top: 12px
   }
   
-  &-photo img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    background: #fff;
-    background-size: cover;
-    box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
-  }
   
   &-bio {
     padding: 20px;

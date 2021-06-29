@@ -1,5 +1,4 @@
-<div class="buttons">
-  <%= link_to dashboard_page_path do %>
+<%= link_to dashboard_page_path do %>
     My Dashboard
   <% end %>
   <%= link_to networks_page_path do %>
@@ -8,59 +7,177 @@
   <%= link_to suggested_roadmap_path do %>
     Suggested Roadmap
   <% end %>
-</div>
 
+<div class="wrapper">
+  <div class="box box-1">
+    <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-3' do %>
+      Edit
+    <% end %>
+    <img src="<%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg'), class: "profileimage" %>
+    <div class="line-name"><%= @user.first_name %> <%= @user.last_name %></div>
+    <div class="line-subtitle"><%= @user.future_role %></div>
 
+    <a data-toggle="collapse" href="#highlights" role="button" aria-expanded="false" aria-controls="highlights">
+      Highlights
+    </a>
+    <div class="collapse" id="highlights">
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">previously</span> <span><%= @user.current_role %></span>, <span><%= @user.current_industry %></span></div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">from</span> <span><%= @user.location %></span></div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">member since</span> <span><%= @user.created_at.strftime("%B %Y") %></span></div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">budget: S$ </span><span><%= @user.budget %></span></div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">planned timeframe: </span><span><%= @user.timeframe %></span> months</div>
+      <div class="line-detail"><span class="text-warning" style="font-size: 12px;">availability: </span><span><%= @user.available_hrs_per_week %></span>hrs per week</div>
+    </div>
 
-<div class="dashboard">
-  <div class="row dashboard-row">
-    <div class="col-12 col-md-6">
-      <div class="dashboard-card">
-      <div class="cover-bg">
-        <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-3' do %>
-          Edit
+    <a data-toggle="collapse" href="#motivation" role="button" aria-expanded="false" aria-controls="motivation">
+      Motivation
+    </a>
+    <div class="collapse" id="motivation">
+      <div class="line-detail"><%= @user.motivation %></div>
+    </div>
+
+    <a data-toggle="collapse" href="#journey" role="button" aria-expanded="false" aria-controls="journey">
+      Journey Experience
+    </a>
+    <div class="collapse" id="journey">
+      <div class="line-detail"><%= @user.journey_experience %></div>
+    </div>
+
+    <a data-toggle="collapse" href="#advice" role="button" aria-expanded="false" aria-controls="advice">
+      My Advice!
+    </a>
+    <div class="collapse" id="advice">
+      <div class="line-detail"><%= @user.advice %></div>
+    </div>
+  </div>
+
+  <div class="box box-2">
+    <div class="d-flex justify-content-center align-items-center mb-2">
+      <div id="back-to-results">
+        <a href="#" class="btn btn-sm btn-secondary rounded-pill" style="font-size: 16px;">Back to Results</a>
+      </div>
+      <div id="my-dashboard" class="ml-5">
+        <% if current_user.roadmap.present? %>
+          <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
+        <% else %>
+          <%= link_to "Select this path to create new", suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% end %>
       </div>
-      <div class="user-info-wrap">
-        <div class="user-photo"><%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %></div>
-        <div class="user-info">
-          <div class="user-name"><%= @user.first_name %> <%= @user.last_name %></div>
-          <div class="user-title"><%= @user.current_role %> in <%= @user.current_industry %> @ <%= @user.location %></div>
-          <div class="user-title mt-0">Aiming to become a/an <%= @user.future_role %></div>
-        </div>
-      </div>
-      <div class="user-bio">
-        <div class="col-12 col-md-6">
-          <h3 class="bio-subject">Budget</h3>SGD <%= @user.budget %>
-        </div>
-        <div class="col-12 col-md-6">
-          <h3 class="bio-subject">Timeframe</h3><%= @user.timeframe %> months 
-        </div>
-        <div class="col-12 col-md-12 pt-3">
-          <h3 class="bio-subject">Motivation</h3><%= @user.motivation %>
-        </div>
-        <div class="col-12 col-md-12 pt-3">
-          <h3 class="bio-subject">Journey Experience</h3><%= @user.journey_experience %>
-        </div>
-        <div class="col-12 col-md-12 pt-3">
-          <h3 class="bio-subject">Advice/Tips To Share</h3><%= @user.advice %>
-        </div>
-        <div class="col-12 col-md-12 pt-3">
-          <h3 class="bio-subject">Satisfied To The New Role In Tech?</h3><%= @user.satisfaction %> 
-        </div>
-      </div>
     </div>
-  </div>
-  
-  <div class="col-12 col-md-6">
-    <div class="dashboard-card" style="height: 530px;">
-      <%= link_to builder_roadmaps_path, class: 'btn btn-edit mr-4 mt-3 text-white', style: "width: 100px;" do %>
-        My roadmap
-      <% end %>
-      </div>
-    </div>
-  </div>
 
+    <section class="timeline-wrapper mb-4">
+      <div class="timeline-middle-line"></div>
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>JUN</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-6" class="timeline-p">Course Name 6</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>MAY</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-5" class="timeline-p">Course Name 5</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>APR</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-4" class="timeline-p">Course Name 4</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>MAR</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-3" class="timeline-p">Course Name 3</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>FEB</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-2" class="timeline-p">Course Name 2</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>JAN</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-1" class="timeline-p">Course Name 1</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-wrapper">
+      <div class="timeline-middle-line"></div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>DEC</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-12" class="timeline-p">Course Name 12</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>NOV</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-11" class="timeline-p">Course Name 11</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>OCT</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-10" class="timeline-p">Course Name 10</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>SEP</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-9" class="timeline-p">Course Name 9</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-bottom">
+        <div class="timeline-date">
+          <p>AUG</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-8" class="timeline-p">Course Name 8</p>
+        </div>
+      </div>
+
+      <div class="timeline-box timeline-box-top">
+        <div class="timeline-date">
+          <p>JUL</p>
+        </div>
+        <div class="timeline-box-content">
+          <p id="course-name-7" class="timeline-p">Course Name 7</p>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
-
-   
