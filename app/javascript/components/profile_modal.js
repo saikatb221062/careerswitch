@@ -1,8 +1,16 @@
 const profileModal = () => {
-  console.log('I am in ProfileModal!')
+  // console.log('I am in profileModal.js')
   const profileButtons = document.querySelectorAll(".profileBtn")
+  if (profileButtons.length == 0) {
+    // console.log("This is not the right place - Exiting");
+    return;
+  };
+
   const currentUser = document.getElementById("current-user-email")
   const profiles = document.querySelectorAll('.result-card');
+  const currentURL = window.location.href;
+  sessionStorage.removeItem('currentURL');
+  sessionStorage.setItem('currentURL', currentURL);
 
   if (!currentUser) { 
     profiles.forEach(blurProfiles);

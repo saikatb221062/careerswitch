@@ -1,11 +1,14 @@
 const backToResults = () => {
+  // console.log('I am in backToResults.js');
   const backToResultsBtn = document.getElementById('back-to-results');
 
   if (!backToResultsBtn) {
+    // console.log('This is not the right place - getting out !');
     return;
   };
 
   const currentURL = sessionStorage.getItem('currentURL');
+  console.log(currentURL);
   const btnP1 = '<a href="'
   const btnP3 = '" class="btn btn-sm btn-secondary rounded-pill" style="float: left;">Back to Results</a>'
 

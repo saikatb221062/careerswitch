@@ -30,7 +30,15 @@ h5 {
   justify-content: flex-start;
   align-items: center;
   background: #d5ebe1;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.result-card:hover {
+  background: #c4ecda;
+  box-shadow: 2x 2px 2px rgba(76, 114, 108, 0.2);
   border-radius: 4px;
   position: relative;
   margin-bottom: 8px;
