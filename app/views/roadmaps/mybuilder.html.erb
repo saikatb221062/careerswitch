@@ -39,8 +39,8 @@
     <% end %>
 
   </div>
-  <div class="bd-row">
-        <table style="overflow-x:auto;">
+  <div class="bd-row" style="overflow-x: scroll">
+        <table>
           <tr class="months">
             <% @month_array = (@my_roadmap.start_date..@my_roadmap.end_date).map{ |m| m.strftime('%Y%m') }.uniq.map{ |m| Date::ABBR_MONTHNAMES[ Date.strptime(m, '%Y%m').mon ] } %>
             <% @month_array.each do |m| %>
