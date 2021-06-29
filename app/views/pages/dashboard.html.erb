@@ -17,7 +17,8 @@
       <%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %>
     </div>
     <div class="line-name"><%= @user.first_name %> <%= @user.last_name %></div>
-    <div class="line-subtitle"><%= @user.future_role %></div>
+    <div class="line-subtitle" style="margin-bottom: 0;"><%= @user.current_role %> turned <%= @user.future_role %></div>
+    <div style="font-size: 15px;"><i class="fa fa-map-marker" style="color: red" aria-hidden="true"></i> <%= @user.location %></div>
 
     <a data-toggle="collapse" href="#highlights" role="button" aria-expanded="false" aria-controls="highlights">
       Highlights
