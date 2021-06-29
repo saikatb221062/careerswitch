@@ -50,9 +50,9 @@
           <% @course_roadmaps.sort_by(&:created_at).each_with_index do |course_roadmap, index| %>
           <tr>
               
-              <%# <% index > && @course_roadmaps[0...index].map(&:course).map(&:duration).reduce(&:+).times do  %> 
+              <% index > 0 && @course_roadmaps.sort_by(&:created_at)[0...index].map(&:course).map(&:duration).reduce(&:+).times do  %> 
                 <td></td>
-              <%# <% end %> 
+              <% end %> 
               
               <td colspan="<%= course_roadmap.course.duration%>">
                 <%= course_roadmap.course.title %> By <%= course_roadmap.course.provider %>
