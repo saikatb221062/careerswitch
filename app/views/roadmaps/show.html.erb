@@ -2,7 +2,8 @@
   <div class="box box-1">
     <img src="<%= @roadmap.user.img_url %>" alt="profileimage">
     <div class="line-name"><%= @roadmap.user.first_name %> <%= @roadmap.user.last_name %></div>
-    <div class="line-subtitle"><%= @roadmap.user.future_role %></div>
+    <div class="line-subtitle" style="margin-bottom: 0"><%= @roadmap.user.current_role %> turned <%= @roadmap.user.future_role %></div>
+    <div style="font-size: 15px;"><i class="fa fa-map-marker" style="color: red;" aria-hidden="true"></i> <%= @roadmap.user.location %></div>
 
     <a data-toggle="collapse" href="#highlights" role="button" aria-expanded="false" aria-controls="highlights">
       Highlights

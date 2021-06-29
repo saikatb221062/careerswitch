@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex ">
   <%= link_to dashboard_page_path do %>
     My Dashboard
   <% end %>
@@ -44,13 +44,16 @@
       </div>
       <div class="col-12 col-md-6 pt-3">
         <h3 class="bio-subject">Current Job Title*</h3><%= f.select :current_role, [
-      'Marketing','Design','Product Management','Copywriter','Account Management','Project Management','Business Analysis','Risk Management','Human Resources','Accountant','Sales','Customer Support','Operation','Research','Instructor','Consulting','Self-employed','Freelance'], class: 'form-control', required: true, :style => "width: 200px;" %>
+      'Marketeer','Designer','Product Manager','Copywriter','Account Manager','Project Manager','Business Analyst','Risk Manager','Recruiter','Accountant','Business Dev Manager','Customer Support Specialist','Operation Manager', 'Supply Chain Manager', 'Researcher','Instructor','Consultant','Self-employed','Freelancer'], class: 'form-control', required: true, :style => "width: 200px;" %>
       </div>
       <div class="col-12 col-md-6 pt-3">
-        <h3 class="bio-subject">Future Industry*</h3><%= f.text_field :future_industry, class: 'form-control', required: true %>
+        <h3 class="bio-subject">Future Industry*</h3>Tech/IT</h3>
       </div>
       <div class="col-12 col-md-6 pt-3">
-        <h3 class="bio-subject">Dream Job in Tech*</h3><%= f.select :future_role, ['Still Exploring', 'Web Developer','Product Manager', 'Fullstack Engineering', 'Frontend Developer', 'Backend Developer', "Android Developer", "iOS Developer", "Data Scientist", "Hardware Engineer", "Cloud Engineer", "DevOps Engineer", "IT Consultant"], class: 'form-control', required: true, :style => "width: 200px;" %>
+        <h3 class="bio-subject">Dream Job in Tech*</h3><%= f.select :future_role, ['Still Exploring', 'Web Developer','Product Manager', 'Fullstack Engineer', 'Frontend Developer', 'Backend Developer'], class: 'form-control', required: true, :style => "width: 200px;" %>
+      </div>
+      <div class="col-12 col-md-12">
+        <h3 class="bio-subject">How much can you contribute per week?</h3><%= f.select :available_hrs_per_week, ['less than 12', '12', '24', '36', '40', '60', 'more than 60'], class: 'form-control', required: true %>
       </div>
       <div class="col-12 col-md-12 pt-3">
         <h3 class="bio-subject">What's your motivation to switch to Tech?</h3><%= f.text_field :motivation, class: 'form-control', :style => "height: 100px;" %>

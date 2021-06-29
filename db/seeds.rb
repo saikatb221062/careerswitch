@@ -329,30 +329,32 @@ def seedUsers
   User.destroy_all
 
   current_role = [
-    'Marketing',
-    'Design',
-    'Product Management',
+    'Marketeer',
+    'Designer',
+    'Product Manager',
     'Copywriter',
-    'Account Management',
-    'Project Management',
-    'Business Analysis',
-    'Risk Management',
-    'Human Resources',
+    'Account Manager',
+    'Project Manager',
+    'Business Analyst',
+    'Risk Manager',
+    'Recruiter',
     'Accountant',
-    'Sales',
-    'Customer Support',
-    'Operation',
-    'Research',
+    'Business Dev Manager',
+    'Customer Support Specialist',
+    'Operation Manager',
+    'Supply Chain Manager'
+    'Researcher',
     'Instructor',
-    'Consulting',
+    'Consultant',
     'Self-employed',
-    'Freelance'
+    'Freelancer'
   ] 
 
   current_ind =  [
     'Consulting',
     'Art/Design',
-    'IT/Tech Agriculture',
+    'IT/Tech',
+    'Agriculture',
     'Hospitality',
     'Law',
     'Leisure/Tourism',
