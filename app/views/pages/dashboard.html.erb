@@ -1,17 +1,17 @@
 <%= link_to dashboard_page_path do %>
-    My Dashboard
-  <% end %>
-  <%= link_to networks_page_path do %>
-    My Networks
-  <% end %>
-  <%= link_to suggested_roadmap_path do %>
-    Suggested Roadmap
-  <% end %>
+My Dashboard
+<% end %>
+<%= link_to networks_page_path do %>
+My Networks
+<% end %>
+<%= link_to suggested_roadmap_path do %>
+Suggested Roadmap
+<% end %>
 
 <div class="wrapper">
   <div class="box box-1">
-    <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-3' do %>
-      Edit
+    <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-2', style: 'border-radius: 50rem; font-size: 0.9rem; color: rgb(36, 122, 90); padding-top: 3px;' do %>
+    Edit
     <% end %>
     <div style="margin-left: 100px; object-fit: cover">
       <%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %>
@@ -61,9 +61,9 @@
       </div>
       <div id="my-dashboard" class="ml-5">
         <% if current_user.roadmap.present? %>
-          <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
+          < %= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% else %>
-          <%= link_to "Build my first roadmap", suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" %>
+          <%= link_to "Select this path to create new", suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% end %>
       </div>
     </div>

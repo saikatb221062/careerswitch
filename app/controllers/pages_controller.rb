@@ -30,9 +30,9 @@ class PagesController < ApplicationController
     @role_from = params[:query_role] || "Your role"
 
     if current_user.nil?
-      @results = User.all
+      @results = User.all.order(:id)
     else
-      @results = User.all.where.not(id: current_user.id)
+      @results = User.all.where.not(id: current_user.id).order(:id)
     end
 
     @search_filter_to = @results.where(future_role: @industry_to)
