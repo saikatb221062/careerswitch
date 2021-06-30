@@ -342,7 +342,7 @@ def seedUsers
     'Business Dev Manager',
     'Customer Support Specialist',
     'Operation Manager',
-    'Supply Chain Manager'
+    'Supply Chain Manager',
     'Researcher',
     'Instructor',
     'Consultant',
@@ -372,7 +372,7 @@ def seedUsers
     'Product Manager',
     'Fullstack Engineer',
     'Frontend Developer',
-    'Backend Developer',
+    'Backend Developer'
   ]
 
   @satisfaction = [ 
