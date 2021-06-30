@@ -96,8 +96,14 @@ def seedUsers14
     'Business Analyst',
     'Risk Manager',
     'Recruiter',
-    'Self-employed',
-    'Freelancer'
+    'Accountant',
+    'Business Dev Manager',
+    'Customer Support Specialist',
+    'Operation Manager',
+    'Supply Chain Manager',
+    'Researcher',
+    'Instructor',
+    'Consultant',
   ]
   @current_industries_14 = [
     'Consulting', 
@@ -173,7 +179,7 @@ def seedUsers14
     'Product Manager',
     'Fullstack Engineer',
     'Frontend Developer',
-    'Backend Developer',
+    'Backend Developer'
   ]
   @satisfactions = [ 
     "Great", 
