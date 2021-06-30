@@ -13,11 +13,11 @@
     <%= link_to edit_profile_path, class: 'btn btn-edit mr-4 mt-3' do %>
       Edit
     <% end %>
-    <div style="margin-left: 100px;">
+    <div style="margin-left: 100px; object-fit: cover">
       <%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('placeholder.jpg') %>
     </div>
     <div class="line-name"><%= @user.first_name %> <%= @user.last_name %></div>
-    <div class="line-subtitle" style="margin-bottom: 0;"><%= @user.current_role %> turned <%= @user.future_role %></div>
+    <div class="line-subtitle" style="margin-bottom: 0;"><%= @user.current_role %><%= @user.current_role.present? || @user.future_role? ? " turned " : " " %><%= @user.future_role %></div>
     <div style="font-size: 15px;"><i class="fa fa-map-marker" style="color: red" aria-hidden="true"></i> <%= @user.location %></div>
 
     <a data-toggle="collapse" href="#highlights" role="button" aria-expanded="false" aria-controls="highlights">
@@ -63,7 +63,7 @@
         <% if current_user.roadmap.present? %>
           <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% else %>
-          <%= link_to "Select this path to create new", suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" %>
+          <%= link_to "Build my first roadmap", suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% end %>
       </div>
     </div>
@@ -75,7 +75,7 @@
           <p>JUN</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-6" class="timeline-p">Course Name 6</p>
+          <p id="course-name-6" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -84,7 +84,7 @@
           <p>MAY</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-5" class="timeline-p">Course Name 5</p>
+          <p id="course-name-5" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -93,7 +93,7 @@
           <p>APR</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-4" class="timeline-p">Course Name 4</p>
+          <p id="course-name-4" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -102,7 +102,7 @@
           <p>MAR</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-3" class="timeline-p">Course Name 3</p>
+          <p id="course-name-3" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -111,7 +111,7 @@
           <p>FEB</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-2" class="timeline-p">Course Name 2</p>
+          <p id="course-name-2" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -120,7 +120,7 @@
           <p>JAN</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-1" class="timeline-p">Course Name 1</p>
+          <p id="course-name-1" class="timeline-p">No course added yet!</p>
         </div>
       </div>
     </section>
@@ -133,7 +133,7 @@
           <p>DEC</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-12" class="timeline-p">Course Name 12</p>
+          <p id="course-name-12" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -142,7 +142,7 @@
           <p>NOV</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-11" class="timeline-p">Course Name 11</p>
+          <p id="course-name-11" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -151,7 +151,7 @@
           <p>OCT</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-10" class="timeline-p">Course Name 10</p>
+          <p id="course-name-10" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -160,7 +160,7 @@
           <p>SEP</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-9" class="timeline-p">Course Name 9</p>
+          <p id="course-name-9" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
@@ -169,7 +169,7 @@
           <p>AUG</p>
         </div>
         <div class="timeline-box-content">
-          <p id="course-name-8" class="timeline-p">Course Name 8</p>
+          <p id="course-name-8" class="timeline-p">No course added yet!</p>
         </div>
       </div>
 
