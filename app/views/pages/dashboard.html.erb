@@ -61,7 +61,7 @@ Suggested Roadmap
       </div>
       <div id="my-dashboard" class="ml-5">
         <% if current_user.roadmap.present? %>
-          < %= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
+          <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% else %>
           <%= link_to "Select this path to create new", suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% end %>
