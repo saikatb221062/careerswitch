@@ -19,6 +19,7 @@
 <div class="result-cards">
   <% @shortlisted_profiles.each do |matched_user| %>
   <% next if matched_user.first_name.nil? || matched_user.img_url.nil? %>
+  <% next if matched_user.roadmap.nil? %>
   <% matched_user.roadmap.nil? ? match_rdmp_id = 0 : match_rdmp_id = matched_user.roadmap.id %>
   <% if user_signed_in? %>
   <div class="result-card" data-target="#modalTwo-<%= matched_user.id %>" data-toggle="modal">
