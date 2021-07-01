@@ -4,7 +4,7 @@
 <% end %></div>
 
   <%= form_for(@my_roadmap) do |f| %>
-  <p style="text-align: left; font-size: 25px; font-family: 'Catamaran';">Select all courses you want to add to your roadmap <%= submit_tag 'Save', form: 'new_roadmap', class: "btn save-btn" %></p>
+  <p style="text-align: left; font-size: 25px; font-family: 'Catamaran'; margin-top: 20px;">Select all courses you want to add to your roadmap <%= submit_tag 'Save', form: 'new_roadmap', class: "btn save-btn" %></p>
   <div class="course-cards">
     <% @courses.each do |course| %>
       <div class="course-card">
