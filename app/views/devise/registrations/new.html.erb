@@ -1,56 +1,79 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= f.error_notification %>
-
-<div class="form-inputs">
-  <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "first_name" }%>
-  <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "last_name" }%>
-  <%= f.label :location, "Location:" %><br>
-  <%= f.select :location, ['Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul'],
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "location" } %>
-  <%= f.input :budget,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "budget" }%>
-  <%= f.input :timeframe,
-                required: true,
-                autofocus: true,
-                hint: ("Value in months"),
-                input_html: { autocomplete: "timeframe" }%>
-  <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-  <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-  <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  <%= f.hidden_field :current_role,
-                required: true,
-                value: params[:c_role] %>
-  <%= f.hidden_field :current_industry,
-                required: true,
-                value: params[:c_ind] %>
-  <%= f.hidden_field :future_role,
-                required: true,
-                value: params[:t_role] %>
+<div class="signup-cover"> 
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+  <h2 class="signup-font">Welcome to ConnectDots</h2>
+    <h3>Connect your career experience to your dream job in tech</h3>
+    <div class="signup-box">
+      <div class="form-inputs row">
+        <div class="col-12 col-md-12">
+          <%= f.label :location, "Where are you currently based in?" %><br>
+          <%= f.select :location, ['Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul'],
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "location" } %>
+        </div>
+        <div class="col-12 col-md-6">
+          <%= f.input :first_name,
+                        required: true,
+                        autofocus: true,
+                        label: "First Name",
+                        input_html: { autocomplete: "first_name" } %>
+        </div>
+        <div class="col-12 col-md-6">
+          <%= f.input :last_name,
+                        required: true,
+                        autofocus: true,
+                        label: "Last Name",
+                        input_html: { autocomplete: "last_name" }%>
+        </div>
+        <div class="col-12 col-md-12">
+          <%= f.input :budget,
+                        required: true,
+                        autofocus: true,
+                        label: "What's your budget?",
+                        input_html: { autocomplete: "budget" }%>
+        </div>
+        <div class="col-12 col-md-12">
+          <%= f.input :timeframe,
+                        required: true,
+                        autofocus: true,
+                        label: "How long do you allow yourself to reach your dream job? (e.g. 2, 10, 12, 24, 36 etc months)",
+                        hint: ("Value in months"),
+                        input_html: { autocomplete: "timeframe" }%>
+        </div>
+        <div class="col-12 col-md-12">
+          <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
+        </div>
+        <div class="col-12 col-md-6">
+          <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="col-12 col-md-6">
+          <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+        <%= f.hidden_field :current_role,
+                      required: true,
+                      value: params[:c_role] %>
+        <%= f.hidden_field :current_industry,
+                      required: true,
+                      value: params[:c_ind] %>
+        <%= f.hidden_field :future_role,
+                      required: true,
+                      value: params[:t_role] %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<div class="form-actions">
-  <%= f.button :submit, "Sign up" %>
-</div>
-<% end %>
 
 <%= render "devise/shared/links" %>

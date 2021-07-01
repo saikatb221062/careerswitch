@@ -1,5 +1,13 @@
-body {
-    margin: 0;
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.dashboard {
+  padding: 20px;
+}
+
+.dashboard-row {
+  flex-wrap:wrap;
 }
 
 .dashboard-card {
@@ -13,14 +21,15 @@ body {
 }
 
 .btn-edit {
-  width: 70px;
-  height: 30px;
+  width: 60px;
+  height: 28px;
   float: right;
-  font-size: 12px;
-  font-weight: bold;
-  padding-top: 6px;
-  background: #EC525C;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 0;
+  background: white;
+  color: rgb(36, 122, 90);
+  border-radius: 50rem;
+  font-size: 0.9rem; 
+  padding-top: 3px;
 }
 
 .btn-upload {
@@ -50,28 +59,18 @@ body {
   }
   
   &-name {
-    font-weight: 500;
+    font-weight: 900;
     font-size: 20px;
-    font-weight: 500;
     color: #fff;
     margin-bottom: 10px
   }
   
   &-title {
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 800;
     color: black;
     display: block;
     margin-top: 12px
-  }
-  
-  &-photo img {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    background: #fff;
-    background-size: cover;
-    box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
   }
   
   &-bio {
@@ -89,5 +88,4 @@ body {
     font-weight: bold;
   }
   }
-
 }

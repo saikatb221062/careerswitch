@@ -1,10 +1,3 @@
-$blue:    #3498db;
-$purple:  #9b59b6;
-$navy:    #34495e;
-$green:   #2ecc71;
-$red:     #e74c3c;
-$orange:  #f39c12;
-
 body {
   background: #FFFEFA;
 	box-sizing: border-box;
@@ -14,30 +7,33 @@ body {
 }
 
 .head {
-  font-weight: 100px;
-  font-size: 30px;
-  padding-bottom: 80px;
+  font-weight: 900;
+  font-size: 32px;
+  padding-bottom: 20px;
+  text-align: left;
+  span {
+   background-size:  100% 15%;
+   background-repeat: repeat-x;
+   background-position: left 0% bottom 10%;
+  }
 }
+
+.sub-head {
+  font-weight: 900;
+  font-size: 17px;
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+.underline--magical {
+  background-image: linear-gradient(90deg, hsl(284,91%,69%) 0%, rgb(152, 120, 163) 12.5%,hsl(329,91%,69%) 12.5%, hsl(329,91%,69%) 25%,hsl(14,91%,69%) 25%, rgb(255, 255, 255) 37.5%,hsl(59,91%,69%) 37.5%, hsl(59,91%,69%) 50%,hsl(104,91%,69%) 50%, hsl(104,91%,69%) 62.5%,hsl(149,91%,69%) 62.5%, hsl(149,91%,69%) 75%,hsl(194,91%,69%) 75%, hsl(194,91%,69%) 87.5%,hsl(239,91%,69%) 87.5%, hsl(239,91%,69%) 100%);
+}
+
 
 .bd-container {
   height: auto;
   padding: 20px;
-}
-
-.bd-row {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 1em;
-}
-
-.box {
-  flex: 1 1 200px;
-  border:1px solid black;
-  border-radius: 10px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  background-color: white;
-  padding: 30px;
+  padding-left: 400px;
 }
 
 .course-list {
@@ -53,43 +49,157 @@ body {
   color: white;
 }
 
-.blue   { background: $blue }
-.purple { background: $purple }
-.navy   { background: $navy }
-.green  { background: $green }
-.red    { background: $red }
-.orange { background: $orange }
-
 table {
-   font-family: 'Open Sans', Helvetica;
-   color: black;
-   width: 100%;
+  width: 100%; height: auto;
+  max-width: 750px;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  border-spacing: 0;
    tr {
       
-     &:nth-child(2n + 1){
-        background: #fdb029; 
+     &:nth-child(2n + 1) td:last-child {
+        background:#fdb029
      }
      
-     &:nth-child(2n){
+     &:nth-child(2n) td:last-child {
         background: #ec5c52; 
      }
    }
    
    th, td {
       padding: 1em; 
-      width: 10em;
-      font-size: 10px;
+      font-size: 12px;
+      width: 50px;
+      text-align: left;
    }
 }
 
 .month-display {
-  background: #1d7756;
+  background: black;
+  text-align: center;
+  border: 1px white ridge;
+  width: 100px;
 }
 
-.months, .time {
+.months {
   background: #1d7756;
   text-transform: uppercase;
   font-size: 0.6em;
   color: white;
   text-align: center;
+  max-height: 50px;
+  overflow: hidden;
+}
+
+.btn-save {
+  float: right;
+  margin-right: 20px;
+  width: 80px;
+  height: 25px;
+  padding: 0px;
+  margin-left: 20px;
+  background: #d5ebe1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.course-list {
+  float: left;
+}
+/*
+.btn-danger {
+  width: 10px;
+  height: 10px;
+  font-size: 8px;
+  text-align: center;
+  float: right;
+  background-color: black;
+}
+*/
+.btn-roadmap {
+  background: #ec5c52;
+  color: white;
+  font-size: 12px;
+  font-weight: 200;
+  margin-left: 900px;
+}
+
+.search {
+  color: yellow;
+  text-decoration: underline;
+}
+
+.provider {
+  color: #ec5c52;
+}
+
+.course-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 36px;
+}
+
+/* this is a flexbox */
+.course-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #d5ebe1;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 8px;
+  height: 150px;
+  text-align: left;
+  padding: 20px;
+}
+
+.course-provider {
+  float: left;
+  top: 0;
+  position: absolute;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.course-details {
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.course-check input {
+  width: 25px;
+  height: 25px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.course-link {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 7px;
+  margin-left: 19px;
+  font-size: 10px;
+}
+
+.btn-talk-network {
+  color: black;
+  text-decoration: underline;
+  margin-left: -350px;
+  margin-top: -79px;
+}
+
+.save-btn {
+  font-size: 20px;
+  height: 50px;
+  width: 80px;
+  text-align: center;
+  background: #ec5c52;
+  color: white;
+  width: 150px
 }
