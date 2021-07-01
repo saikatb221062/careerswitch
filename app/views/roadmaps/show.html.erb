@@ -24,10 +24,12 @@
     </a>
     <div class="collapse" id="mycourses">
       <% @courses.each do |course| %>
-      <div class="line-detail">
-        <a class="course line-detail" style="margin-top: 8px;" target="_blank" href=" <%= course.provider_url %>"><%= course.title[0..30] %></a>
-        <span style="color: #a2c5b1; font-size: 14px;"><%= course.provider %> |</span>
-        <span style="color: #a2c5b1; font-size: 14px;"><%= pluralize(course.duration, 'month') %></span>
+      <div class="line-detail" style="line-height: 1.1; margin-bottom: 0;">
+        <a class="course line-detail" style="margin-top: 16px; margin-bottom: 0; line-height: 1.1;" target="_blank" href=" <%= course.provider_url %>"><%= course.title[0..30] %></a>
+        <span style="color: #a2c5b1; font-size: 16px; margin-top: 0; line-height: 1.1;"><%= course.provider %> |</span>
+        <span style="color: #a2c5b1; font-size: 16px; margin-top: 0; line-height: 1.1;"><%= pluralize(course.duration, 'month') %> |</span>
+        <% course.cost.zero? ? cse_cost = "Free" : cse_cost = "$#{course.cost.to_s}" %>
+        <span style="color: #a2c5b1; font-size: 16px; margin-top: 0; line-height: 1.1;"><%= cse_cost %></span>
       </div>
       <% end %>
     </div>
