@@ -1,6 +1,10 @@
 <div class="wrapper">
   <div class="box box-1">
-    <img src="<%= @roadmap.user.img_url %>" alt="profileimage">
+    <% if @roadmap.user.photo.attached? %>
+      <%= cl_image_tag @roadmap.user.photo, alt: 'profileimage' %>
+    <% else %>
+      <%= image_tag @roadmap.user.img_url, alt: 'profileimage' %>
+    <% end %>
     <div class="line-name"><%= @roadmap.user.first_name %> <%= @roadmap.user.last_name %></div>
 
     <div class="line-subtitle" style="margin-bottom: 0"><%= @roadmap.user.current_role %> turned <%= @roadmap.user.future_role %></div>
