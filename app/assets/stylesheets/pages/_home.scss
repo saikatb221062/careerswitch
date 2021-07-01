@@ -1,11 +1,99 @@
 // Specific CSS for your home-page
 body {
-  margin-top: 85px !important;
+  font-family: 'Lato', Helvetica, Arial, sans-serif !important;
+  padding-top: 6em !important;
 }
 
-.container {
-  text-align: center;
+.dela-gothic {
+  font-family: 'Dela Gothic One', Helvetica, Arial, sans-serif;
 }
+
+.home-page-wrap {
+  height: 80vh;
+  width: 100vw;
+}
+
+.home-form-container {
+  height: inherit;
+}
+
+.hero-prop {
+  height: auto !important;
+}
+
+.dot-dot {
+  border-radius: 999px;
+  position: absolute;
+  z-index: -333;
+}
+
+.dot-dot-50 {
+  height: 50px;
+  width: 50px;
+}
+
+.dot-dot-75 {
+  height: 75px;
+  width: 75px;
+}
+
+.dot-dot-100 {
+  height: 100px;
+  width: 100px;
+}
+
+.dot-dot-100 {
+  height: 150px;
+  width: 150px;
+}
+
+.dot-dot-1 {
+  top: 60px;
+  left: -45px;
+}
+
+.dot-dot-2 {
+  right: -30px;
+  bottom: -100px;
+}
+
+/* ------- Hero Image -------  */
+
+.hero-image-wrap {
+  // top: -25%;
+  // height: auto;
+  // width: 100%;
+  z-index: -2;
+}
+
+.hero-prop {
+  position: absolute;
+}
+
+.hero-prop-1 {
+  top: -30px;
+}
+
+.hero-prop-2 {
+  top: 360px;
+  right: -150px;
+}
+
+.dot-dot-3 {
+  top: 50px;
+  right: 0px;
+}
+
+.dot-dot-4 {
+  top: 5px;
+  left: -10px;
+  z-index: 99;
+}
+
+
+
+
+
 
 .cards {
   display: flex;
