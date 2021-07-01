@@ -1,144 +1,109 @@
-<h1 class="home-header">Connect Dots</h1>
+<div class="home-page-wrap">
 
-<div class="container-home">
-  <div class="row">
-    <div class="col mt-5">
-      <%= form_tag show_pages_path, method: :get do %>
-      <form class="simple-form">
-        <div class="form-group text-left">
-          <h3><b><label for="exampleFormControlSelect1">I am working as: </label></b></h3>
-          <select class="form-control" <%= search_field_tag :query_role, params[:query_role] %> id="industry_role">
-            <option value="" disabled selected>Select your current role</option>
-            <option>Marketing</option>
-            <option>Design</option>
-            <option>Product Management</option>
-            <option>Copywriting</option>
-            <option>Account Management</option>
-            <option>Project Management</option>
-            <option>Business Analysis</option>
-            <option>Risk Management</option>
-            <option>Human Resources</option>
-            <option>Accounting</option>
-            <option>Sales</option>
-            <option>Customer Support</option>
-            <option>Operations</option>
-            <option>Research</option>
-            <option>Instruction/Coaching</option>
-            <option>Consulting</option>
-            <option>Self-employed</option>
-            <option>Freelance</option>
-          </select>
+  
+  <div class="home-form-container">
+    <div class="container px-3" style="height:inherit;">
+      <div class="row d-flex flex-wrap align-items-center" style="height:inherit;">
+        <div class="col-12 col-md-6 position-relative">
+          <div class="hero-title">
+            <h1 class="display-4 text-left dela-gothic">ConnectDots</h1>
+            <p class="h2 text-secondary">Connect your career experience to your dream job in tech</p>
+          </div>
+          <div class="hero-form mt-5">
+            <%= form_tag show_pages_path, method: :get do %>
+            <form class="simple-form">
+              <div class="form-group text-left mb-4">
+                <h3 class="h5 font-weight-bold text-uppercase mb-0 dela-gothic"><label for="exampleFormControlSelect1">I'm working as</label></h3>
+                <select class="form-control rounded-sm" <%= search_field_tag :query_role, params[:query_role] %> id="industry_role">
+                  <option value="" disabled selected>Select your current role</option>
+                  <option>Marketing</option>
+                  <option>Design</option>
+                  <option>Product Management</option>
+                  <option>Copywriting</option>
+                  <option>Account Management</option>
+                  <option>Project Management</option>
+                  <option>Business Analysis</option>
+                  <option>Risk Management</option>
+                  <option>Human Resources</option>
+                  <option>Accounting</option>
+                  <option>Sales</option>
+                  <option>Customer Support</option>
+                  <option>Operations</option>
+                  <option>Research</option>
+                  <option>Instruction/Coaching</option>
+                  <option>Consulting</option>
+                  <option>Self-employed</option>
+                  <option>Freelance</option>
+                </select>
+              </div>
+              <div class="form-group text-left mb-4">
+                <h3 class="h5 font-weight-bold text-uppercase mb-0 dela-gothic"><label for="exampleFormControlSelect1">I'm from</label></h3>
+                <select class="form-control rounded-sm" <%= search_field_tag :query_from, params[:query_from] %> id="industry_from">
+                  <option value="" disabled selected>Select your current industry</option>
+                  <option>Agriculture</option>
+                  <option>Art/Design</option>
+                  <option>Consulting</option>
+                  <option>Hospitality</option>
+                  <option>IT/Tech</option>
+                  <option>Law</option>
+                  <option>Leisure/Tourism</option>
+                  <option>Marketing/Advertising</option>
+                  <option>Media/Entertainment</option>
+                  <option>Public Services/Govt</option>
+                  <option>Retail</option>
+                  <option>Pharmaceuticals</option>
+                </select>
+              </div>
+              <div class="form-group text-left">
+                <h3 class="h5 font-weight-bold text-uppercase mb-0 dela-gothic"><label for="exampleFormControlSelect1">I'm switching to</label></b></h3>
+                <select class="form-control rounded-sm" <%= search_field_tag :query_to, params[:query_to] %> id="industry_to">
+                  <option value="" disabled selected>Select ideal role</option>
+                  <option>Still Exploring</option>
+                  <option>Web Developer</option>
+                  <option>Product Manager</option>
+                  <option>Fullstack Engineer</option>
+                  <option>Frontend Developer</option>
+                  <option>Backend Developer</option>
+                  <option>Data Analyst</option>
+                  <option>Android Developer</option>
+                  <option>IOS Developer</option>
+                  <option>Hardware Engineer</option>
+                  <option>Cloud Engineer</option>
+                  <option>DevOps Engineer</option>
+                </select>
+              </div>
+              <%= submit_tag "Start Connecting", class: "btn btn-primary text-white btn-block rounded-sm rounded-pill dela-gothic text-uppercase p-2 mt-4" %>
+            </form>
+            <% end %>
+          </div>
+          <div class="dot-dot dot-dot-75 dot-dot-1 bg-green" style="opacity:50%;">
+          </div>
+          <div class="dot-dot dot-dot-100 dot-dot-2 bg-orange" style="opacity:50%">
+          </div>
         </div>
-
-        <div class="form-group text-left">
-          <h3><b><label for="exampleFormControlSelect1">Industry I am from: </label></b></h3>
-          <select class="form-control" <%= search_field_tag :query_from, params[:query_from] %> id="industry_from">
-            <option value="" disabled selected>Select your current industry</option>
-            <option>Agriculture</option>
-            <option>Art/Design</option>
-            <option>Consulting</option>
-            <option>Hospitality</option>
-            <option>IT/Tech</option>
-            <option>Law</option>
-            <option>Leisure/Tourism</option>
-            <option>Marketing/Advertising</option>
-            <option>Media/Entertainment</option>
-            <option>Public Services/Govt</option>
-            <option>Retail</option>
-            <option>Pharmaceuticals</option>
-          </select>
+        <div class="col-12 col-md-6 position-relative mb-5 mb-md-0">
+          <div class="hero-prop hero-prop-1 card border-0 rounded-sm shadow-sm text-left">
+            <h6 class="dela-gothic">FEELING UNCERTAIN?</h6>
+            <p class="mb-0">Connect with other career switchers or mentors, share your concern and get advice.</p>            
+          </div>
+          <div class="hero-image-wrap">
+            <img src="/assets/connect-dots-hero-img.svg" alt="Connectdots Hero">
+          </div>
+          <div class="hero-prop hero-prop-2 card border-0 rounded-sm shadow-sm text-left">
+            <h6 class="dela-gothic">NOT SURE WHERE TO START?</h6>
+            <p class="mb-0">Check out how your network reached their goal and explore the right path based on your profile.</p>            
+          </div>
+          <div class="hero-prop hero-prop-3 card border-0 rounded-sm shadow-sm text-left">
+            <h6 class="dela-gothic">TROUBLE PLANNING YOUR GOALS?</h6>
+            <p class="mb-0">Select the best roadmap template from your network and personalize it to your lifestyle and budget.</p>            
+          </div>
+          <div class="dot-dot dot-dot-100 dot-dot-3 bg-yellow position-absolute" style="opacity:50%;">
+          </div>
+          <div class="dot-dot dot-dot-50 dot-dot-4 bg-blue position-absolute" style="opacity:50%;">
+          </div>
         </div>
-
-        <div class="form-group text-left">
-          <h3><b><label for="exampleFormControlSelect1">Switching to: </label></b></h3>
-          <select class="form-control" <%= search_field_tag :query_to, params[:query_to] %> id="industry_to">
-            <option value="" disabled selected>Select ideal role</option>
-            <option>Still Exploring</option>
-            <option>Web Developer</option>
-            <option>Product Manager</option>
-            <option>Fullstack Engineer</option>
-            <option>Frontend Developer</option>
-            <option>Backend Developer</option>
-            <option>Data Analyst</option>
-            <option>Android Developer</option>
-            <option>IOS Developer</option>
-            <option>Hardware Engineer</option>
-            <option>Cloud Engineer</option>
-            <option>DevOps Engineer</option>
-          </select>
-        </div>
-
-        <%= submit_tag "Search", class: "btn home-btn" %>
-      </form>
-      <% end %>
-    </div>
-
-    <div class="col ml-5 mt-3">
-      <div class="slideshow-container mt-3">
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-          <div class="numbertext">1 / 3</div>
-          <img src="https://arthur-littm.github.io/startup-landing/images/apply.svg" style="width:300px; height:400px">
-          <div class="text">Feeling uncertain? <br>Connect with other career switchers or mentors, share your concern and get advice.</div>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">2 / 3</div>
-          <img src="https://arthur-littm.github.io/startup-landing/images/learn.svg" style="width:300px; height:400px">
-          <div class="text">Not sure where to start? Check out how your network reached their goal and explore the right path baesd on your profile.</div>
-        </div>
-
-        <div class="mySlides fade">
-          <div class="numbertext">3 / 3</div>
-          <img src="https://arthur-littm.github.io/startup-landing/images/product.svg" style="width:300px; height:400px">
-          <div class="text">Trouble planning your goals? Select the best roadmap template from your network and personalize it to your lifestyle and budget.</div>
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      <br>
-
-      <!-- The dots/circles -->
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
       </div>
     </div>
   </div>
+
 </div>
-
-<script>
-  var slideIndex = 1;
-  showSlides(slideIndex);
-
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {
-      slideIndex = 1
-    }
-    if (n < 1) {
-      slideIndex = slides.length
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-  }
-</script>
