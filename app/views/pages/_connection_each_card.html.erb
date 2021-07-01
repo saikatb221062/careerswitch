@@ -1,5 +1,5 @@
 <div class="col-12 col-md-6 mb-5">
-  <div class="d-flex flex-wrap justify-content-between " style="background-color: white; border: 1px solid rgb(225,225, 225);
+  <div class="d-flex flex-wrap justify-content-between " style="background-color: #D5EBE1; border: 1px solid rgb(225,225, 225);
   border-radius: 8px;">
     <div class="connection-each-image position-relative col-4 col-md-3 px-0">
       <img class="connection_each-image" src="<%= @cnctn_usr_img %>" alt="<% @cnctn_usr_name %>">
@@ -8,7 +8,7 @@
       <h3 class="font-weight-bold" style="color: green; margin-top:2px;"><%= @cnctn_usr_name %></h3>
       <p class="text-secondary mb-2"><%= @cnctn_usr_loc %></p>
       <div class="py-2">
-        <%= link_to 'Chat', chat_path(cnctn.id), class: 'btn btn-sm rounded-pill btn-secondary px-4' %>
+        <%= link_to 'Chat', chat_path(cnctn.id), class: 'btn btn-sm rounded-pill btn-secondary px-4', style: "background-color: #1D7756" %>
       </div>
     </div>
   </div>
