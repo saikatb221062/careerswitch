@@ -7,20 +7,20 @@
 
   <div class="d-flex p-2 justify-content-center">
     <div class="message-body text-left scrollbar scrollbar-morpheus-den bordered-indigo" style="width:450px; height:400px; overflow:auto">
-      <div id="messages" class="message-body"> 
-      <% if @chat_messages.empty? %>
+      <div id="messages" class="message-body">
+        <% if @chat_messages.empty? %>
         <p> There is currently no messages </p>
-      <% else %>
+        <% else %>
         <% @chat_messages.each do |message| %>
-          <div class="message-container" id="message-<%= message.id %>">
-            <i class="author">
-              <span class="author-name"><b><%= message.user.first_name %></b></span>
-              <small class="author-time"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
-            </i>
+        <div class="message-container" id="message-<%= message.id %>">
+          <i class="author">
+            <span class="author-name"><b><%= message.user.first_name %></b></span>
+            <small class="author-time"><%= message.created_at.strftime("%b %e at %l:%M%p") %></small>
+          </i>
           <p class="author-content"><%= message.content %></p>
-          </div>
+        </div>
         <% end %>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -28,13 +28,14 @@
 
   <div class="mt-3" style="text-align:center">
     <%= form_tag(message_path(@connection.id), method: "post") do %>
-      <label for="message">Message:</label>
-      <%= hidden_field_tag "receiver_id", @friend.id %>
-      <%= hidden_field_tag "sender_id", @user.id %>
-      <%= hidden_field_tag "chat_id", @connection.id %>
-      <%= text_field_tag :message, nil, autofocus: true %>
-      <%= button_tag "Send", :class => 'btn btn-outline-success my-2 my-sm-0' %>
-      <a class="btn btn-outline-back" href="/dashboard/networks" role="button">Back</a>
+    <label for="message">Message:</label>
+    <%= hidden_field_tag "receiver_id", @friend.id %>
+    <%= hidden_field_tag "sender_id", @user.id %>
+    <%= hidden_field_tag "chat_id", @connection.id %>
+    <%= text_field_tag :message, nil, autofocus: true %>
+    <%= button_tag "Send", :class => 'btn btn-outline-success my-2 my-sm-0' %>
+    <%= link_to "Back", builder_roadmap_path(@friend.roadmap) %>
+    
     <% end %>
   </div>
   <div class="dot-dot dot-dot-100 dot-dot-chat-3 bg-yellow position-absolute" style="opacity:50%;">
@@ -46,4 +47,3 @@
   <div class="dot-dot dot-dot-100 dot-dot-chat-2 bg-orange" style="opacity:50%">
   </div>
 </div>
-
