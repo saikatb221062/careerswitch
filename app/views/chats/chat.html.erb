@@ -34,7 +34,9 @@
     <%= hidden_field_tag "chat_id", @connection.id %>
     <%= text_field_tag :message, nil, autofocus: true %>
     <%= button_tag "Send", :class => 'btn btn-outline-success my-2 my-sm-0' %>
-    <%= link_to "Back", builder_roadmap_path(@friend.roadmap) %>
+    <% if @friend.roadmap.present? >
+      <%= link_to "See friend's roadmap", builder_roadmap_path(@friend.roadmap) %>
+    <% end %>
     
     <% end %>
   </div>
