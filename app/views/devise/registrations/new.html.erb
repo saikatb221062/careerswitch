@@ -5,9 +5,6 @@
     <h3>Connect your career experience to your dream job in tech</h3>
     <div class="signup-box">
       <div class="form-inputs row">
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
-        </div>
         <div class="col-12 col-md-12">
           <%= f.label :location, "Where are you currently based in?" %><br>
           <%= f.select :location, ['Singapore', 'Hong Kong', 'Beijing', 'Jakarta', 'Melbourne', 'New York', 'Paris', 'London', 'Dubai', 'New Delhi', 'Seoul'],
@@ -60,6 +57,9 @@
           <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
         </div>
         <%= f.hidden_field :current_role,
                       required: true,
