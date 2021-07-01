@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="box box-1">
     <% if @roadmap.user.photo.attached? %>
-      <%= cl_image_tag @roadmap.user.photo, alt: 'profileimage' %>
+      <%= cl_image_tag @roadmap.user.photo.key, alt: 'profileimage' %>
     <% else %>
       <%= image_tag @roadmap.user.img_url, alt: 'profileimage' %>
     <% end %>
