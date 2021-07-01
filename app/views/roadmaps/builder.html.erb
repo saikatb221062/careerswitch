@@ -1,10 +1,10 @@
-<h2 class="head" style="padding-top: 20px; font-weight: 900;">You have selected <span class="underline--magical"><%= @roadmap.user.first_name %></span>'s roadmap</h2>
-<p style="text-align: left">Need some advice before building your roadmap?</p><div class="btn btn-talk-network"><%= link_to networks_page_path do %>
+<h2 class="head" style="padding-top: 20px; font-weight: 900; font-family: 'Catamaran';">You have selected <span class="underline--magical"><%= @roadmap.user.first_name %></span>'s roadmap</h2>
+<p style="text-align: left; font-family: 'Catamaran';font-weight: 800;">Need some advice before building your roadmap?</p><div class="btn btn-talk-network"><%= link_to networks_page_path do %>
     Talk to <%= @roadmap.user.first_name %>
 <% end %></div>
 
   <%= form_for(@my_roadmap) do |f| %>
-  <p style="text-align: left; font-size: 25px;">Select all courses you want to add to your roadmap <%= submit_tag 'Save', form: 'new_roadmap', class: "btn save-btn" %></p>
+  <p style="text-align: left; font-size: 25px; font-family: 'Catamaran';">Select all courses you want to add to your roadmap <%= submit_tag 'Save', form: 'new_roadmap', class: "btn save-btn" %></p>
   <div class="course-cards">
     <% @courses.each do |course| %>
       <div class="course-card">

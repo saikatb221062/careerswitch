@@ -3,7 +3,7 @@ body {
 	box-sizing: border-box;
 	padding-bottom: 50px;
 	min-width: 960px;
-  font-family: 'Catamaran'
+  font-family: 'Catamaran';
 }
 
 .head {
@@ -14,7 +14,7 @@ body {
   span {
    background-size:  100% 15%;
    background-repeat: repeat-x;
-   background-position: left 0% bottom 10%;
+   background-position: left 0% bottom 23%;
   }
 }
 
@@ -188,18 +188,26 @@ table {
 }
 
 .btn-talk-network {
-  color: black;
-  text-decoration: underline;
-  margin-left: -350px;
+  background: black;
+  text-decoration: none;
+  margin-left: -320px;
   margin-top: -79px;
 }
 
+.btn-talk-network a {
+  color: white;
+  font-family: 'Catamaran';
+}
+
 .save-btn {
+  font-family: "Catamaran";
+  font-weight: 900;
   font-size: 20px;
-  height: 50px;
+  height: 40px;
   width: 80px;
   text-align: center;
   background: #ec5c52;
+  margin-left: 15px;
   color: white;
   width: 150px
 }

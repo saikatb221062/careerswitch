@@ -26,7 +26,7 @@
 
 
 <div class="bd-container">
-  <div class="head">My journey from <span class="underline--magical"><strong><%= current_user.current_role %> @ <%= current_user.current_industry %></span><br>to a <span class="underline--magical"><strong><%= current_user.future_role %></strong></span> in <%= current_user.timeframe %> months <i class="far fa-check-square"></i></div>
+  <div class="head">My journey from <span class="underline--magical"><strong><%= current_user.current_role %> @ <%= current_user.current_industry %></span><br>to a <span class="underline--magical"><strong><%= current_user.future_role %></strong></span> in <%= current_user.timeframe %> months </div>
   <div class="sub-head">My total budget: $<%= current_user.budget%><br>Total cost:
    <% @total_cost = [] %>
    <% @my_courses.each do |course| %>
