@@ -1488,7 +1488,7 @@ puts '*********************************'
 puts ''
 seedUsers14
 seedUsers67
-seedConnections
+# seedConnections
 # seedMessages
 seedTopics
 seedCourses
@@ -1496,3 +1496,18 @@ seedRoadmaps
 seedCoursesRoadmapsJoinTable
 
 printStats
+
+puts "Deleting Roadmap for Minyoung"
+u1 = User.where(email: "minyoungchang65@gmail.com").first
+r1 = u1.roadmap
+r1.destroy
+
+# puts "Deleting Roadmap for Nicole"
+# u2 = User.where(email: "leowminzi@gmail.com").first
+# r2 = u2.roadmap
+# r2.destroy
+# 
+# puts "Deleting Roadmap for Chris"
+# u3 = User.where(email: "chris@bootcamp.sg").first
+# r3 = u3.roadmap
+# r3.destroy
