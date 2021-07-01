@@ -9,7 +9,7 @@ body {
 .head {
   font-weight: 900;
   font-size: 32px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   text-align: left;
   span {
    background-size:  100% 15%;
@@ -52,7 +52,6 @@ body {
 table {
   width: 100%; height: auto;
   max-width: 750px;
-  overflow-x: hidden;
   border: 1px solid #ccc;
   border-collapse: collapse;
   border-spacing: 0;
@@ -107,7 +106,7 @@ table {
 .course-list {
   float: left;
 }
-
+/*
 .btn-danger {
   width: 10px;
   height: 10px;
@@ -116,7 +115,7 @@ table {
   float: right;
   background-color: black;
 }
-
+*/
 .btn-roadmap {
   background: #ec5c52;
   color: white;
@@ -134,4 +133,73 @@ table {
   color: #ec5c52;
 }
 
+.course-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 36px;
+}
 
+/* this is a flexbox */
+.course-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #d5ebe1;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 8px;
+  height: 150px;
+  text-align: left;
+  padding: 20px;
+}
+
+.course-provider {
+  float: left;
+  top: 0;
+  position: absolute;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.course-details {
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.course-check input {
+  width: 25px;
+  height: 25px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.course-link {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 7px;
+  margin-left: 19px;
+  font-size: 10px;
+}
+
+.btn-talk-network {
+  color: black;
+  text-decoration: underline;
+  margin-left: -350px;
+  margin-top: -79px;
+}
+
+.save-btn {
+  font-size: 20px;
+  height: 50px;
+  width: 80px;
+  text-align: center;
+  background: #ec5c52;
+  color: white;
+  width: 150px
+}
