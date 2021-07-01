@@ -530,10 +530,28 @@ def seedConnections
   @nicole = User.where(email: 'leowminzi@gmail.com').first.id
   @chris = User.where(email: 'chris@bootcamp.sg').first.id
 
-  puts "Connecting Minyoung to Nicole"
+  # puts "Connecting Minyoung to Nicole"
+  # Connection.create!(
+  #   connecting_id: @nicole,
+  #   connecter_id: @minyoung
+  # )
+
+  # puts "Connecting Nicole to Minyoung"
+  # Connection.create!(
+  #   connecting_id: @minyoung,
+  #   connecter_id: @nicole
+  # )
+
+  # puts "Connecting Chris to Nicole"
+  # Connection.create!(
+  #   connecting_id: @nicole,
+  #   connecter_id: @chris
+  # )
+
+  puts "Connecting Nicole to Chris"
   Connection.create!(
-    connecting_id: @nicole,
-    connecter_id: @minyoung
+    connecting_id: @chris,
+    connecter_id: @nicole
   )
 
   puts "Connecting Nicole to Minyoung"
@@ -542,28 +560,10 @@ def seedConnections
     connecter_id: @nicole
   )
 
-  puts "Connecting Chris to Nicole"
-  Connection.create!(
-    connecting_id: @nicole,
-    connecter_id: @chris
-  )
-
-  puts "Connecting Nicole to Chris"
-  Connection.create!(
-    connecting_id: @chris,
-    connecter_id: @nicole
-  )
-
   puts "Connecting Minyoung to Chris"
   Connection.create!(
     connecting_id: @chris,
     connecter_id: @minyoung
-  )
-
-  puts "Connecting Chris to Minyoung"
-  Connection.create!(
-    connecting_id: @minyoung,
-    connecter_id: @chris
   )
 end
 

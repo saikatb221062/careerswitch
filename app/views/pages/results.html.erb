@@ -1,10 +1,15 @@
 <h1>Match Results</h1>
 <h3>
-  <span class="text-muted"> From </span>
-  <strong><%= @role_from %></strong>,
-  <strong><span id="industry-from"><%= @industry_from %><span></strong>
-  <span class="text-muted"> to </span>
-  </span><strong><%= @industry_to %></strong>
+  <span class="text-muted"> From
+  </span>
+  <span style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @role_from %>,
+  </span>
+  <span id="industry-from" style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @industry_from %>
+  </span>
+  <span class="text-muted"> to
+  </span>
+  <span style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @industry_to %>
+  </span>
 </h3>
 
 <h5 style="font-size: 16px;"><%= @shortlist_msg %></h5>
@@ -22,10 +27,17 @@
       <% end %>
       <img src="<%= matched_user.img_url %>" alt="matched-user">
       <div class="card-name">
-        <p><strong>
-            <%= matched_user.first_name %> <%= matched_user.last_name %>
-          </strong></p>
-        <p class="text-muted"><%= matched_user.future_role %></p>
+        <div class="card-line-1">
+          <%= matched_user.first_name %> <%= matched_user.last_name %>
+        </div>
+        <div class="card-fut-role"><%= matched_user.future_role %></div>
+        <div class="card-oth-dtl"></div>
+        <div class="card-oth-dtl">previously <%= matched_user.current_role %>, <%= matched_user.current_industry %></div>
+        <div class="card-oth-dtl"></div>
+        <div class="card-oth-dtl">career changed <%= matched_user.roadmap.end_date.strftime("%b") %>-<%= matched_user.roadmap.end_date.strftime("%y") %> in <%= matched_user.roadmap.duration %> months</div>
+
+        <div class="card-location"><i class="fas fa-compass"></i> <%= matched_user.location %></div>
+
         <% if user_signed_in? %>
         <i class="d-none profileBtn" data-matched-user-id="<%= matched_user.id %>" data-matched-roadmap="<%= match_rdmp_id %>"></i>
         <% else %>
@@ -80,9 +92,9 @@
             <%= render partial: "follow_button", locals: {user: matched_user} %>
             <div id="mb2-15">
               <% if matched_user.roadmap.nil? %>
-              <a href="#" class="btn btn-outline-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
+              <a href="#" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
               <% else %>
-              <a href="/roadmaps/<%= matched_user.roadmap.id %>" class="btn btn-outline-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
+              <a href="/roadmaps/<%= matched_user.roadmap.id %>" class="btn btn-success mr-2 mr-md-3 rounded-pill px-2 px-md-4">See Roadmap</a>
               <% end %>
             </div>
           </div>
@@ -103,12 +115,11 @@
           </button>
         </div>
         <div class="modal-body-not-signed-in">
-          Please sign-in or sign-up to access full features of Connectdots...
+          Please sign-in or sign-up to access full features of Connectdots
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-pill mr-2 mr-md-3 px-2 px-md-4" data-dismiss="modal">Close</button>
-          <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-info mr-2 mr-md-3 rounded-pill px-2 px-md-4' %>
-          <%= link_to 'Sign Up', new_user_registration_path(:c_role => params[:query_role], :c_ind => params[:query_from], :t_role => params[:query_to]), class: 'btn btn-warning rounded-pill px-2 px-md-4' %>
+          <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-signin mr-2 mr-md-3 rounded-pill px-2 px-md-4' %>
+          <%= link_to 'Sign Up', new_user_registration_path(:c_role => params[:query_role], :c_ind => params[:query_from], :t_role => params[:query_to]), class: 'btn btn-signup rounded-pill px-2 px-md-4' %>
         </div>
       </div>
     </div>

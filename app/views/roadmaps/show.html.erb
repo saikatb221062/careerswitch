@@ -4,9 +4,9 @@
     <div class="line-name"><%= @roadmap.user.first_name %> <%= @roadmap.user.last_name %></div>
 
     <div class="line-subtitle" style="margin-bottom: 0"><%= @roadmap.user.current_role %> turned <%= @roadmap.user.future_role %></div>
-    <div style="font-size: 20px; margin-top: 0; color: #fdb029;"><i class="fa fa-compass" style="font-size: 16px;" aria-hidden="true"></i> <%= @roadmap.user.location %>
+    <div style="font-size: 18px; margin-top: 16px; color: #fdb029;"><i class="fa fa-compass" style="font-size: 18px;" aria-hidden="true"></i><span style="font-family: sans-serif;"> <%= @roadmap.user.location %></span>
     </div>
-    
+
     <a data-toggle="collapse" href="#highlights" role="button" aria-expanded="false" aria-controls="highlights">
       Highlights
     </a>
@@ -24,7 +24,11 @@
     </a>
     <div class="collapse" id="mycourses">
       <% @courses.each do |course| %>
-      <div class="line-detail"><span class="course"><%= course.title %></span></div>
+      <div class="line-detail">
+        <a class="course line-detail" style="margin-top: 8px;" target="_blank" href=" <%= course.provider_url %>"><%= course.title[0..30] %></a>
+        <span style="color: #a2c5b1; font-size: 14px;"><%= course.provider %> |</span>
+        <span style="color: #a2c5b1; font-size: 14px;"><%= pluralize(course.duration, 'month') %></span>
+      </div>
       <% end %>
     </div>
 
@@ -53,13 +57,13 @@
   <div class="box box-2">
     <div class="d-flex justify-content-center align-items-center mb-2">
       <div id="back-to-results">
-        <a href="#" class="btn btn-sm btn-secondary rounded-pill" style="font-size: 16px;">Back to Results</a>
+        <a href="#" class="btn btn-sm btn-secondary rounded-pill" style="font-size: 16px; font-family: sans-serif;">Back to Results</a>
       </div>
       <div id="my-dashboard" class="ml-5">
         <% if current_user.roadmap.present? %>
         <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% else %>
-        <%= link_to "Select this path to create new", builder_roadmap_path(@roadmap), class: "btn btn-sm btn-dark rounded-pill" %>
+        <%= link_to "Copy this roadmap", builder_roadmap_path(@roadmap), class: "btn btn-sm btn-dark rounded-pill" %>
         <% end %>
       </div>
     </div>
@@ -67,7 +71,7 @@
     <div class="d-none"><span id="rdmap-start"><%= @roadmap.start_date.strftime("%-m") %></span>
     </div>
 
-    <div class="line-subhdr" style="font-size: 18px; color: #F08080;"><span><%= @roadmap.start_date.strftime("%b %Y") %></span> - <span><%= @roadmap.end_date.strftime("%b %Y") %></span>
+    <div class="line-subhdr" style="font-size: 18px; color: #ec5c52;"><span><%= @roadmap.start_date.strftime("%b %Y") %></span> - <span><%= @roadmap.end_date.strftime("%b %Y") %></span>
     </div>
 
     <section class="timeline-wrapper mb-4">
