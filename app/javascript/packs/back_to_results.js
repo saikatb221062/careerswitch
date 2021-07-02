@@ -10,7 +10,7 @@ const backToResults = () => {
   const currentURL = sessionStorage.getItem('currentURL');
   console.log(currentURL);
   const btnP1 = '<a href="'
-  const btnP3 = '" class="btn btn-sm btn-secondary rounded-pill" style="float: left;">Back to Results</a>'
+  const btnP3 = '" class="btn btn-sm btn-dark rounded-pill" style="float: none; padding: 0.25rem 1.5rem;">Back to Results</a>'
 
   backToResultsBtn.innerHTML = `${btnP1}${currentURL}${btnP3}`
 
