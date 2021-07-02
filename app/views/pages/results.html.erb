@@ -1,20 +1,27 @@
-<h1>Match Results</h1>
-<h3>
-  <span class="text-muted"> From
-  </span>
-  <span style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @role_from %>,
-  </span>
-  <span id="industry-from" style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @industry_from %>
-  </span>
-  <span class="text-muted"> to
-  </span>
-  <span style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @industry_to %>
-  </span>
-</h3>
-
-<h5 style="font-size: 16px;"><%= @shortlist_msg %></h5>
-<hr>
-
+<div class="results-wrapper">
+  <br>
+  <br>
+  <br>
+  <h1 class="top-zero">Match Results</h1>
+  <h3>
+    <span class="text-muted"> From
+    </span>
+    <span style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @role_from %>,
+    </span>
+    <span id="industry-from" style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @industry_from %>
+    </span>
+    <span class="text-muted"> to
+    </span>
+    <span style="color: #1d7756; font-weight: bold; font-size: 18px;"><%= @industry_to %>
+    </span>
+  </h3>
+  <h5 style="font-size: 16px;"><%= @shortlist_msg %></h5>
+  <hr>
+  <br>
+</div>
+<br>
+<br>
+<br>
 <!-- Grid Container -->
 <div class="result-cards">
   <% @shortlisted_profiles.each do |matched_user| %>
@@ -55,25 +62,26 @@
               <div class="small">
                 <img id="mb2-imgurl" src="<%= matched_user.img_url %>" alt="<%= matched_user.first_name %> <%= matched_user.last_name %>">
                 <h2 id="mb2-name"><%= matched_user.first_name %> <%= matched_user.last_name %></h2>
-                <p class="mb2-small-hdr">Success Story</p>
-                <p class="mb2-small-dtl" id="mb2-currrole"><%= matched_user.current_role %></p>
-                <p class="mb2-small-to">to</p>
-                <p class="mb2-small-dtl" id="mb2-futrole"><%= matched_user.future_role %></p>
-                <p class="mb2-small-hdr">Member since</p>
-                <p class="mb2-small-dtl">
+                <p class="mb2-small-line-2 id=" mb2-currrole"><%= matched_user.current_role %></p>
+                <p class="mb2-small-line-2"><%= matched_user.current_industry %></p>
+                <p class="mb2-small-line-3">to</p>
+                <p class="mb2-small-line-2" id="mb2-futrole"><%= matched_user.future_role %></p>
+                <p class="mb2-small-line-1">Member since</p>
+                <p class="mb2-small-line-2">
                   <span id="mb2-mbrsince"><%= matched_user.created_at.strftime("%B %Y") %></span>
                 </p>
-                <p class="mb2-small-hdr"></p>
-                <p class="mb2-small-dtl">
+                <p class="mb2-small-line-4">
                   <span id="mb2-locn"><i class="fas fa-compass" style="color: #FFF5EE;"></i> <%= matched_user.location %></span>
                 </p>
-                <i class="fab fa-facebook-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 6px; color: #FFF5EE; text-align: left;"></i>
-                <i class="fab fa-twitter-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 6px; color: #FFF5EE; text-align: left;"></i>
-                <i class="fab fa-instagram-square" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 6px; color: #FFF5EE; text-align: left;"></i>
-                <i class="fab fa-linkedin" style="font-size: 20px; margin-top: 32px; margin-left: 0; margin-right: 6px; color: #FFF5EE; text-align: left;"></i>
+                <div>
+                  <i class="fab fa-facebook-square mb2-small-links"></i>
+                  <i class="fab fa-twitter-square mb2-small-links"></i>
+                  <i class="fab fa-instagram-square mb2-small-links"></i>
+                  <i class="fab fa-linkedin mb2-small-links"></i>
+                </div>
               </div>
               <div class="large">
-                <p class="large-p1 text-muted">I was previously a <span id="mb2-currentrole"><%= matched_user.current_role %></span> professional in the <span id="mb2-currentind"><%= matched_user.current_industry %></span> industry.</p>
+                <p class="large-p1 text-muted">I was previously a <span id="mb2-currentrole"><%= matched_user.current_role %></span> in <span id="mb2-currentind"><%= matched_user.current_industry %></span>.</p>
                 <p class="large-p2">I am now a <span id="mb2-futurerole"><%= matched_user.future_role %></span>.</p>
                 <p class="d-none"><span id="mb2-futureind"></span></p>
                 <p class="large-p4">Highlights</p>
