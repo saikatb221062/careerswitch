@@ -1,12 +1,12 @@
-<div class="d-flex ">
-  <%= link_to dashboard_page_path do %>
-    My Dashboard
+<div class="d-flex" style="justify-content: center;">
+  <%= link_to dashboard_page_path, class: "btn btn-sm btn-dark rounded-pill mr-4" do %>
+  My Dashboard
   <% end %>
-  <%= link_to networks_page_path do %>
-    My Networks
+  <%= link_to networks_page_path, class: "btn btn-sm btn-dark rounded-pill mr-4" do %>
+  My Networks
   <% end %>
-  <%= link_to suggested_roadmap_path do %>
-    Suggested Roadmap
+  <%= link_to suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" do %>
+  Suggested Roadmap
   <% end %>
 </div>
 
@@ -14,59 +14,59 @@
 <div class="dashboard">
   <div class="dashboard-row">
     <div class="dashboard-card">
-  <%= form_for(current_user, url: update_profile_path, method: :patch) do |f| %>
-    <div class="cover-bg">
-      <%= f.submit "Save", class: 'btn btn-edit mr-4 mt-3' %>
-      <%= link_to 'Back', dashboard_page_path, class: 'btn btn-edit mr-4 mt-3' %>
-    </div>
-    <div class="user-info-wrap">
-      <div class="user-photo"></div>
-      <%= f.file_field :photo, class: 'btn btn-upload' %>
-    </div>
-    <div class="user-bio">
-      <div class="col-12 col-md-12">
-        <h3 class="bio-subject">Location*</h3><%= f.select :location, ['Singapore','Hong Kong','Beijing','Jakarta','Melbourne','New York','Paris','London','Dubai','New Delhi','Seoul'], class: 'form-control', required: true %>
+      <%= form_for(current_user, url: update_profile_path, method: :patch) do |f| %>
+      <div class="cover-bg">
+        <%= f.submit "Save", class: 'btn btn-edit mr-4 mt-3' %>
+        <%= link_to 'Back', dashboard_page_path, class: 'btn btn-edit mr-4 mt-3' %>
       </div>
-      <div class="col-12 col-md-6">
-        <h3 class="bio-subject">First Name*</h3><%= f.text_field :first_name, class: 'form-control', required: true %>
+      <div class="user-info-wrap">
+        <div class="user-photo"></div>
+        <%= f.file_field :photo, class: 'btn btn-upload' %>
       </div>
-      <div class="col-12 col-md-6">
-        <h3 class="bio-subject">Last Name*</h3><%= f.text_field :last_name, class: 'form-control', required: true %>
-      </div>
-      <div class="col-12 col-md-6 pt-3">
-        <h3 class="bio-subject">Budget (SGD)* </h3><%= f.text_field :budget, class: 'form-control', required: true %>
-      </div>
-      <div class="col-12 col-md-6 pt-3">
-        <h3 class="bio-subject">Timeframe (month)*</h3><%= f.text_field :timeframe, class: 'form-control', required: true %>
-      </div>
-      <div class="col-12 col-md-6 pt-3">
-        <h3 class="bio-subject">Current Industry*</h3><%= f.select :current_industry, [ 'Consulting', 'Art/Design', 'IT/Tech', 'Agriculture', 'Banking/Finance', 'Hospitality', 'Law', 'Leisure/Tourism', 'Marketing/Advertising', 'Media/Entertainment', 'Public Services/Govt', 'Retail', 'Pharmaceuticals', 'Self-employed', 'Freelance' ], class: 'form-control', required: true, :style => "width: 200px;" %>
-      </div>
-      <div class="col-12 col-md-6 pt-3">
-        <h3 class="bio-subject">Current Job Title*</h3><%= f.select :current_role, [
+      <div class="user-bio">
+        <div class="col-12 col-md-12">
+          <h3 class="bio-subject">Location*</h3><%= f.select :location, ['Singapore','Hong Kong','Beijing','Jakarta','Melbourne','New York','Paris','London','Dubai','New Delhi','Seoul'], class: 'form-control', required: true %>
+        </div>
+        <div class="col-12 col-md-6">
+          <h3 class="bio-subject">First Name*</h3><%= f.text_field :first_name, class: 'form-control', required: true %>
+        </div>
+        <div class="col-12 col-md-6">
+          <h3 class="bio-subject">Last Name*</h3><%= f.text_field :last_name, class: 'form-control', required: true %>
+        </div>
+        <div class="col-12 col-md-6 pt-3">
+          <h3 class="bio-subject">Budget (SGD)* </h3><%= f.text_field :budget, class: 'form-control', required: true %>
+        </div>
+        <div class="col-12 col-md-6 pt-3">
+          <h3 class="bio-subject">Timeframe (month)*</h3><%= f.text_field :timeframe, class: 'form-control', required: true %>
+        </div>
+        <div class="col-12 col-md-6 pt-3">
+          <h3 class="bio-subject">Current Industry*</h3><%= f.select :current_industry, [ 'Consulting', 'Art/Design', 'IT/Tech', 'Agriculture', 'Banking/Finance', 'Hospitality', 'Law', 'Leisure/Tourism', 'Marketing/Advertising', 'Media/Entertainment', 'Public Services/Govt', 'Retail', 'Pharmaceuticals', 'Self-employed', 'Freelance' ], class: 'form-control', required: true, :style => "width: 200px;" %>
+        </div>
+        <div class="col-12 col-md-6 pt-3">
+          <h3 class="bio-subject">Current Job Title*</h3><%= f.select :current_role, [
       'Marketeer','Designer','Product Manager','Copywriter','Account Manager','Project Manager','Business Analyst','Risk Manager','Recruiter','Accountant','Business Dev Manager','Customer Support Specialist','Operation Manager', 'Supply Chain Manager', 'Researcher','Instructor','Consultant','Self-employed','Freelancer'], class: 'form-control', required: true, :style => "width: 200px;" %>
+        </div>
+        <div class="col-12 col-md-6 pt-3">
+          <h3 class="bio-subject">Future Industry*</h3>IT/Tech</h3>
+        </div>
+        <div class="col-12 col-md-6 pt-3">
+          <h3 class="bio-subject">Dream Job in Tech*</h3><%= f.select :future_role, ['Still Exploring', 'Web Developer','Product Manager', 'Fullstack Engineer', 'Frontend Developer', 'Backend Developer'], class: 'form-control', required: true, :style => "width: 200px;" %>
+        </div>
+        <div class="col-12 col-md-12">
+          <h3 class="bio-subject">How much can you contribute per week?</h3><%= f.select :available_hrs_per_week, ['less than 12', '12', '24', '36', '40', '60', 'more than 60'], class: 'form-control', required: true %>
+        </div>
+        <div class="col-12 col-md-12 pt-3">
+          <h3 class="bio-subject">What's your motivation to switch to Tech?</h3><%= f.text_field :motivation, class: 'form-control', :style => "height: 100px;" %>
+        </div>
+        <div class="col-12 col-md-12 pt-3">
+          <h3 class="bio-subject">Share your experience. How did you leverage your previous career experiences to your new role in Tech?</h3><%= f.text_field :journey_experience, class: 'form-control', :style => "height: 100px;" %>
+        </div>
+        <div class="col-12 col-md-12 pt-3">
+          <h3 class="bio-subject">Any advice or tips to share with your network?</h3><%= f.text_field :advice, class: 'form-control', :style => "height: 100px;" %>
+        </div>
+        <div class="col-12 col-md-12 pt-3 ">
+          <h3 class="bio-subject">Are you happy with your new role in Tech?</h3><%= f.select :satisfaction, [ "Great", "Fabulous", "Super", "Could be better", "Nice !" ], class: 'form-control', :style => "width: 430px;" %>
+        </div>
       </div>
-      <div class="col-12 col-md-6 pt-3">
-        <h3 class="bio-subject">Future Industry*</h3>IT/Tech</h3>
-      </div>
-      <div class="col-12 col-md-6 pt-3">
-        <h3 class="bio-subject">Dream Job in Tech*</h3><%= f.select :future_role, ['Still Exploring', 'Web Developer','Product Manager', 'Fullstack Engineer', 'Frontend Developer', 'Backend Developer'], class: 'form-control', required: true, :style => "width: 200px;" %>
-      </div>
-      <div class="col-12 col-md-12">
-        <h3 class="bio-subject">How much can you contribute per week?</h3><%= f.select :available_hrs_per_week, ['less than 12', '12', '24', '36', '40', '60', 'more than 60'], class: 'form-control', required: true %>
-      </div>
-      <div class="col-12 col-md-12 pt-3">
-        <h3 class="bio-subject">What's your motivation to switch to Tech?</h3><%= f.text_field :motivation, class: 'form-control', :style => "height: 100px;" %>
-      </div>
-      <div class="col-12 col-md-12 pt-3">
-        <h3 class="bio-subject">Share your experience. How did you leverage your previous career experiences to your new role in Tech?</h3><%= f.text_field :journey_experience, class: 'form-control', :style => "height: 100px;" %>
-      </div>
-      <div class="col-12 col-md-12 pt-3">
-        <h3 class="bio-subject">Any advice or tips to share with your network?</h3><%= f.text_field :advice, class: 'form-control', :style => "height: 100px;" %>
-      </div>
-      <div class="col-12 col-md-12 pt-3 ">
-        <h3 class="bio-subject">Are you happy with your new role in Tech?</h3><%= f.select :satisfaction, [ "Great", "Fabulous", "Super", "Could be better", "Nice !" ], class: 'form-control', :style => "width: 430px;" %>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-</div>

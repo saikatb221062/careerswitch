@@ -10,9 +10,10 @@ class RoadmapsController < ApplicationController
   def suggested
     # get all roadmaps where roadmap user is not the current user
     # and roadmap user future role = current user future role
-
-
     @roadmaps = Roadmap.suggested_roadmaps(current_user)
+    return unless @roadmaps.length == 1 && @roadmaps.first.user == current_user
+
+    @roadmaps = Roadmap.all
   end
 
   def builder
@@ -48,7 +49,7 @@ class RoadmapsController < ApplicationController
     @my_courses.each do |course|
       @course_roadmaps << CourseRoadmap.find_by(course: course, roadmap: @my_roadmap)
     end
-    
+
     @chosen_courses = @courses & @my_courses
     @unchosen_courses = @courses - @my_courses
 
@@ -62,4 +63,9 @@ class RoadmapsController < ApplicationController
     redirect_to builder_roadmaps_path
   end
 
+  def destroy
+    @my_roadmap = current_user.roadmap
+    @my_roadmap.destroy
+    redirect_back(fallback_location: root_path)
+  end
 end

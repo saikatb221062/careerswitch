@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/dashboard/networks', to: 'pages#networks', as: :networks_page
   get '/roadmaps/suggested', to: 'roadmaps#suggested', as: :suggested_roadmap
   
+  delete 'roadmaps/:id', to: 'roadmaps#destroy', as: :roadmap_path
+  
   resources :roadmaps, only: [:create, :show, :update] do 
     resources :comments, only: [:create]
     member do

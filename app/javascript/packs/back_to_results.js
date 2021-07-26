@@ -7,10 +7,18 @@ const backToResults = () => {
     return;
   };
 
-  const currentURL = sessionStorage.getItem('currentURL');
-  console.log(currentURL);
+  let currentURL = sessionStorage.getItem('currentURL');
+  console.log(`currentURL = ${currentURL}`)
   const btnP1 = '<a href="'
   const btnP3 = '" class="btn btn-sm btn-dark rounded-pill" style="float: none; padding: 0.25rem 1.5rem;">Back to Results</a>'
+
+  if (!currentURL) {
+    currentURL = '/results?commit=Start+Connecting'
+  }
+  else 
+  if (currentURL.includes("dashboard")) {
+    currentURL = '/results?commit=Start+Connecting'
+  };
 
   backToResultsBtn.innerHTML = `${btnP1}${currentURL}${btnP3}`
 
@@ -19,7 +27,14 @@ const backToResults = () => {
   
   const coursesArray = makeCoursesArray(courseNames);
 
-  const startMth = parseInt(document.getElementById('rdmap-start').innerText);
+  let startMth = '';
+  if (document.getElementById('rdmap-start')) {
+    startMth = parseInt(document.getElementById('rdmap-start').innerText);
+  }
+  else {
+    startMth = '';
+  };
+
   const rdmapCNames = populateRdmapCourses(cNames, coursesArray, startMth);
   
   var rdmapCourse1 = document.getElementById('course-name-1');

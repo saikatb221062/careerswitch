@@ -32,12 +32,14 @@
     <%= hidden_field_tag "receiver_id", @friend.id %>
     <%= hidden_field_tag "sender_id", @user.id %>
     <%= hidden_field_tag "chat_id", @connection.id %>
-    <%= text_field_tag :message, nil, autofocus: true %>
-    <%= button_tag "Send", :class => 'btn btn-outline-success my-2 my-sm-0' %>
-    <% if !@friend.nil? && @friend.roadmap.present? %>
-      <%= link_to "See friend's roadmap", builder_roadmap_path(@friend.roadmap) %>
+    <%= text_field_tag :message, nil, autofocus: true, style: "margin-left: 12px;" %>
+    <%= button_tag "Send", :class => 'btn btn-sm btn-primary rounded-pill px-3 ml-4' %>
+    <div style="margin-top: 8px;">
+      <% if !@friend.nil? && @friend.roadmap.present? %>
+      <%= link_to "See friend's roadmap", builder_roadmap_path(@friend.roadmap), class: "btn btn-sm btn-dark rounded-pill px-3" %>
+    </div>
     <% end %>
-    
+
     <% end %>
   </div>
   <div class="dot-dot dot-dot-100 dot-dot-chat-3 bg-yellow position-absolute" style="opacity:50%;">

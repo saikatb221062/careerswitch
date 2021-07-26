@@ -1,6 +1,6 @@
-<h2 style="margin-left: 100px;">My Network</h2>
+<h2 style="text-align: center;">My Network</h2>
 
-<section class="connections-container" style="margin-left: 120px; text-align:center;">
+<section class="connections-container" style="margin: auto; text-align:center;">
   <div class="row mt-5">
     <% @connections.each do |cnctn| %>
       <% if cnctn.connecter_id == current_user.id %>
@@ -27,5 +27,4 @@
   </div>
   <div class="dot-dot dot-dot-100 dot-dot-chat-2 bg-orange" style="opacity:50%">
   </div>
-  
 </section>

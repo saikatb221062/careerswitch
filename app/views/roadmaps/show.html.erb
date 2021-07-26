@@ -1,9 +1,9 @@
 <div class="wrapper">
   <div class="box box-1">
     <% if @roadmap.user.photo.attached? %>
-      <%= cl_image_tag @roadmap.user.photo.key, alt: 'profileimage' %>
+    <%= cl_image_tag @roadmap.user.photo.key, alt: 'profileimage' %>
     <% else %>
-      <%= image_tag @roadmap.user.img_url, alt: 'profileimage' %>
+    <%= image_tag @roadmap.user.img_url, alt: 'profileimage' %>
     <% end %>
     <div class="line-name"><%= @roadmap.user.first_name %> <%= @roadmap.user.last_name %></div>
 
@@ -71,14 +71,18 @@
         <% else %>
         <%= link_to "Copy this roadmap", builder_roadmap_path(@roadmap), class: "btn btn-sm btn-dark rounded-pill" %>
         <% end %>
+        <% if current_user.roadmap.present? %>
+        <%= link_to "Delete my own roadmap", roadmap_path(@roadmap), class: "btn btn-sm ml-5 btn-danger rounded-pill", method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
       </div>
     </div>
 
-    <div class="d-none"><span id="rdmap-start"><%= @roadmap.start_date.strftime("%-m") %></span>
-    </div>
-
-    <div class="line-subhdr" style="font-size: 18px; color: #ec5c52;"><span><%= @roadmap.start_date.strftime("%b %Y") %></span> - <span><%= @roadmap.end_date.strftime("%b %Y") %></span>
-    </div>
+    <% if !@roadmap.nil? %>
+      <div class="d-none"><span id="rdmap-start"><%= @roadmap.start_date.strftime("%-m") %></span>
+      </div>
+      <div class="line-subhdr" style="font-size: 18px; color: #1d7756;"><span><%= @roadmap.user.first_name %>'s Roadmap : <%= @roadmap.start_date.strftime("%b %Y") %></span> - <span><%= @roadmap.end_date.strftime("%b %Y") %></span>
+      </div>
+    <% end %>
 
     <section class="timeline-wrapper mb-4">
       <div class="timeline-middle-line"></div>

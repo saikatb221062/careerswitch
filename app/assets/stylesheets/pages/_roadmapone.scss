@@ -1,12 +1,15 @@
 .rd1-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 36px;
   padding: 4px;
   flex-grow: 1;
 }
 
 .rd1-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #d5ebe1;
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   align-items: center;
@@ -16,13 +19,14 @@
 }
 
 .rd1-avatar {
-  width: 64px;
+  width: 100px;
+  object-fit: cover;
   border-radius: 50%;
+  margin-top: 8px;
 }
 
 .rd1-p {
-  font-size: small;
-  font-weight: lighter;
+  font-size: 16px;
 }
 
 .rd1-ul {
@@ -58,9 +62,10 @@
   line-height: 50%;
 }
 .rd1-h4 {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
-  color: green;
+  color: #1d7756;
+  margin-bottom: 0; 
 }
 
 .rd1-h3 {

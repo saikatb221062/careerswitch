@@ -1,29 +1,24 @@
-<h2>Suggested Roadmaps</h2>
+<h2 style="text-align: center;">Suggested Roadmaps</h2>
 <br>
 <div class="rd1-grid">
   <% @roadmaps.each do |roadmap| %>
+  <% next if roadmap.user == current_user %>
   <div class="rd1-card">
-    <img src="<%= roadmap.user.img_url %>" alt="" class="rd1-avatar">
-    <br>
-    <br>
-    <h4 class="rd1-h4"><%= roadmap.user.first_name %> <%= roadmap.user.last_name %></h4>
-    <p class="rd1-p"><span class="text-muted"><%= roadmap.user.future_role %></span></p>
-    <p class="rd1-p">Career Change Journey</p>
-    <h6 style="line-height: 40%;"><%= roadmap.start_date.strftime("%b %Y") %> to <%= roadmap.end_date.strftime("%b %Y") %></h6>
-    Duration: <%= roadmap.duration %>months
-    <br>
-    
-    <% if current_user.roadmap.present? %>
-      <%= link_to "Update your roadmap", builder_roadmaps_path, class: "btn btn-dark mb-3" %>
-    <% else %>
-      <%= link_to "Select this template", builder_roadmap_path(roadmap), class: "btn btn-dark mb-3" %>
-    <% end %>
-    
+    <img src="<%= roadmap.user.img_url %>" alt="" class="rd1-avatar" style="margin-bottom: 16px;">
 
-    <!-- Example single danger button -->
-    <br>
+    <h4 class="rd1-h4"><%= roadmap.user.first_name %> <%= roadmap.user.last_name %></h4>
+    <p style="color: #ec5c52;"><%= roadmap.user.future_role %></p>
+    <p class="text-muted" style="font-size: 16px; font-weight: 100; margin-bottom: 2px;">Career Change Journey</p>
+    <h6 style="line-height: 0.7; margin-top: 0;"><%= roadmap.start_date.strftime("%b %Y") %> to <%= roadmap.end_date.strftime("%b %Y") %></h6>
+    <h6 style="line-height: 0.7; margin-top: 0; margin-bottom: 28px;">Duration: <%= roadmap.duration %> months</h6>
+
+    <% if current_user.roadmap.present? %>
+    <%= link_to "Update your roadmap", builder_roadmaps_path, class: "btn btn-sm btn-primary rounded-pill px-3 mb-2" %>
+    <% else %>
+    <%= link_to "Select this template", builder_roadmap_path(roadmap), class: "btn btn-sm btn-primary rounded-pill mb-2" %>
+    <% end %>
     <div class="btn-group dropleft">
-      <button type="button" class="badge badge-pill badge-secondary dropdown-toggle" style="font-size:14px; font-weight:lighter; border:none; padding: 8px 16px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button type="button" class="badge badge-pill badge-dark dropdown-toggle" style="font-size:14px; font-weight:lighter; border:none; padding: 8px 16px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Courses
       </button>
       <div class="dropdown-menu">

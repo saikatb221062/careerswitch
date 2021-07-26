@@ -1,6 +1,6 @@
  <div class="login-cover"> 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h2 class="login-font">Log in</h2>
+  <h2 class="login-font" style="text-align: center;">Log in</h2>
     <div class="login-box">
       <div class="form-inputs">
         <%= f.input :email,
@@ -16,7 +16,7 @@
                     placeholder: "Password" %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
-      <div style="margin-top: -30px; margin-bottom: 20px;">
+      <div style="margin-top: -30px; margin-bottom: 20px; margin-left: 48px;">
         <a href="/users/sign_up">Sign up</a><br>
         <a href="/users/password/new">Forgot your password?</a>
       </div>

@@ -18,7 +18,7 @@ Suggested Roadmap
     </div>
     <div class="line-name"><%= @user.first_name %> <%= @user.last_name %></div>
     <div class="line-subtitle" style="margin-bottom: 0;"><%= @user.current_role %><%= @user.current_role.present? || @user.future_role? ? " turned " : " " %><%= @user.future_role %></div>
-    <div style="font-size: 15px;"><i class="fa fa-map-marker" style="color: red" aria-hidden="true"></i> <%= @user.location %></div>
+    <div style="font-size: 18px; margin-top: 16px;"><i class="fa fa-map-marker" style="color: red" aria-hidden="true"></i> <%= @user.location %></div>
 
     <a data-toggle="collapse" href="#highlights" role="button" aria-expanded="false" aria-controls="highlights">
       Highlights
@@ -30,6 +30,22 @@ Suggested Roadmap
       <div class="line-detail"><span class="text-warning" style="font-size: 12px;">budget: S$ </span><span><%= @user.budget %></span></div>
       <div class="line-detail"><span class="text-warning" style="font-size: 12px;">planned timeframe: </span><span><%= @user.timeframe %></span> months</div>
       <div class="line-detail"><span class="text-warning" style="font-size: 12px;">availability: </span><span><%= @user.available_hrs_per_week %></span>hrs per week</div>
+    </div>
+
+    <a data-toggle="collapse" href="#mycourses" role="button" aria-expanded="false" aria-controls="mycourses">
+      My Courses
+    </a>
+    <div class="collapse" id="mycourses">
+      <% @courses.each do |course| %>
+      <% next if course.nil? %>
+      <div class="line-detail" style="line-height: 1.1; margin-bottom: 0;">
+        <a class="course line-detail" style="margin-top: 16px; margin-bottom: 0; line-height: 1.1;" target="_blank" href=" <%= course.provider_url %>"><%= course.title[0..30] %></a>
+        <span style="color: #a2c5b1; font-size: 16px; margin-top: 0; line-height: 1.1;"><%= course.provider %> |</span>
+        <span style="color: #a2c5b1; font-size: 16px; margin-top: 0; line-height: 1.1;"><%= pluralize(course.duration, 'month') %> |</span>
+        <% course.cost.zero? ? cse_cost = "Free" : cse_cost = "$#{course.cost.to_s}" %>
+        <span style="color: #a2c5b1; font-size: 16px; margin-top: 0; line-height: 1.1;"><%= cse_cost %></span>
+      </div>
+      <% end %>
     </div>
 
     <a data-toggle="collapse" href="#motivation" role="button" aria-expanded="false" aria-controls="motivation">
@@ -61,12 +77,23 @@ Suggested Roadmap
       </div>
       <div id="my-dashboard" class="ml-5">
         <% if current_user.roadmap.present? %>
-          <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
+        <%= link_to "Update my roadmap", builder_roadmaps_path, class: "btn btn-sm btn-dark rounded-pill" %>
         <% else %>
-          <%= link_to "Select this path to create new", suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" %>
+        <%= link_to "Select this path to create new", suggested_roadmap_path, class: "btn btn-sm btn-dark rounded-pill" %>
+        <% end %>
+        <% if current_user.roadmap.present? %>
+        <%= link_to "Delete my roadmap", roadmap_path(@roadmap), class: "btn btn-sm ml-5 btn-danger rounded-pill", method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
       </div>
     </div>
+
+    <% if !@roadmap.nil? %>
+      <div class="d-none"><span id="rdmap-start"><%= @roadmap.start_date.strftime("%-m") %></span>
+      </div>
+
+      <div class="line-subhdr" style="font-size: 18px; color: #1d7756;"><span><%= @user.first_name %>'s Roadmap : <%= @roadmap.start_date.strftime("%b %Y") %></span> - <span><%= @roadmap.end_date.strftime("%b %Y") %></span>
+      </div>
+    <% end %>
 
     <section class="timeline-wrapper mb-4">
       <div class="timeline-middle-line"></div>

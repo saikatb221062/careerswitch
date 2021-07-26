@@ -6,6 +6,12 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    if current_user.roadmap.nil?
+      @courses = Course.none
+    else
+      @roadmap = current_user.roadmap
+      @courses = @roadmap.courses
+    end
   end
 
   def showmatch
